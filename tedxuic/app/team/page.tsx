@@ -8,7 +8,7 @@ const teamMembers = [
   {
     name: "Nazra Zafar",
     role: "President & Coordinator",
-    image: "/placeholder.svg?height=400&width=400&text=Jane",
+    image: "/pictures/our-team/NazraZafarPresident.png",
     bio: "Hello, beautiful humans! My name is Nazra and I’m a senior double-majoring in Integrated Health Studies and Biological Sciences as a pre-med. I re-launched TEDxUofIChicago because I saw the power of another person serving as inspiration for young people who have yet to pave their path in life, and it’s been the best part of my time in college so far. :) Outside of TEDxUofIChicago, I also serve as the president for the Minority Association of Pre-Medical Students (MAPS), and work in an urgent care facility. I love exploring, spending time with my friends and family, doing spontaneous things like singing in jazz clubs, and most importantly, bringing people together. My one hope for MetamorphoXis is that it helps at least one person find their calling.",
     social: {
       linkedin: "https://linkedin.com",
@@ -52,7 +52,7 @@ const teamMembers = [
   {
     name: "Sabrina Arshad",
     role: "Co-Director of Logistics",
-    image: "/placeholder.svg?height=400&width=400&text=Michael",
+    image: "/pictures/our-team/SabrinaArshadLogistics.png",
     bio: "Hi everybody! My name is Sabrina Arshad. I’m a second year majoring in Computer Engineering. I joined TEDx because I am passionate about making events come to life and sharing ideas with like minded people. With this year's conference, I am really excited to meet some interesting speakers. A fun fact about me is that I am an art teacher at Pinot’s Palette!",
     social: {
       linkedin: "https://linkedin.com",
