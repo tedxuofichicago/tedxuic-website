@@ -83,7 +83,7 @@ export default function ContactPage() {
             <div className="mt-8 space-y-6">
               <div>
                 <h3 className="text-base font-medium text-gray-900">Email</h3>
-                <p className="mt-1 text-gray-600">tedxuic@uic.edu</p>
+                <p className="mt-1 text-gray-600">tedxuofichicago@gmail.com</p>
               </div>
 
               <div>

@@ -19,7 +19,7 @@ const teamMembers = [
   {
     name: "Cieona Kumpuckal",
     role: "Vice President",
-    image: "/placeholder.svg?height=400&width=400&text=John",
+    image: "/pictures/our-team/CieonaKumpuckalVP2.png",
     bio: "Hello everyone! My name is Cieona and I am a senior majoring in Integrated Health Sciences! I joined TEDxUofIChicago because I believe that a helping hand is what makes the world go round. I believe that this organization has the potential to reach a hand to the students of UIC and motivate them to never forget their dreams and to continue chasing them! Other than TEDxUofIChicago, I serve as president for Thaakat at UIC and work as a CNA at a nursing home. My family and friends are my support circle, so if I’m free I’m spending time with them – whether that be shopping/thrifting, cooking/baking/eating, or exploring. And on the off chance I have a bit more free time, I’ll crack open a book! My hope for this year’s symposium is to bring the UIC students a group of well-rounded speakers, where every student in the room feels heard. My fun fact is that I love a good sunset :)",
     social: {
       linkedin: "https://linkedin.com",
@@ -96,7 +96,7 @@ const teamMembers = [
   {
     name: "Eddie Ning",
     role: "Director of Outreach",
-    image: "/placeholder.svg?height=400&width=400&text=Michael",
+    image: "/pictures/our-team/EddieNingOutreach.png",
     bio: "Hello everyone, my name is Eddie and I am this year’s Director of Outreach! I joined TEDX after seeing the impact videos created by TED had for students around the world. I am a Biology and Sociology double major aspiring to become a physician. For this year’s symposium? I am really interested in breaking boundaries with our speakers and providing unique stories that create conversations about the world we live in. One fun fact about me is I can play badminton.",
     social: {
       linkedin: "https://linkedin.com",

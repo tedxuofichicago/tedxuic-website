@@ -10,8 +10,8 @@ import { Button } from "@/components/ui/button"
 const symposiums = [
   {
     id: "healthcare-innovation",
-    title: "Healthcare Innovation Symposium",
-    date: "October 15, 2024",
+    title: "When TED met X",
+    date: "April 8, 2024",
     location: "UIC College of Medicine",
     image: "/placeholder.svg?height=720&width=1280&text=Healthcare%20Symposium",
     description:

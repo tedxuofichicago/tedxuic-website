@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button"
 
 const pastEvents = [
   {
-    id: "2023",
-    title: "TEDxUIC 2023: Reimagining Tomorrow",
-    date: "April 15, 2023",
+    id: "2024",
+    title: "Voice Your Peace",
+    date: "November 28, 2024",
     location: "UIC Student Center East",
     image: "/placeholder.svg?height=720&width=1280&text=TEDxUIC%202023",
     description:

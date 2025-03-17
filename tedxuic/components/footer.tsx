@@ -67,7 +67,7 @@ export function Footer() {
                 <Instagram className="w-6 h-6" />
                 <span className="sr-only">Instagram</span>
               </a>
-              <a
+              {/* <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -75,7 +75,7 @@ export function Footer() {
               >
                 <Twitter className="w-6 h-6" />
                 <span className="sr-only">Twitter</span>
-              </a>
+              </a> */}
               <a
                 href="https://www.youtube.com/playlist?list=PLsRNoUx8w3rPKELdqHqfDljnLumP6tyJE"
                 target="_blank"

@@ -11,10 +11,10 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg?height=1080&width=1920"
+            src="/pictures/home/HomePageFeature.jpg"
             alt="TEDxUIC Event"
             fill
             className="object-cover brightness-50"
@@ -35,7 +35,7 @@ export default function Home() {
                   Upcoming Events <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-white border-white hover:bg-white/10">
+              <Button asChild variant="outline" size="lg" className="text-black border-white hover:bg-white/10">
                 <Link href="/about">Learn More</Link>
               </Button>
             </div>
