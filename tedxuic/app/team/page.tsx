@@ -63,7 +63,7 @@ const teamMembers = [
   {
     name: "Your Name",
     role: "Webmaster",
-    image: "/placeholder.svg?height=400&width=400&text=Webmaster",
+    image: "/pictures/our-team/ShashankChennaWebmaster.jpg",
     bio: "Responsible for maintaining and updating the TEDxUIC website, ensuring a seamless digital experience.",
     social: {
       linkedin: "https://linkedin.com",
