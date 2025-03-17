@@ -1,0 +1,149 @@
+"use client"
+
+import { motion } from "framer-motion"
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowRight, Calendar, Clock, MapPin } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+
+const upcomingEvents = [
+  {
+    id: "2025",
+    title: "TEDxUIC 2025: Reimagining Tomorrow",
+    date: "April 15, 2025",
+    time: "1:00 PM - 5:00 PM",
+    location: "UIC Student Center East",
+    image: "/placeholder.svg?height=720&width=1280&text=TEDxUIC%202025",
+    description:
+      "Join us for our annual flagship event featuring thought-provoking talks from speakers across various disciplines. This year's theme, 'Reimagining Tomorrow,' invites us to explore innovative ideas and perspectives that will shape our future.",
+    speakers: [
+      { name: "Dr. Jane Smith", topic: "The Future of AI in Healthcare" },
+      { name: "Prof. John Doe", topic: "Sustainable Urban Development" },
+      { name: "Sarah Johnson", topic: "Reimagining Education in the Digital Age" },
+      { name: "Michael Brown", topic: "The Power of Community Activism" },
+    ],
+    registration: {
+      isOpen: true,
+      url: "#",
+      deadline: "April 1, 2025",
+    },
+  },
+  {
+    id: "workshop-2024",
+    title: "TEDxUIC Workshop: Public Speaking",
+    date: "November 10, 2024",
+    time: "3:00 PM - 5:00 PM",
+    location: "UIC Behavioral Sciences Building",
+    image: "/placeholder.svg?height=720&width=1280&text=TEDxUIC%20Workshop",
+    description:
+      "Develop your public speaking skills with our interactive workshop led by experienced speakers and coaches. Learn techniques to deliver impactful presentations and engage your audience effectively.",
+    speakers: [
+      { name: "Lisa Wong", topic: "Effective Public Speaking Techniques" },
+      { name: "David Martinez", topic: "Storytelling in Presentations" },
+    ],
+    registration: {
+      isOpen: false,
+      url: "#",
+      deadline: "Registration opens August 2024",
+    },
+  },
+]
+
+export default function UpcomingEventsPage() {
+  return (
+    <div className="pt-16">
+      <div className="container px-4 py-16 mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Upcoming Events</h1>
+          <p className="mt-4 text-lg text-gray-600">
+            Join us for our upcoming TEDxUIC events and be part of the conversation.
+          </p>
+        </motion.div>
+
+        <div className="mt-16 space-y-20">
+          {upcomingEvents.map((event, index) => (
+            <motion.div
+              key={event.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="overflow-hidden bg-white rounded-lg shadow-lg"
+            >
+              <div className="relative h-64 sm:h-80">
+                <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
+              </div>
+              <div className="p-6">
+                <h2 className="text-2xl font-bold text-gray-900">{event.title}</h2>
+                <div className="flex flex-col gap-4 mt-4 sm:flex-row">
+                  <div className="flex items-center">
+                    <Calendar className="w-5 h-5 mr-2 text-red-600" />
+                    <span className="text-gray-700">{event.date}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Clock className="w-5 h-5 mr-2 text-red-600" />
+                    <span className="text-gray-700">{event.time}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <MapPin className="w-5 h-5 mr-2 text-red-600" />
+                    <span className="text-gray-700">{event.location}</span>
+                  </div>
+                </div>
+                <p className="mt-6 text-gray-600">{event.description}</p>
+
+                <div className="mt-6">
+                  <h3 className="text-lg font-semibold text-gray-900">Speakers</h3>
+                  <ul className="mt-2 space-y-2">
+                    {event.speakers.map((speaker) => (
+                      <li key={speaker.name} className="text-gray-600">
+                        <span className="font-medium">{speaker.name}</span> - {speaker.topic}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="p-4 mt-6 bg-gray-50 rounded-lg">
+                  <h3 className="text-lg font-semibold text-gray-900">Registration</h3>
+                  <p className="mt-2 text-gray-600">
+                    {event.registration.isOpen
+                      ? `Registration is open until ${event.registration.deadline}.`
+                      : event.registration.deadline}
+                  </p>
+                  <div className="mt-4">
+                    <Button
+                      asChild
+                      className={
+                        event.registration.isOpen
+                          ? "bg-red-600 hover:bg-red-700"
+                          : "bg-gray-400 hover:bg-gray-500 cursor-not-allowed"
+                      }
+                      disabled={!event.registration.isOpen}
+                    >
+                      <Link href={event.registration.url}>
+                        {event.registration.isOpen ? "Register Now" : "Registration Coming Soon"}
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+
+                <div className="mt-8">
+                  <Button asChild variant="outline">
+                    <Link href={`/upcoming-events/${event.id}`}>
+                      View Event Details <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
