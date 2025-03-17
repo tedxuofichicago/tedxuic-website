@@ -50,7 +50,7 @@ export function Footer() {
             <h3 className="text-lg font-semibold">Connect With Us</h3>
             <div className="flex mt-4 space-x-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/TEDxUofIChicago/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white"
@@ -59,7 +59,7 @@ export function Footer() {
                 <span className="sr-only">Facebook</span>
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/tedxuofichicago/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white"
@@ -77,7 +77,7 @@ export function Footer() {
                 <span className="sr-only">Twitter</span>
               </a>
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/playlist?list=PLsRNoUx8w3rPKELdqHqfDljnLumP6tyJE"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white"
