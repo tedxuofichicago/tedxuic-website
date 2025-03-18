@@ -101,7 +101,7 @@ export default function ContactPage() {
                 <h3 className="text-base font-medium text-gray-900">Social Media</h3>
                 <div className="flex mt-1 space-x-4">
                   <a
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/TEDxUofIChicago/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:text-red-600"
@@ -109,7 +109,7 @@ export default function ContactPage() {
                     Facebook
                   </a>
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/tedxuofichicago/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:text-red-600"
@@ -117,12 +117,12 @@ export default function ContactPage() {
                     Instagram
                   </a>
                   <a
-                    href="https://twitter.com"
+                    href="https://www.youtube.com/playlist?list=PLsRNoUx8w3rPKELdqHqfDljnLumP6tyJE"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:text-red-600"
                   >
-                    Twitter
+                    YouTube
                   </a>
                 </div>
               </div>
