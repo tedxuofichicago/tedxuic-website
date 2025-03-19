@@ -10,42 +10,20 @@ import { Button } from "@/components/ui/button"
 const upcomingEvents = [
   {
     id: "2025",
-    title: "TEDxUIC 2025: Reimagining Tomorrow",
-    date: "April 15, 2025",
-    time: "1:00 PM - 5:00 PM",
-    location: "UIC Student Center East",
+    title: "TEDxUofIChicago 2025: Metamorphisis",
+    date: "April 25, 2025",
+    time: "Doors close at 5 p.m. | Check-in at 4:30 p.m.",
+    location: "James J. Stukel Towers",
     image: "/placeholder.svg?height=720&width=1280&text=TEDxUIC%202025",
     description:
-      "Join us for our annual flagship event featuring thought-provoking talks from speakers across various disciplines. This year's theme, 'Reimagining Tomorrow,' invites us to explore innovative ideas and perspectives that will shape our future.",
+      "A journey of relearning, regrowing, and resilience - this year's event will explore the profound transformations that shape individuals, communities, and the world.",
     speakers: [
-      { name: "Dr. Jane Smith", topic: "The Future of AI in Healthcare" },
-      { name: "Prof. John Doe", topic: "Sustainable Urban Development" },
-      { name: "Sarah Johnson", topic: "Reimagining Education in the Digital Age" },
-      { name: "Michael Brown", topic: "The Power of Community Activism" },
+      { name: "Will be announced soon!", topic: "Stay tuned!" },
     ],
     registration: {
       isOpen: true,
       url: "#",
       deadline: "April 1, 2025",
-    },
-  },
-  {
-    id: "workshop-2024",
-    title: "TEDxUIC Workshop: Public Speaking",
-    date: "November 10, 2024",
-    time: "3:00 PM - 5:00 PM",
-    location: "UIC Behavioral Sciences Building",
-    image: "/placeholder.svg?height=720&width=1280&text=TEDxUIC%20Workshop",
-    description:
-      "Develop your public speaking skills with our interactive workshop led by experienced speakers and coaches. Learn techniques to deliver impactful presentations and engage your audience effectively.",
-    speakers: [
-      { name: "Lisa Wong", topic: "Effective Public Speaking Techniques" },
-      { name: "David Martinez", topic: "Storytelling in Presentations" },
-    ],
-    registration: {
-      isOpen: false,
-      url: "#",
-      deadline: "Registration opens August 2024",
     },
   },
 ]
