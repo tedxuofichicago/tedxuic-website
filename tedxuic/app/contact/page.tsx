@@ -31,9 +31,20 @@ export default function ContactPage() {
     setIsSubmitting(true)
 
     try {
-      // Here you would typically send the form data to your backend
-      // For demonstration, we'll simulate a successful submission
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      // Send the form data to our API endpoint
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message")
+      }
 
       toast({
         title: "Message sent!",
@@ -43,6 +54,7 @@ export default function ContactPage() {
       // Reset form
       setFormData({ name: "", email: "", message: "" })
     } catch (error) {
+      console.error("Error submitting form:", error)
       toast({
         title: "Something went wrong.",
         description: "Your message couldn't be sent. Please try again.",
@@ -83,7 +95,7 @@ export default function ContactPage() {
             <div className="mt-8 space-y-6">
               <div>
                 <h3 className="text-base font-medium text-gray-900">Email</h3>
-                <p className="mt-1 text-gray-600">tedxuofichicago@gmail.com</p>
+                <p className="mt-1 text-gray-600">tedxuic@uic.edu</p>
               </div>
 
               <div>
@@ -101,7 +113,7 @@ export default function ContactPage() {
                 <h3 className="text-base font-medium text-gray-900">Social Media</h3>
                 <div className="flex mt-1 space-x-4">
                   <a
-                    href="https://www.facebook.com/TEDxUofIChicago/"
+                    href="https://facebook.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:text-red-600"
@@ -109,7 +121,7 @@ export default function ContactPage() {
                     Facebook
                   </a>
                   <a
-                    href="https://www.instagram.com/tedxuofichicago/"
+                    href="https://instagram.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:text-red-600"
@@ -117,12 +129,12 @@ export default function ContactPage() {
                     Instagram
                   </a>
                   <a
-                    href="https://www.youtube.com/playlist?list=PLsRNoUx8w3rPKELdqHqfDljnLumP6tyJE"
+                    href="https://twitter.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:text-red-600"
                   >
-                    YouTube
+                    Twitter
                   </a>
                 </div>
               </div>
@@ -189,4 +201,3 @@ export default function ContactPage() {
     </div>
   )
 }
-
