@@ -13,7 +13,7 @@ const pastEvents = [
     title: "Comedy Night",
     date: "November 21, 2024",
     location: "UIC Student Center East",
-    image: "/pictures/past-events/ComedyNightFeature5.png",
+    image: "/pictures/past-events/ComedyNightFeature.png",
     description:
       "A focused symposium exploring innovations in healthcare technology, policy, and practice. Join healthcare professionals, researchers, and innovators for a day of insightful discussions and networking.",
     topics: [
