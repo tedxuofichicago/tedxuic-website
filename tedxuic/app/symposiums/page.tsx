@@ -13,7 +13,7 @@ const symposiums = [
     title: "When TED met X",
     date: "April 8, 2024",
     location: "UIC College of Medicine",
-    image: "/placeholder.svg?height=720&width=1280&text=Healthcare%20Symposium",
+    image: "/pictures/past-events/VoiceYourPeaceFeature.png",
     description:
       "A focused symposium exploring innovations in healthcare technology, policy, and practice. Join healthcare professionals, researchers, and innovators for a day of insightful discussions and networking.",
     topics: [
@@ -58,6 +58,7 @@ const symposiums = [
 export default function SymposiumsPage() {
   return (
     <div className="pt-16">
+      {/* Past Events */}
       <div className="container px-4 py-16 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,7 +66,79 @@ export default function SymposiumsPage() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">TEDxUIC Symposiums</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Past Events</h1>
+          <p className="mt-4 text-lg text-gray-600">
+            Focused events that dive deep into specific topics and foster meaningful discussions.
+          </p>
+        </motion.div>
+
+        <div className="mt-16 space-y-16">
+          {symposiums.map((symposium, index) => (
+            <motion.div
+              key={symposium.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="overflow-hidden bg-white rounded-lg shadow-lg"
+            >
+              <div className="grid md:grid-cols-2">
+                <div className="relative h-64 md:h-full">
+                  <Image
+                    src={symposium.image || "/placeholder.svg"}
+                    alt={symposium.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h2 className="text-2xl font-bold text-gray-900">{symposium.title}</h2>
+                  <div className="flex flex-col gap-2 mt-4 sm:flex-row">
+                    <div className="flex items-center">
+                      <Calendar className="w-5 h-5 mr-2 text-red-600" />
+                      <span className="text-gray-700">{symposium.date}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <MapPin className="w-5 h-5 mr-2 text-red-600" />
+                      <span className="text-gray-700">{symposium.location}</span>
+                    </div>
+                  </div>
+                  <p className="mt-4 text-gray-600">{symposium.description}</p>
+
+                  <div className="mt-6">
+                    <h3 className="text-lg font-semibold text-gray-900">Key Topics</h3>
+                    <ul className="mt-2 space-y-1">
+                      {symposium.topics.map((topic) => (
+                        <li key={topic} className="flex items-start">
+                          <span className="mr-2 text-red-600">•</span>
+                          <span className="text-gray-600">{topic}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mt-8">
+                    <Button asChild className="bg-red-600 hover:bg-red-700">
+                      <Link href={`/symposiums/${symposium.id}`}>
+                        Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Symposiums */}
+      <div className="container px-4 py-16 mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Past Symposiums</h1>
           <p className="mt-4 text-lg text-gray-600">
             Focused events that dive deep into specific topics and foster meaningful discussions.
           </p>

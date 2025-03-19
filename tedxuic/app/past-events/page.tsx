@@ -13,7 +13,7 @@ const pastEvents = [
     title: "Voice Your Peace",
     date: "November 28, 2024",
     location: "UIC Student Center East",
-    image: "/placeholder.svg?height=720&width=1280&text=TEDxUIC%202023",
+    image: "/pictures/past-events/VoiceYourPeaceFeature.png",
     description:
       "Our 2023 event brought together thought leaders, innovators, and changemakers to explore ideas that will shape our future.",
     speakers: [

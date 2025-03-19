@@ -11,9 +11,9 @@ const navItems = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Our Team", href: "/team" },
-  { name: "Past Events", href: "/past-events" },
+  // { name: "Past Events", href: "/past-events" },
   { name: "Upcoming Events", href: "/upcoming-events" },
-  { name: "Symposiums", href: "/symposiums" },
+  { name: "Past Events & Symposiums", href: "/symposiums" },
   { name: "Contact Us", href: "/contact" },
 ]
 

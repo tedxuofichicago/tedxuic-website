@@ -8,7 +8,7 @@ const teamMembers = [
   {
     name: "Nazra Zafar",
     role: "President & Coordinator",
-    image: "/pictures/our-team/NazraZafarPresident2.png",
+    image: "/pictures/our-team/NazraZafarPresident.png",
     bio: "Hello, beautiful humans! My name is Nazra and I’m a senior double-majoring in Integrated Health Studies and Biological Sciences as a pre-med. I re-launched TEDxUofIChicago because I saw the power of another person serving as inspiration for young people who have yet to pave their path in life, and it’s been the best part of my time in college so far. :) Outside of TEDxUofIChicago, I also serve as the president for the Minority Association of Pre-Medical Students (MAPS), and work in an urgent care facility. I love exploring, spending time with my friends and family, doing spontaneous things like singing in jazz clubs, and most importantly, bringing people together. My one hope for MetamorphoXis is that it helps at least one person find their calling.",
     social: {
       linkedin: "https://linkedin.com",
@@ -19,7 +19,7 @@ const teamMembers = [
   {
     name: "Cieona Kumpuckal",
     role: "Vice President",
-    image: "/pictures/our-team/CieonaKumpuckalVP2.png",
+    image: "/pictures/our-team/CieonaKumpuckalVP.png",
     bio: "Hello everyone! My name is Cieona and I am a senior majoring in Integrated Health Sciences! I joined TEDxUofIChicago because I believe that a helping hand is what makes the world go round. I believe that this organization has the potential to reach a hand to the students of UIC and motivate them to never forget their dreams and to continue chasing them! Other than TEDxUofIChicago, I serve as president for Thaakat at UIC and work as a CNA at a nursing home. My family and friends are my support circle, so if I’m free I’m spending time with them – whether that be shopping/thrifting, cooking/baking/eating, or exploring. And on the off chance I have a bit more free time, I’ll crack open a book! My hope for this year’s symposium is to bring the UIC students a group of well-rounded speakers, where every student in the room feels heard. My fun fact is that I love a good sunset :)",
     social: {
       linkedin: "https://linkedin.com",
@@ -85,7 +85,7 @@ const teamMembers = [
   {
     name: "Abia Siddiqui",
     role: "Co-Director of Marketing",
-    image: "/pictures/our-team/AbiaSiddiquiMarketing3.png",
+    image: "/pictures/our-team/AbiaSiddiquiMarketing.png",
     bio: "Hi everyone! My name is Abia, I’m a junior studying Engineering Management on the pre-law track. I love food and music and just hanging out with my friends and family. I absolutely love to travel and explore. I joined Tedx to be able to help others in telling their stories. I love how inclusive Tedx is and the people I got to meet while being a part of the organization. I hope to see more stories on self growth and applying your skills into your future self. One fun fact: I really love exotic cars",
     social: {
       linkedin: "https://linkedin.com",
@@ -96,7 +96,7 @@ const teamMembers = [
   {
     name: "Eddie Ning",
     role: "Director of Outreach",
-    image: "/pictures/our-team/EddieNingOutreach2.png",
+    image: "/pictures/our-team/EddieNingOutreach.png",
     bio: "Hello everyone, my name is Eddie and I am this year’s Director of Outreach! I joined TEDX after seeing the impact videos created by TED had for students around the world. I am a Biology and Sociology double major aspiring to become a physician. For this year’s symposium? I am really interested in breaking boundaries with our speakers and providing unique stories that create conversations about the world we live in. One fun fact about me is I can play badminton.",
     social: {
       linkedin: "https://linkedin.com",
