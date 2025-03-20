@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
@@ -23,10 +24,14 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b">
       <div className="container flex items-center justify-between h-16 px-4 mx-auto">
-        <Link href="/" className="flex items-center">
+        {/* <Link href="/" className="flex items-center">
           <span className="text-2xl font-bold">
             <span className="text-red-600">TEDx</span>UofIChicago
           </span>
+        </Link> */}
+        <Link href="" className="flex items-center">
+          {/* Replace text logo with image logo */}
+          <Image src="/pictures/logos/tedx-logo-black.png" alt="TEDxUofIChicago Logo" width={120} height={40} className="h-10 w-auto" priority />
         </Link>
 
         {/* Desktop Navigation */}

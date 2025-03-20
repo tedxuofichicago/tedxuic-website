@@ -1,5 +1,9 @@
+"use client"
+
 import Link from "next/link"
+import Image from "next/image"
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react"
+import { TypeAnimation } from "react-type-animation"
 
 export function Footer() {
   return (
@@ -7,9 +11,12 @@ export function Footer() {
       <div className="container px-4 py-12 mx-auto">
         <div className="grid gap-8 md:grid-cols-3">
           <div>
-            <h2 className="text-2xl font-bold">
+          <Link href="/" className="inline-block">
+              <Image src="/pictures/logos/tedx-logo-white.png" alt="TEDxUofIChicago Logo" width={150} height={50} className="h-12 w-auto" />
+            </Link>
+            {/* <h2 className="text-2xl font-bold">
               <span className="text-red-600">TEDx</span>UofIChicago
-            </h2>
+            </h2> */}
             {/* <p className="mt-4 text-gray-400">
               TEDxUIC is an independently organized TED event at the University of Illinois Chicago.
             </p> */}
@@ -99,11 +106,39 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 mt-8 border-t border-gray-800">
+        {/* <div className="pt-8 mt-8 border-t border-gray-800">
           <p className="text-sm text-gray-400">
             &copy; {new Date().getFullYear()} TEDxUIC. All rights reserved. This independent TEDx event is operated
             under license from TED.
           </p>
+        </div> */}
+        {/* Replace copyright with typewriter effect */}
+        <div className="pt-8 mt-8 border-t border-gray-800 text-center">
+          <div className="inline-flex items-center justify-center text-sm text-gray-300">
+            <span>Built by TEDxUofIChicago with </span>
+            <TypeAnimation
+              sequence={[
+                "passion",
+                2000,
+                "creativity",
+                2000,
+                "innovation",
+                2000,
+                "dedication",
+                2000,
+                "inspiration",
+                2000,
+                "❤️",
+                2000,
+              ]}
+              wrapper="span"
+              speed={50}
+              deletionSpeed={65}
+              repeat={Number.POSITIVE_INFINITY}
+              cursor={true}
+              className="text-red-400 font-medium ml-1"
+            />
+          </div>
         </div>
       </div>
     </footer>
