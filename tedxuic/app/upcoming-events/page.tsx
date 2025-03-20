@@ -38,9 +38,9 @@ export default function UpcomingEventsPage() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Upcoming Events</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><span className="text-red-600">Upcoming </span>Events</h1>
           <p className="mt-4 text-lg text-gray-600">
-            Join us for our upcoming TEDxUIC events and be part of the conversation.
+            Join us for our upcoming <span className="text-red-600">TEDx</span>UofIChicago events and be part of the conversation.
           </p>
         </motion.div>
 

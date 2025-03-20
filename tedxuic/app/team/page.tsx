@@ -127,8 +127,8 @@ export default function TeamPage() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Our Team</h1>
-          <p className="mt-4 text-lg text-gray-600">Meet the dedicated individuals who make TEDxUIC possible.</p>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><span className="text-red-600">Our </span>Team</h1>
+          <p className="mt-4 text-lg text-gray-600">Meet the dedicated individuals who make <span className="text-red-600">TEDx</span>UofIChicago possible.</p>
         </motion.div>
 
         <div className="grid gap-8 mt-16 sm:grid-cols-2 lg:grid-cols-3">

@@ -25,7 +25,7 @@ export function Navbar() {
       <div className="container flex items-center justify-between h-16 px-4 mx-auto">
         <Link href="/" className="flex items-center">
           <span className="text-2xl font-bold">
-            TEDx<span className="text-red-600">UIC</span>
+            <span className="text-red-600">TEDx</span>UofIChicago
           </span>
         </Link>
 

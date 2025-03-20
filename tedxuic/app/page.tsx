@@ -24,7 +24,7 @@ export default function Home() {
         <div className="container relative z-10 px-4 mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl">
-              TEDx<span className="text-red-600">UIC</span>
+              <span className="text-red-600">TEDx</span>UofIChicago
             </h1>
             <p className="max-w-2xl mx-auto mt-6 text-xl text-gray-200">
               Ideas worth spreading at the University of Illinois Chicago
@@ -123,7 +123,7 @@ export default function Home() {
           >
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Past Events</h2>
             <p className="max-w-2xl mx-auto mt-4 text-gray-600">
-              Explore our previous TEDxUIC events and the ideas that were shared.
+              Explore our previous TEDxUofIChicago events and the ideas that were shared.
             </p>
           </motion.div>
 
@@ -187,7 +187,7 @@ export default function Home() {
                 connection.
               </p>
               <p className="mt-4 text-gray-600">
-                TEDxUIC is independently organized by students at the University of Illinois Chicago, bringing together
+                TEDxUofIChicago is independently organized by students at the University of Illinois Chicago, bringing together
                 the brightest minds to share ideas worth spreading.
               </p>
               <div className="mt-8">
@@ -223,7 +223,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Get Involved with TEDxUIC</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Get Involved with TEDxUofIChicago</h2>
             <p className="max-w-2xl mx-auto mt-4 text-white/90">
               Join our community of thinkers, innovators, and changemakers. Attend our events, volunteer, or share your
               ideas.

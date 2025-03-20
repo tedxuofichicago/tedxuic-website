@@ -13,7 +13,7 @@ export default function AboutPage() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">About TEDxUIC</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><span className="text-red-600">About</span> Us</h1>
           <p className="mt-4 text-lg text-gray-600">
             Bringing ideas worth spreading to the University of Illinois Chicago community.
           </p>

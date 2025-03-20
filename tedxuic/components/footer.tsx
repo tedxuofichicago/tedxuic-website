@@ -8,11 +8,14 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           <div>
             <h2 className="text-2xl font-bold">
-              TEDx<span className="text-red-600">UIC</span>
+              <span className="text-red-600">TEDx</span>UofIChicago
             </h2>
-            <p className="mt-4 text-gray-400">
+            {/* <p className="mt-4 text-gray-400">
               TEDxUIC is an independently organized TED event at the University of Illinois Chicago.
-            </p>
+            </p> */}
+            <p className="mt-4 text-gray-400">
+            &copy; {new Date().getFullYear()} TEDxUofIChicago. All rights reserved. This is an independent TEDx event operated under license from TED at the University of Illinois Chicago.
+          </p>
           </div>
 
           <div>

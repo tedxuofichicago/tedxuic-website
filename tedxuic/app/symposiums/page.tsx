@@ -6,6 +6,7 @@ import Link from "next/link"
 import { ArrowRight, Calendar, MapPin } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
 
 const pastEvents = [
   {
@@ -68,7 +69,7 @@ export default function SymposiumsPage() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Past Events</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><span className="text-red-600">Past </span>Events</h1>
           <p className="mt-4 text-lg text-gray-600">
             Focused events that dive deep into specific topics and foster meaningful discussions.
           </p>
@@ -131,7 +132,7 @@ export default function SymposiumsPage() {
           ))}
         </div>
       </div>
-
+      <Separator className="w-full max-w-screen-xl mx-auto my-4 border-t-2"/>
       {/* Symposiums */}
       <div className="container px-4 py-16 mx-auto">
         <motion.div
@@ -140,7 +141,7 @@ export default function SymposiumsPage() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Past Symposiums</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><span className="text-red-600">Past </span>Symposiums</h1>
           <p className="mt-4 text-lg text-gray-600">
             Focused events that dive deep into specific topics and foster meaningful discussions.
           </p>

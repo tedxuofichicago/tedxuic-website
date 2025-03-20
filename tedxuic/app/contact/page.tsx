@@ -74,9 +74,9 @@ export default function ContactPage() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Contact Us</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><span className="text-red-600">Contact </span>Us</h1>
           <p className="mt-4 text-lg text-gray-600">
-            Have questions or want to get involved with TEDxUIC? We'd love to hear from you!
+            Have questions or want to get involved with <span className="text-red-600">TEDx</span>UofIChicago? We'd love to hear from you!
           </p>
         </motion.div>
 
@@ -95,7 +95,7 @@ export default function ContactPage() {
             <div className="mt-8 space-y-6">
               <div>
                 <h3 className="text-base font-medium text-gray-900">Email</h3>
-                <p className="mt-1 text-gray-600">tedxuic@uic.edu</p>
+                <p className="mt-1 text-gray-600">tedxuofichicago@gmail.com</p>
               </div>
 
               <div>
