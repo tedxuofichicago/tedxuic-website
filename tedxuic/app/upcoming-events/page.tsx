@@ -10,11 +10,11 @@ import { Button } from "@/components/ui/button"
 const upcomingEvents = [
   {
     id: "2025",
-    title: "TEDxUofIChicago 2025: Metamorphisis",
+    title: "TEDxUofIChicago 2025: MetamorphoXis",
     date: "April 25, 2025",
     time: "Doors close at 5 p.m. | Check-in at 4:30 p.m.",
     location: "James J. Stukel Towers",
-    image: "/placeholder.svg?height=720&width=1280&text=TEDxUIC%202025",
+    image: "/pictures/upcoming-events/metamorphisis_wide_logo.avif",
     description:
       "A journey of relearning, regrowing, and resilience - this year's event will explore the profound transformations that shape individuals, communities, and the world.",
     speakers: [
@@ -22,7 +22,7 @@ const upcomingEvents = [
     ],
     registration: {
       isOpen: true,
-      url: "#",
+      url: "https://www.eventbrite.com/e/tedxuofichicago-metamorphoxis-tickets-1284814577989?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl",
       deadline: "April 1, 2025",
     },
   },
@@ -53,7 +53,8 @@ export default function UpcomingEventsPage() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="overflow-hidden bg-white rounded-lg shadow-lg"
             >
-              <div className="relative h-64 sm:h-80">
+              {/* <div className="relative h-64 sm:h-80"> */}
+              <div className="relative h-96 sm:h-[44rem]">
                 <Image src={event.image || "/placeholder.svg"} alt={event.title} fill className="object-cover" />
               </div>
               <div className="p-6">
