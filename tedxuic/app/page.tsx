@@ -71,7 +71,7 @@ export default function Home() {
               className="relative overflow-hidden rounded-lg aspect-video"
             >
               <Image
-                src="/placeholder.svg?height=720&width=1280"
+                src="/pictures/upcoming-events/metamorphisis_wide_logo.avif"
                 alt="Next TEDxUIC Event"
                 fill
                 className="object-cover"
@@ -84,19 +84,19 @@ export default function Home() {
               viewport={{ once: true }}
               className="flex flex-col justify-center"
             >
-              <h3 className="text-2xl font-bold text-gray-900">Reimagining Tomorrow</h3>
+              <h3 className="text-2xl font-bold text-gray-900">TEDxUofIChicago 2025: MetamorphoXis</h3>
               <p className="mt-4 text-gray-600">
-                Our upcoming event brings together thought leaders, innovators, and changemakers to explore ideas that
-                will shape our future.
+                A journey of relearning, regrowing, and resilience - this year's 
+                event will explore the profound transformations that shape individuals, communities, and the world.
               </p>
               <div className="flex flex-col gap-4 mt-6 sm:flex-row">
                 <div className="flex items-center">
                   <Calendar className="w-5 h-5 mr-2 text-red-600" />
-                  <span className="text-gray-700">April 15, 2025</span>
+                  <span className="text-gray-700">April 25, 2025</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 mr-2 text-red-600" />
-                  <span className="text-gray-700">UIC Student Center East</span>
+                  <span className="text-gray-700">James J. Stukel Towers</span>
                 </div>
               </div>
               <div className="mt-8">
