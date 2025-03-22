@@ -119,13 +119,14 @@ export default function SymposiumsPage() {
                     </ul>
                   </div>
 
+                  {/* Will decide later if dedicated page for event is needed
                   <div className="mt-8">
                     <Button asChild className="bg-red-600 hover:bg-red-700">
                       <Link href={`/symposiums/${event.id}`}>
                         Learn More <ArrowRight className="w-4 h-4 ml-2" />
                       </Link>
                     </Button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </motion.div>
@@ -191,13 +192,14 @@ export default function SymposiumsPage() {
                     </ul>
                   </div>
 
+                  {/* Will decide later if dedicated page for event is needed
                   <div className="mt-8">
                     <Button asChild className="bg-red-600 hover:bg-red-700">
                       <Link href={`/symposiums/${symposium.id}`}>
                         Learn More <ArrowRight className="w-4 h-4 ml-2" />
                       </Link>
                     </Button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </motion.div>

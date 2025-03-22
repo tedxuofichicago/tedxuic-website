@@ -103,20 +103,21 @@ export default function UpcomingEventsPage() {
                       }
                       disabled={!event.registration.isOpen}
                     >
-                      <Link href={event.registration.url}>
+                      <Link href={event.registration.url} target="_blank" rel="noopener noreferrer">
                         {event.registration.isOpen ? "Register Now" : "Registration Coming Soon"}
                       </Link>
                     </Button>
                   </div>
                 </div>
 
+                {/* Will decide later if dedicated page for event is needed      
                 <div className="mt-8">
                   <Button asChild variant="outline">
                     <Link href={`/upcoming-events/${event.id}`}>
                       View Event Details <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>
-                </div>
+                </div> */}
               </div>
             </motion.div>
           ))}
