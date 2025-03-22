@@ -35,7 +35,7 @@ export default function Home() {
                   Upcoming Events <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-black border-white hover:bg-white/10">
+              <Button asChild size="lg" className="bg-white text-black hover:bg-gray-300">
                 <Link href="/about">Learn More</Link>
               </Button>
             </div>
