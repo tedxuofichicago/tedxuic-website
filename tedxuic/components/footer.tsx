@@ -11,7 +11,7 @@ export function Footer() {
       <div className="container px-4 py-12 mx-auto">
         <div className="grid gap-8 md:grid-cols-3">
           <div>
-          <Link href="/" className="inline-block">
+            <Link href="/" className="inline-block">
               <Image src="/pictures/logos/tedx-logo-white.png" alt="TEDxUofIChicago Logo" width={150} height={50} className="h-12 w-auto" />
             </Link>
             {/* <h2 className="text-2xl font-bold">
