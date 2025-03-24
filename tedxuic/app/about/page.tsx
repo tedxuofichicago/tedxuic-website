@@ -35,7 +35,7 @@ export default function AboutPage() {
 
             <div className="relative my-8 overflow-hidden rounded-lg aspect-video">
               <Image
-                src="/placeholder.svg?height=720&width=1280&text=TEDxUIC%20Event"
+                src="/pictures/about/speaker_with_crowd.JPG"
                 alt="TEDxUIC Event"
                 fill
                 className="object-cover"
@@ -75,7 +75,7 @@ export default function AboutPage() {
 
             <div className="relative my-8 overflow-hidden rounded-lg aspect-video">
               <Image
-                src="/placeholder.svg?height=720&width=1280&text=TEDxUIC%20Team"
+                src="/pictures/about/first_feature_pic.JPG"
                 alt="TEDxUIC Team"
                 fill
                 className="object-cover"
