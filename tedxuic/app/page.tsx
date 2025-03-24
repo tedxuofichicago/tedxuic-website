@@ -111,7 +111,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Past Events Highlight */}
+      {/* Past Events Highlight, figure out how to differentiate the cards, currently changes are linked together */}
       <section className="py-20 bg-gray-50">
         <div className="container px-4 mx-auto">
           <motion.div
