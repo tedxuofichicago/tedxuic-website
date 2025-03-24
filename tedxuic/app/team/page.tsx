@@ -9,7 +9,7 @@ const teamMembers = [
     name: "Nazra Zafar",
     role: "President & Coordinator",
     image: "/pictures/our-team/NazraZafarPresident.png",
-    bio: "Hello, beautiful humans! My name is Nazra and I’m a senior double-majoring in Integrated Health Studies and Biological Sciences as a pre-med. I re-launched TEDxUofIChicago because I saw the power of another person serving as inspiration for young people who have yet to pave their path in life, and it’s been the best part of my time in college so far. :) Outside of TEDxUofIChicago, I also serve as the president for the Minority Association of Pre-Medical Students (MAPS), and work in an urgent care facility. I love exploring, spending time with my friends and family, doing spontaneous things like singing in jazz clubs, and most importantly, bringing people together. My one hope for MetamorphoXis is that it helps at least one person find their calling.",
+    bio: "Nazra is a senior double-majoring in Integrated Health Studies and Biological Sciences, with a focus on pre-med. She re-launched TEDxUofIChicago after recognizing the powerful impact that inspirational figures can have on young individuals still navigating their life paths. This initiative has become one of the most rewarding aspects of her college experience. In addition to her work with TEDxUofIChicago, Nazra serves as the president of the Minority Association of Pre-Medical Students (MAPS) and works in an urgent care facility. Outside of her academic and leadership roles, she enjoys exploring new activities, spending quality time with friends and family, and engaging in spontaneous experiences such as singing in jazz clubs. Above all, Nazra is passionate about bringing people together. Her primary goal for MetamorphoXis is to inspire at least one person to discover their true calling.",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
@@ -20,7 +20,7 @@ const teamMembers = [
     name: "Cieona Kumpuckal",
     role: "Vice President",
     image: "/pictures/our-team/CieonaKumpuckalVP.png",
-    bio: "Hello everyone! My name is Cieona and I am a senior majoring in Integrated Health Sciences! I joined TEDxUofIChicago because I believe that a helping hand is what makes the world go round. I believe that this organization has the potential to reach a hand to the students of UIC and motivate them to never forget their dreams and to continue chasing them! Other than TEDxUofIChicago, I serve as president for Thaakat at UIC and work as a CNA at a nursing home. My family and friends are my support circle, so if I’m free I’m spending time with them – whether that be shopping/thrifting, cooking/baking/eating, or exploring. And on the off chance I have a bit more free time, I’ll crack open a book! My hope for this year’s symposium is to bring the UIC students a group of well-rounded speakers, where every student in the room feels heard. My fun fact is that I love a good sunset :)",
+    bio: "Cieona is a senior majoring in Integrated Health Sciences. She joined TEDxUofIChicago because she believes in the power of lending a helping hand to make a positive impact on the world. She sees the organization as an opportunity to inspire and motivate UIC students to pursue their dreams and never lose sight of them. In addition to her involvement with TEDxUofIChicago, Cieona serves as the president of Thaakat at UIC and works as a CNA at a nursing home. Her family and friends are her primary support system, and she enjoys spending her free time with them, whether it’s shopping, thrifting, cooking, baking, eating, or exploring. When she has extra time, she enjoys reading a good book. Cieona’s goal for this year’s symposium is to bring a diverse group of speakers who can ensure that every student in the room feels heard and valued. A fun fact about Cieona is her love for a beautiful sunset!",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
@@ -28,21 +28,10 @@ const teamMembers = [
     },
   },
   {
-    name: "Bhavya Vegesna",
-    role: "Secretary",
-    image: "/pictures/our-team/BhavyaVegesnaSecretary.png",
-    bio: "Hey everyone! My name is Bhavya and I’m a second year majoring in IHS! I joined TEDx because I love the transformative power of storytelling. This platform not only disseminates powerful ideas, but also fosters connections that inspire positive change through diverse perspectives. With this year’s conference, I’m excited to hear the metamorphic stories that the speakers have to share. A fun fact about me is that I’ve danced for 14 years!",
-    social: {
-      linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
-      email: "mailto:alex@example.com",
-    },
-  },
-  {
     name: "Malyika Hussain",
     role: "Director of Fundraising/Sponsorships",
     image: "/pictures/our-team/MalyikaHussainFundraising.png",
-    bio: "Hey everyone! I’m a senior majoring in Finance and Accounting at UIC. I joined TEDx at UIC in 2024 because I love being part of something that sparks new ideas and challenges perspectives. There’s something powerful about bringing people together to share stories that inspire change, and I’m excited to play a role in making that happen. As Treasurer, I want to help create a well-funded, unforgettable conference where speakers and attendees alike leave feeling energized. This year, I’m looking forward to seeing fresh, bold ideas take the stage. One fun fact about me—I love listening to music and even write songs from time to time!",
+    bio: "Malyika is a senior majoring in Finance and Accounting at UIC. She joined TEDxUofIChicago in 2024 because of her passion for being part of an organization that sparks new ideas and challenges perspectives. Malyika believes in the power of bringing people together to share stories that inspire meaningful change and is excited to contribute to making that happen. As Treasurer, her goal is to help create a well-funded, unforgettable conference where both speakers and attendees leave feeling energized. This year, Malyika is particularly looking forward to seeing fresh, bold ideas take the stage. A fun fact about her is her love for listening to music, and she even writes songs from time to time!",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
@@ -50,10 +39,21 @@ const teamMembers = [
     },
   },
   {
+    name: "Bhavya Vegesna",
+    role: "Secretary",
+    image: "/pictures/our-team/BhavyaVegesnaSecretary.png",
+    bio: "Bhavya is a second-year student majoring in Integrated Health Sciences. She joined TEDxUofIChicago because of her passion for the transformative power of storytelling. She believes that TEDx provides a platform not only for sharing powerful ideas but also for fostering connections that inspire positive change through diverse perspectives. For this year's conference, Bhavya is excited to hear the transformative stories that the speakers will share. A fun fact about her is that she has been dancing for 14 years!",
+    social: {
+      linkedin: "https://linkedin.com",
+      twitter: "https://twitter.com",
+      email: "mailto:alex@example.com",
+    },
+  },
+  {
     name: "Sabrina Arshad",
     role: "Co-Director of Logistics",
     image: "/pictures/our-team/SabrinaArshadLogistics.png",
-    bio: "Hi everybody! My name is Sabrina Arshad. I’m a second year majoring in Computer Engineering. I joined TEDx because I am passionate about making events come to life and sharing ideas with like minded people. With this year's conference, I am really excited to meet some interesting speakers. A fun fact about me is that I am an art teacher at Pinot’s Palette!",
+    bio: "Sabrina is a second-year student majoring in Computer Engineering. She joined TEDxUofIChicago because of her passion for bringing events to life and sharing ideas with like-minded individuals. For this year’s conference, Sabrina is excited to meet interesting speakers and be a part of the inspiring exchange of ideas. A fun fact about her is that she is also an art teacher at Pinot’s Palette!",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
@@ -64,7 +64,7 @@ const teamMembers = [
     name: "Iliya Rivkin",
     role: "Co-Director of Logistics",
     image: "/pictures/our-team/IliyaRivkinLogistics.png",
-    bio: "My name is Iliya Rivkin, and I serve as the Co-Director of Logistics with Sabrina Arshad. I am a second-year student studying Biomedical Engineering with aspirations of becoming a physician. From this year’s speakers, I hope to gain insight on the experiences that catalyze growth and development. A quick fun fact is that I was the first member of my family to be born in the United States of America.",
+    bio: "Iliya is a second-year student studying Biomedical Engineering with aspirations of becoming a physician. He serves as the Co-Director of Logistics alongside Sabrina. For this year’s conference, Iliya hopes to gain insights from the speakers on the experiences that catalyze growth and development. A fun fact about him is that he was the first member of his family to be born in the United States!",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
@@ -86,7 +86,7 @@ const teamMembers = [
     name: "Abia Siddiqui",
     role: "Co-Director of Marketing",
     image: "/pictures/our-team/AbiaSiddiquiMarketing.png",
-    bio: "Hi everyone! My name is Abia, I’m a junior studying Engineering Management on the pre-law track. I love food and music and just hanging out with my friends and family. I absolutely love to travel and explore. I joined Tedx to be able to help others in telling their stories. I love how inclusive Tedx is and the people I got to meet while being a part of the organization. I hope to see more stories on self growth and applying your skills into your future self. One fun fact: I really love exotic cars",
+    bio: "Abia is a junior studying Engineering Management on the pre-law track. She has a deep love for food, music, and spending time with her friends and family. Passionate about travel and exploration, Abia joined TEDxUofIChicago to help others share their stories. She values the inclusivity of TEDx and has enjoyed meeting so many inspiring individuals through the organization. For this year’s conference, Abia hopes to see stories centered around self-growth and applying one’s skills to shape a better future. A fun fact about Abia is her fascination with exotic cars!",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
@@ -97,7 +97,7 @@ const teamMembers = [
     name: "Eddie Ning",
     role: "Director of Outreach",
     image: "/pictures/our-team/EddieNingOutreach.png",
-    bio: "Hello everyone, my name is Eddie and I am this year’s Director of Outreach! I joined TEDX after seeing the impact videos created by TED had for students around the world. I am a Biology and Sociology double major aspiring to become a physician. For this year’s symposium? I am really interested in breaking boundaries with our speakers and providing unique stories that create conversations about the world we live in. One fun fact about me is I can play badminton.",
+    bio: "Eddie is this year’s Director of Outreach for TEDx. He joined the organization after being inspired by the impact that TED videos have had on students globally. Eddie is currently pursuing a double major in Biology and Sociology, with aspirations of becoming a physician. For this year’s symposium, he is focused on breaking boundaries with the selection of speakers and providing unique stories that spark meaningful conversations about the world we live in. A fun fact about Eddie is that he is skilled at playing badminton!",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
@@ -108,7 +108,7 @@ const teamMembers = [
     name: "Shashank Chenna",
     role: "Webmaster",
     image: "/pictures/our-team/ShashankChennaWebmasterCropped.jpg",
-    bio: "Hi, I’m Shashank! I’m a second-year computer engineering major. I joined TEDxUofIChicago this semester because I enjoy many of the topics you can find on the TED platform, and I wanted to work with the team to share those ideas at UIC. At this year’s conference, I’m excited to listen to some interesting speakers. A fun fact about me is that I practiced karate for about 10 years before college!",
+    bio: "Shashank is a second-year Computer Engineering major. He joined TEDxUofIChicago this semester because of his appreciation for the diverse range of topics featured on the TED platform, and his desire to help bring those ideas to the UIC community. At this year’s conference, he is particularly excited to hear from a variety of engaging speakers. A fun fact about Shashank is that he practiced karate for approximately 10 years before starting college!",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
