@@ -71,17 +71,17 @@ const teamMembers = [
       email: "mailto:michael@example.com",
     },
   },
-  {
-    name: "Henry Huynh",
-    role: "Co-Director of Marketing",
-    image: "/pictures/our-team/HenryHuynhMarketing.png",
-    bio: "Hey everyone! I’m Henry Huynh, a junior majoring in Finance at UIC. I joined TEDx in the fall of 2024 because it felt like the perfect place to explore new ideas, challenge perspectives, spark innovation, and engage in meaningful conversations—all of which I’m thrilled to be a part of! For this year’s symposium, I’m eager to listen, learn, and be inspired by our incredible speakers and their powerful stories. It’s an honor to be part of an amazing e-board filled with passionate individuals who are dedicated to bringing this event to life! Fun fact about me: I can ???",
-    social: {
-      linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
-      email: "mailto:michael@example.com",
-    },
-  },
+  // {
+  //   name: "Henry Huynh",
+  //   role: "Co-Director of Marketing",
+  //   image: "/pictures/our-team/HenryHuynhMarketing.png",
+  //   bio: "Hey everyone! I’m Henry Huynh, a junior majoring in Finance at UIC. I joined TEDx in the fall of 2024 because it felt like the perfect place to explore new ideas, challenge perspectives, spark innovation, and engage in meaningful conversations—all of which I’m thrilled to be a part of! For this year’s symposium, I’m eager to listen, learn, and be inspired by our incredible speakers and their powerful stories. It’s an honor to be part of an amazing e-board filled with passionate individuals who are dedicated to bringing this event to life! Fun fact about me: I can ???",
+  //   social: {
+  //     linkedin: "https://linkedin.com",
+  //     twitter: "https://twitter.com",
+  //     email: "mailto:michael@example.com",
+  //   },
+  // },
   {
     name: "Abia Siddiqui",
     role: "Co-Director of Marketing",
@@ -148,7 +148,7 @@ export default function TeamPage() {
                 <h2 className="text-xl font-bold text-gray-900">{member.name}</h2>
                 <p className="text-sm font-medium text-red-600">{member.role}</p>
                 <p className="mt-4 text-gray-600">{member.bio}</p>
-                <div className="flex mt-4 space-x-4">
+                {/* <div className="flex mt-4 space-x-4">
                   <a
                     href={member.social.linkedin}
                     target="_blank"
@@ -171,7 +171,7 @@ export default function TeamPage() {
                     <Mail className="w-5 h-5" />
                     <span className="sr-only">Email</span>
                   </a>
-                </div>
+                </div> */}
               </div>
             </motion.div>
           ))}

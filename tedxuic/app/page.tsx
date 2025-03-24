@@ -4,7 +4,6 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Calendar, MapPin } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 
 export default function Home() {
@@ -128,6 +127,85 @@ export default function Home() {
           </motion.div>
 
           <div className="grid gap-8 mt-12 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Define an array of events */}
+            {[
+              {
+                id: 1,
+                title: "Comedy Night",
+                description: "A collection of talks exploring innovation, creativity, and the future of society.",
+                imageSrc: "/pictures/past-events/ComedyNightFeature.png",
+                link: "/past-events-symposiums",
+              },
+              {
+                id: 2,
+                title: "When TED met X",
+                description: "An event focused on breakthroughs in technology and the impact of change.",
+                imageSrc: "/pictures/past-events/WhenTedMetXFeature2.png",
+                link: "/past-events-symposiums",
+              },
+              {
+                id: 3,
+                title: "Voice Your Peace",
+                description: "Exploring creativity, diversity, and the role of art in shaping the future.",
+                imageSrc: "/pictures/past-events/VoiceYourPeaceFeature.png",
+                link: "/past-events-symposiums",
+              },
+            ].map((event) => (
+              <motion.div
+                key={event.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: event.id * 0.1 }}
+                viewport={{ once: true }}
+                className="overflow-hidden bg-white rounded-lg shadow-md"
+              >
+                <div className="relative h-60">
+                  <Image
+                    src={event.imageSrc}
+                    alt={`Past TEDxUIC Event ${event.id}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900">{event.title}</h3>
+                  <p className="mt-2 text-gray-600">{event.description}</p>
+                  <Link
+                    href={event.link}
+                    className="inline-flex items-center mt-4 text-sm font-medium text-red-600 hover:text-red-800"
+                  >
+                    View Event <ArrowRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button asChild variant="outline">
+              <Link href="/past-events">View All Past Events</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Old dynamic mapping implementation */}
+      {/* <section className="py-20 bg-gray-50">
+        <div className="container px-4 mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Past Events</h2>
+            <p className="max-w-2xl mx-auto mt-4 text-gray-600">
+              Explore our previous TEDxUofIChicago events and the ideas that were shared.
+            </p>
+          </motion.div>
+
+          <div className="grid gap-8 mt-12 sm:grid-cols-2 lg:grid-cols-3">
             {[1, 2, 3].map((i) => (
               <motion.div
                 key={i}
@@ -167,7 +245,7 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* About TEDx Section */}
       <section className="py-20 bg-white">
@@ -191,6 +269,7 @@ export default function Home() {
                 the brightest minds to share ideas worth spreading.
               </p>
               <div className="mt-8">
+                {/* Check usage of this styling in other parts of this page */}
                 <Button asChild variant="outline">
                   <Link href="/about">Learn More About Us</Link>
                 </Button>
@@ -204,7 +283,7 @@ export default function Home() {
               className="relative overflow-hidden rounded-lg aspect-video"
             >
               <Image
-                src="/placeholder.svg?height=720&width=1280&text=About%20TEDx"
+                src="/pictures/about/VYP-group-pic.png"
                 alt="About TEDx"
                 fill
                 className="object-cover"

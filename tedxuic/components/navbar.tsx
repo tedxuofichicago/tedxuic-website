@@ -14,7 +14,7 @@ const navItems = [
   { name: "Our Team", href: "/team" },
   // { name: "Past Events", href: "/past-events" },
   { name: "Upcoming Events", href: "/upcoming-events" },
-  { name: "Past Events & Symposiums", href: "/symposiums" },
+  { name: "Past Events & Symposiums", href: "/past-events-symposiums" },
   { name: "Contact Us", href: "/contact" },
 ]
 
