@@ -131,7 +131,7 @@ export default function Home() {
             {[
               {
                 id: 1,
-                title: "Comedy Night",
+                title: "TEDxUofIChicago 2024: Comedy Night",
                 description: "A collection of talks exploring innovation, creativity, and the future of society.",
                 imageSrc: "/pictures/past-events/ComedyNightFeature.png",
                 link: "/past-events-symposiums",
@@ -145,7 +145,7 @@ export default function Home() {
               },
               {
                 id: 3,
-                title: "Voice Your Peace",
+                title: "TEDxUofIChicago 2023: Voice Your Peace",
                 description: "Exploring creativity, diversity, and the role of art in shaping the future.",
                 imageSrc: "/pictures/past-events/VoiceYourPeaceFeature.png",
                 link: "/past-events-symposiums",
@@ -311,7 +311,7 @@ export default function Home() {
               <Button asChild size="lg" className="bg-white text-red-600 hover:bg-gray-100">
                 <Link href="/contact">Contact Us</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-red-600 border-white hover:bg-white/10">
+              <Button asChild size="lg" className="bg-white text-red-600 hover:bg-gray-100">
                 <Link href="/upcoming-events">Upcoming Events</Link>
               </Button>
             </div>

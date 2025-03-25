@@ -11,7 +11,7 @@ import { Separator } from "@/components/ui/separator"
 const pastEvents = [
   {
     id: "comedy-night",
-    title: "Comedy Night",
+    title: "TEDxUofIChicago 2024: Comedy Night",
     date: "November 21, 2024",
     location: "UIC Student Center East",
     image: "/pictures/past-events/ComedyNightFeature.png",
@@ -26,7 +26,7 @@ const pastEvents = [
   },
   {
     id: "voice-your-peace",
-    title: "Voice Your Peace",
+    title: "TEDxUofIChicago 2023: Voice Your Peace",
     date: "November 28, 2023",
     location: "UIC Student Center East",
     image: "/pictures/past-events/VoiceYourPeaceFeature.png",
@@ -43,12 +43,12 @@ const pastEvents = [
 const symposiums = [
   {
     id: "when-ted-met-x",
-    title: "When TED met X",
+    title: "When TED met X: Unveiling the X-Factor",
     date: "April 8, 2024",
     location: "James J. Stukel Towers",
     image: "/pictures/past-events/WhenTedMetXFeature2.png",
     description:
-      "A focused symposium exploring innovations in healthcare technology, policy, and practice. Join healthcare professionals, researchers, and innovators for a day of insightful discussions and networking.",
+      "A symposium that featured 7 diverse speakers sharing their journey on how they met their passions worth sharing.",
     topics: [
       "AI in Medical Diagnostics",
       "Telemedicine and Remote Patient Monitoring",
