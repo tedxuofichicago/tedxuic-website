@@ -10,8 +10,8 @@ import { Analytics } from "@vercel/analytics/react"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "TEDxUIC - Ideas Worth Spreading",
-  description: "TEDxUIC is an independently organized TED event at the University of Illinois Chicago.",
+  title: "TEDxUofIChicago - Ideas Worth Spreading",
+  description: "TEDxUofIChicago is an independently organized TED event at the University of Illinois Chicago.",
 }
 
 export default function RootLayout({
