@@ -1,3 +1,4 @@
+// Figure out styling of the paragraphs, Section Titles, etc, import ShadCN typography
 "use client"
 
 import { motion } from "framer-motion"
