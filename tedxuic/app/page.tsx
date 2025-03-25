@@ -85,7 +85,7 @@ export default function Home() {
             >
               <h3 className="text-2xl font-bold text-gray-900">TEDxUofIChicago 2025: MetamorphoXis</h3>
               <p className="mt-4 text-gray-600">
-                A journey of relearning, regrowing, and resilience - this year's 
+                A journey of relearning, regrowing, and resilience - this year&apos;s 
                 event will explore the profound transformations that shape individuals, communities, and the world.
               </p>
               <div className="flex flex-col gap-4 mt-6 sm:flex-row">

@@ -56,7 +56,7 @@ export default function AboutPage() {
             <p>
               TED is a nonprofit organization devoted to Ideas Worth Spreading. Started as a four-day conference in
               California 30 years ago, TED has grown to support its mission with multiple initiatives. The two annual
-              TED Conferences invite the world's leading thinkers and doers to speak for 18 minutes or less. Many of
+              TED Conferences invite the world&apos;s leading thinkers and doers to speak for 18 minutes or less. Many of
               these talks are then made available, free, at TED.com. TED speakers have included Bill Gates, Jane
               Goodall, Elizabeth Gilbert, Sir Richard Branson, Nandan Nilekani, Philippe Starck, Ngozi Okonjo-Iweala,
               Sal Khan and Daniel Kahneman.

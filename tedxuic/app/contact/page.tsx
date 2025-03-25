@@ -48,7 +48,7 @@ export default function ContactPage() {
 
       toast({
         title: "Message sent!",
-        description: "We'll get back to you as soon as possible.",
+        description: "We&apos;ll get back to you as soon as possible.",
       })
 
       // Reset form
@@ -57,7 +57,7 @@ export default function ContactPage() {
       console.error("Error submitting form:", error)
       toast({
         title: "Something went wrong.",
-        description: "Your message couldn't be sent. Please try again.",
+        description: "Your message couldn&apos;t be sent. Please try again.",
         variant: "destructive",
       })
     } finally {
@@ -76,7 +76,7 @@ export default function ContactPage() {
         >
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><span className="text-red-600">Contact </span>Us</h1>
           <p className="mt-4 text-lg text-gray-600">
-            Have questions or want to get involved with <span className="text-red-600">TEDx</span>UofIChicago? We'd love to hear from you!
+            Have questions or want to get involved with <span className="text-red-600">TEDx</span>UofIChicago? We&apos;d love to hear from you!
           </p>
         </motion.div>
 
@@ -88,7 +88,7 @@ export default function ContactPage() {
           >
             <h2 className="text-xl font-semibold text-gray-900">Get In Touch</h2>
             <p className="mt-4 text-gray-600">
-              Whether you're interested in attending our events, becoming a speaker, or joining our team, we're here to
+              Whether you&apos;re interested in attending our events, becoming a speaker, or joining our team, we&apos;re here to
               help.
             </p>
 

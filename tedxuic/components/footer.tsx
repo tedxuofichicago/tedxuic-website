@@ -2,7 +2,8 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react"
+// Twitter
+import { Facebook, Instagram, Youtube } from "lucide-react"
 import { TypeAnimation } from "react-type-animation"
 
 export function Footer() {

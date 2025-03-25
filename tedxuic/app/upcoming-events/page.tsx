@@ -3,7 +3,8 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Calendar, Clock, MapPin } from "lucide-react"
+// ArrowRight
+import { Calendar, Clock, MapPin } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
