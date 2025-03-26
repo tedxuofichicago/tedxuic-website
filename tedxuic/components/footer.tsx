@@ -137,7 +137,7 @@ export function Footer() {
               deletionSpeed={65}
               repeat={Number.POSITIVE_INFINITY}
               cursor={true}
-              className="text-red-400 font-medium ml-1"
+              className="text-red-600 font-medium ml-1"
             />
           </div>
         </div>
