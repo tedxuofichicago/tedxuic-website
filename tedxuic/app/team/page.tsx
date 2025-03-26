@@ -107,7 +107,7 @@ const teamMembers = [
   {
     name: "Shashank Chenna",
     role: "Webmaster",
-    image: "/pictures/our-team/ShashankChennaWebmaster_OLD.jpg",
+    image: "/pictures/our-team/ShashankChennaWebmaster.png",
     bio: "Shashank is a second-year Computer Engineering major. He joined TEDxUofIChicago this semester because of his appreciation for the diverse range of topics featured on the TED platform, and his desire to help bring those ideas to the UIC community. At this year’s conference, he is particularly excited to hear from a variety of engaging speakers. A fun fact about Shashank is that he practiced karate for approximately 10 years before starting college!",
     social: {
       linkedin: "https://linkedin.com",
