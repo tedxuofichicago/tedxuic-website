@@ -18,12 +18,12 @@ const pastEvents = [
     location: "UIC Student Center East",
     image: "/pictures/past-events/ComedyNightFeature.png",
     description:
-      "A focused symposium exploring innovations in healthcare technology, policy, and practice. Join healthcare professionals, researchers, and innovators for a day of insightful discussions and networking.",
+      "TEDxUofIChicago hosted a Comedy Night themed fundraiser event to hear some laughter through the tears of exams, student org events, pre-professisonal life, work and so on.",
     topics: [
-      "AI in Medical Diagnostics",
-      "Telemedicine and Remote Patient Monitoring",
-      "Health Equity and Access",
-      "Future of Medical Education",
+      "Featured incredible Chicago comedian Ben Noble!",
+      "Included an open stage for all UIC students & student organizations to show off their improv skills and comedy sketches",
+      "Had a performance by Red Light School District, UIC's student-run improv troupe",
+      "Portion of the proceeds went to Sparkathon, an organization that raises funds for the patients at the Children’s Cancer unit in our UI Health hospital",
     ], 
   },
   {
@@ -33,12 +33,12 @@ const pastEvents = [
     location: "UIC Student Center East",
     image: "/pictures/past-events/VoiceYourPeaceFeature.png",
     description:
-      "A focused symposium exploring innovations in healthcare technology, policy, and practice. Join healthcare professionals, researchers, and innovators for a day of insightful discussions and networking.",
+      "Voice Your Peace was TEDxUofIChicago's inaugural Open Mic Night with UIC's Honors College Advisory Board.",
     topics: [
-      "AI in Medical Diagnostics",
-      "Telemedicine and Remote Patient Monitoring",
-      "Health Equity and Access",
-      "Future of Medical Education",
+      "An enchanting exhibition of student talent and unforgettable moments",
+      "Featured many students of different backgrounds who performed a variety of spoken word",
+      "Was a space for people to come and express themselves and their emotions about different social justice issues",
+      "Included pieces on current events, racism, bullying, and more",
     ], 
   },
 ]
@@ -47,15 +47,15 @@ const symposiums = [
     id: "when-ted-met-x",
     title: "When TED met X: Unveiling the X-Factor",
     date: "April 8, 2024",
-    location: "James J. Stukel Towers",
+    location: "James J. Stukel Towers Event Center",
     image: "/pictures/past-events/WhenTedMetXFeature2.png",
     description:
-      "A symposium that featured 7 diverse speakers sharing their journey on how they met their passions worth sharing.",
+      "When TED met X: Unveiling the X-Factor was UIC’s very own live TED Talk that featured 7 renowned speakers sharing their life stories on how they discovered their defining X factors within their stories — leading them to excelling in their life’s work and finding their passions.",
     topics: [
-      "AI in Medical Diagnostics",
-      "Telemedicine and Remote Patient Monitoring",
-      "Health Equity and Access",
-      "Future of Medical Education",
+      "Included a performance by Downtown Voices, UIC's premier a cappella group",
+      "Brandon Morio Ishikata – Award-winning educator, professional dancer, and advocate for Asian American voices",
+      "Julie Jancius – Best-selling author, host of a top #5 global spiritual podcast, and expert on intuition and happiness",
+      "Also welcomed Dr. Shaniqua Jones (Restorative Justice expert), Dr. Renee Matthews (\"Ask Dr. Renee\" health advocate), Marva Bailer (Tech and AI leader), Elizabeth (AI-Humanist thought leader), and Olga V. Mack (Legal Tech Innovator)",
     ],
   },
 ]
@@ -73,7 +73,7 @@ export default function SymposiumsPage() {
         >
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><span className="text-red-600">Past </span>Events</h1>
           <p className="mt-4 text-lg text-gray-600">
-            Focused events that dive deep into specific topics and foster meaningful discussions.
+            Explore our previous <span className="text-red-600">TEDx</span>UofIChicago events and the ideas that were shared.
           </p>
         </motion.div>
 
@@ -110,7 +110,7 @@ export default function SymposiumsPage() {
                   <p className="mt-4 text-gray-600">{event.description}</p>
 
                   <div className="mt-6">
-                    <h3 className="text-lg font-semibold text-gray-900">Key Topics</h3>
+                    {/* <h3 className="text-lg font-semibold text-gray-900">Key Topics</h3> */}
                     <ul className="mt-2 space-y-1">
                       {event.topics.map((topic) => (
                         <li key={topic} className="flex items-start">
@@ -183,7 +183,7 @@ export default function SymposiumsPage() {
                   <p className="mt-4 text-gray-600">{symposium.description}</p>
 
                   <div className="mt-6">
-                    <h3 className="text-lg font-semibold text-gray-900">Key Topics</h3>
+                    {/* <h3 className="text-lg font-semibold text-gray-900">Key Topics</h3> */}
                     <ul className="mt-2 space-y-1">
                       {symposium.topics.map((topic) => (
                         <li key={topic} className="flex items-start">
