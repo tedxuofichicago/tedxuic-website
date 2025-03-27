@@ -29,7 +29,7 @@ export function Navbar() {
             <span className="text-red-600">TEDx</span>UofIChicago
           </span>
         </Link> */}
-        <Link href="" className="flex items-center">
+        <Link href="/" className="flex items-center">
           {/* Replace text logo with image logo */}
           <Image src="/pictures/logos/tedx-logo-black.png" alt="TEDxUofIChicago Logo" width={120} height={40} className="h-10 w-auto" priority />
         </Link>
