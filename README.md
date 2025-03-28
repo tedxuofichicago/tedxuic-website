@@ -1,4 +1,5 @@
-# TEDxUofIChicago
+# TEDxUofIChicago Website
+A new version of the website built from scratch
 <!--This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
