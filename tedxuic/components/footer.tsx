@@ -116,7 +116,7 @@ export function Footer() {
         {/* Replace copyright with typewriter effect */}
         <div className="pt-8 mt-8 border-t border-gray-800 text-center">
           <div className="inline-flex items-center justify-center text-sm text-gray-300">
-            <span>Built by TEDxUofIChicago with </span>
+            <span>TEDxUofIChicago is made possible with </span>
             <TypeAnimation
               sequence={[
                 "passion",
