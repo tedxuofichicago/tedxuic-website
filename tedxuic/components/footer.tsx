@@ -119,7 +119,7 @@ export function Footer() {
             <span>TEDxUofIChicago is made possible with </span>
             <TypeAnimation
               sequence={[
-                "Nazra's ???",
+                "Nazra's leadership",
                 2000,
                 "Cieona's late night library sessions",
                 2000,
