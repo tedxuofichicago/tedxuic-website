@@ -116,21 +116,29 @@ export function Footer() {
         {/* Replace copyright with typewriter effect */}
         <div className="pt-8 mt-8 border-t border-gray-800 text-center">
           <div className="inline-flex items-center justify-center text-sm text-gray-300">
-            <span>Built by TEDxUofIChicago with </span>
+            <span>TEDxUofIChicago is made possible with </span>
             <TypeAnimation
               sequence={[
-                "passion",
+                "Nazra's leadership",
                 2000,
-                "creativity",
+                "Cieona's late night library sessions",
                 2000,
-                "innovation",
+                "Bhavya's ten hour walks",
                 2000,
-                "dedication",
+                "Malyika's curated chaos",
                 2000,
-                "inspiration",
+                "Sabrina's digital camera",
                 2000,
-                "❤️",
+                "Iliya's cooking skills",
                 2000,
+                "Abia's Canva paintbrush",
+                2000,
+                "Eddie's Roblox account",
+                2000,
+                "Shashank's embezzlement skills",
+                2000,
+                // "❤️",
+                // 2000,
               ]}
               wrapper="span"
               speed={50}
