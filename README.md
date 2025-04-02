@@ -3,7 +3,6 @@ A new version of the website built from scratch
 
 Task List
 - Create components for cleaner code
-- Add applications page (Maybe a button that goes to LinkTree?)
 - Work on dark mode
 - Consider using database for pics
 - Look up SEO improvements
