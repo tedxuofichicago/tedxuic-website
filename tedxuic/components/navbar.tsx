@@ -12,7 +12,7 @@ const navItems = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Our Team", href: "/team" },
-  // { name: "Past Events", href: "/past-events" },
+  // { name: "Past Events", href: "/past-events" }, This page was combined with symposiums, not in use, but can look at for code
   { name: "Upcoming Events", href: "/upcoming-events" },
   { name: "Past Events & Symposiums", href: "/past-events-symposiums" },
   { name: "LinkTree", href: "https://linktr.ee/tedxuofichicago"},
