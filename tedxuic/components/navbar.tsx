@@ -8,6 +8,7 @@ import { Menu, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
+// Try out filled backgrounds for page user is currently on
 const navItems = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
