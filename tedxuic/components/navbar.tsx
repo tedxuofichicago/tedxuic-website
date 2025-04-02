@@ -15,6 +15,7 @@ const navItems = [
   // { name: "Past Events", href: "/past-events" },
   { name: "Upcoming Events", href: "/upcoming-events" },
   { name: "Past Events & Symposiums", href: "/past-events-symposiums" },
+  { name: "LinkTree", href: "https://linktr.ee/tedxuofichicago"},
   { name: "Contact Us", href: "/contact" },
 ]
 
