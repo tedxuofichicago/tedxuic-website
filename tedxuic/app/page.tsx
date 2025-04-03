@@ -120,7 +120,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Past Events</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Past Events & Symposiums</h2>
             <p className="max-w-2xl mx-auto mt-4 text-gray-600">
               Explore our previous TEDxUofIChicago events and the ideas that were shared.
             </p>
@@ -183,7 +183,7 @@ export default function Home() {
 
           <div className="mt-12 text-center">
             <Button asChild variant="outline">
-              <Link href="/past-events">View All Past Events</Link>
+              <Link href="/past-events">View All Past Events & Symposiums</Link>
             </Button>
           </div>
         </div>
@@ -258,7 +258,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="flex flex-col justify-center"
             >
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About TEDx</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About <span className="text-red-600">TEDx</span></h2>
               <p className="mt-6 text-gray-600">
                 TEDx is a program of local, self-organized events that bring people together to share a TED-like
                 experience. At a TEDx event, TED Talks video and live speakers combine to spark deep discussion and
