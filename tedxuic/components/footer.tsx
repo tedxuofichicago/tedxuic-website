@@ -25,7 +25,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} TEDxUofIChicago. All rights reserved. This is an independent TEDx event operated under license from TED at the University of Illinois Chicago.
           </p>
           </div>
-
+          
           <div>
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <ul className="mt-4 space-y-2">
@@ -40,13 +40,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/past-events" className="text-gray-400 hover:text-white">
-                  Past Events
+                <Link href="/upcoming-events" className="text-gray-400 hover:text-white">
+                  Upcoming Events
                 </Link>
               </li>
               <li>
-                <Link href="/upcoming-events" className="text-gray-400 hover:text-white">
-                  Upcoming Events
+                <Link href="/past-events-symposiums" className="text-gray-400 hover:text-white">
+                  Past Events & Symposiums
+                </Link>
+              </li>
+              <li>
+                <Link href="https://linktr.ee/tedxuofichicago" className="text-gray-400 hover:text-white">
+                  LinkTree
                 </Link>
               </li>
               <li>
