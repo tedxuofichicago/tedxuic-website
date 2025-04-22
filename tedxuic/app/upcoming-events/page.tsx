@@ -34,7 +34,7 @@ const featuredSpeakers = [
   {
     name: "Berthine Crèvecoeur West",
     role: "CEO of Westbridge Solutions",
-    image: "/pictures/our-team/NazraZafarPresident.png",
+    image: "/pictures/upcoming-events/metamorphisis-speakers/Berthine_Crèvecoeur_West.png",
     bio: "Berthine Crèvecoeur West, MA, EMBA, CDE® is a nationally recognized Strategist, Certified Diversity Executive®, Global Keynote Speaker, Author and CEO of Westbridge Solutions, a strategic advisory and management consulting firm dedicated to transforming complexity into clarity through strategic frameworks and leadership development. She is the creator of the PROI Framework™—a model that helps organizations align People, Policies, Practices, and Procedures to drive purpose-led growth. A first-generation American and lifelong advocate for equity and belonging, Berthine brings a powerful blend of cultural fluency, deep-focus strategy, and heart-centered leadership to every stage she steps on. Her work spans industries such as healthcare, education, government, and finance, where she advises enterprise leaders and builds scalable systems that generate lasting impact. Through her TEDx Talk, Berthine explores the intersection of identity and leadership, challenging audiences to reconsider the unseen power of names and the profound role they play in how we connect, communicate, and lead.",
     social: {
       linkedin: "https://linkedin.com",
@@ -45,7 +45,7 @@ const featuredSpeakers = [
   {
     name: "Bushra Amiwala",
     role: "Elected Official & Solutions Consultant @ Google",
-    image: "/pictures/our-team/CieonaKumpuckalVP.png",
+    image: "/pictures/upcoming-events/metamorphisis-speakers/Bushra_Amiwala.png",
     bio: "Bushra Amiwala is a trailblazing activist and the first Gen Z elected official in the U.S., serving on the Skokie Board of Education. Acclaimed by TIME and Glamour Magazine, she's a media figure featured in PBS, Hulu, and Amazon documentaries. Bushra Amiwala is known to empower youth through civic engagement, and was awarded the Women’s Champion Award sponsored by the United Nations, has graced the cover of TIME magazine, and was recognized on Forbes 30 under 30. Bushra is currently a Kellogg MBA candidate and Solutions Consultant at Google, and a dynamic speaker advocating for underrepresented voices, demonstrating exceptional leadership and resilience.",
     social: {
       linkedin: "https://linkedin.com",
@@ -56,7 +56,7 @@ const featuredSpeakers = [
   {
     name: "Brian Will",
     role: "Entrepreneur & WSJ Bestselling Author",
-    image: "/pictures/our-team/CieonaKumpuckalVP.png",
+    image: "/pictures/upcoming-events/metamorphisis-speakers/Brian_Will.jpg",
     bio: "Brian Will is a serial entrepreneur, two-time Wall Street Journal bestselling author, and a leading consultant in business and sales management. He has founded or co-founded ten companies across four industries, with combined valuations exceeding half a billion dollars. Today, he oversees a successful restaurant chain in Atlanta and a diverse real estate portfolio in Georgia and Florida. Brian also serves on the city council in his hometown of Alpharetta, Georgia.",
     social: {
       linkedin: "https://linkedin.com",
@@ -67,7 +67,7 @@ const featuredSpeakers = [
   {
     name: "Angela Burgess",
     role: "President & CEO of Broad Oaks Consulting",
-    image: "/pictures/our-team/CieonaKumpuckalVP.png",
+    image: "/pictures/upcoming-events/metamorphisis-speakers/Angela_Burgess.jpg",
     bio: "Angela Burgess is the President & CEO of Broad Oaks Consulting, a nonprofit consulting firm transforming the way organizations fundraise and lead. She is also the best-selling author of Are You on the Right Bus? Navigating Change on the Road to Success, a compelling memoir to making meaningful, measurable change—starting with yourself. Before founding Broad Oaks, Angela spent a decade in wealth management, helping financial advisors grow and scale their businesses. But her true calling emerged when she pivoted to the nonprofit sector, bringing the same strategic rigor to mission-driven work. As a consultant with frontline experience, Angela brings an insider’s perspective to the challenges nonprofit leaders face. Her experience goes beyond advising organizations—she’s worked in the trenches as a fundraiser and as an Executive Director. She has transformed nonprofits by increasing revenue, improving outcomes, and building stronger, more engaged boards. Her firsthand knowledge fuels her work today, helping mission-driven organizations unlock their potential and achieve breakthrough results. Angela brings real-world insight, results-driven strategies, and a dash of Iowa pragmatism to her work. Originally from Iowa City, she now lives in Houston, TX with her husband and their dog, Enzo. She’s an avid traveler, passionate cook, and never misses her daily workout.",
     social: {
       linkedin: "https://linkedin.com",
@@ -78,7 +78,7 @@ const featuredSpeakers = [
   {
     name: "Anna Juanita Jattkowski-Hudson",
     role: "Retired Educator & Alzheimer’s Advocate",
-    image: "/pictures/our-team/CieonaKumpuckalVP.png",
+    image: "/pictures/upcoming-events/metamorphisis-speakers/Anna_Jattkowski.jpeg",
     bio: "Anna Juanita Jattkowski-Hudson, M.A., Hon FTL, is a retired educator, dancer, and Alzheimer’s disease advocate. Over a 45 year career in education, she has served in various capacities as a university Registrar and college lecturer in dance both in the United States and the United Kingdom (UK). She was honored in the inaugural class receiving the Honorary Fellowship (the conservatoire’s highest honor) from her alma mater, Trinity Laban Conservatoire of Music and Dance, in London, UK, for her service to arts education and student success. A company member of Chicago’s Desueño Latin Footwork Team, Anna has performed at some of the city’s biggest stages including Taste of Chicago, Navy Pier’s Wave Wall Moves, and Chicago SummerDance. Her dance talents have extended to choreography where she was invited to perform at the 101st Miss America competition. Passionate about advocating for her late mother’s story, Anna is a designated eight year champion of the Alzheimer’s Association Walk to End Alzheimer’s in her alter ego as Rosie the Rex.",
     social: {
       linkedin: "https://linkedin.com",
@@ -89,7 +89,7 @@ const featuredSpeakers = [
   {
     name: "Josh Bandoch",
     role: "Persuasive Advocacy & Public Policy Strategist",
-    image: "/pictures/our-team/CieonaKumpuckalVP.png",
+    image: "/pictures/upcoming-events/metamorphisis-speakers/Joshua_Bandoch.jpg",
     bio: "Josh Bandoch works at the nexus of cutting-edge persuasive advocacy and rigorous public policy research. His book on persuasion is forthcoming in 2026. He has extensive experience advising senior leaders on their communications strategies. His policy advocacy centers on how to make the American Dream become reality for more of our neighbors. Central to that Dream is social mobility; and antithetical to it is poverty. We have too much of the latter, and not enough of the former. Josh is committed to turning that around.",
     social: {
       linkedin: "https://linkedin.com",
@@ -100,7 +100,7 @@ const featuredSpeakers = [
   {
     name: "Erica Bauer",
     role: "Health Communication Expert & Equity Strategist",
-    image: "/pictures/our-team/CieonaKumpuckalVP.png",
+    image: "/pictures/upcoming-events/metamorphisis-speakers/Erica_Bauer.jpg",
     bio: "Erica is a health communication expert and equity strategist who has spent her career turning data into actionable insights that drive systemic change. Across academia, health care, education, and even professional sports, her work has always centered one powerful principle: community voice must lead the way. She’s held roles most dream of—including Director of Community Engagement for the Chicago Bulls, where she used the platform of basketball to invest in disinvested communities through strategic partnerships, alumni engagement, and high-impact programming. Before that, she spent seven years in Chicago Public Schools designing student-centered, equity-driven systems that reshaped enrollment, achievement, and support services. Her research roots run deep—she completed a postdoctoral fellowship in health services at the VA, studying how to improve care for veterans with complex chronic conditions. But Erica is also a storyteller at heart. She writes and performs children’s music about Black women who changed the world—because she believes every child deserves more Harriet Tubman and less Yankee Doodle. Whether she’s on a stage, in a classroom, at a board table, or behind the mic—Erica’s work is rooted in making complex information accessible, actionable, and deeply human. She is regularly invited to deliver keynotes, lead workshops, and serve on panels focused on DEI, equitable systems design, and strategic transformation. Erica earned her PhD in Communication Studies (Health Communication) from the University of Illinois at Urbana-Champaign, and both her BA and MA in Communication from the University of Dayton. At her core, Erica is committed to expanding access, honoring lived experience, and building a world where every voice matters—especially the ones we don’t hear enough.",
     social: {
       linkedin: "https://linkedin.com",
@@ -214,7 +214,7 @@ export default function UpcomingEventsPage() {
             className="max-w-3xl mx-auto text-center"
           >
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><span className="text-red-600">Featured </span>Speakers</h1>
-            <p className="mt-4 text-lg text-gray-600">Learn about the individuals speaking at this upcoming <span className="text-red-600">TEDx</span>UofIChicago event.</p>
+            <p className="mt-4 text-lg text-gray-600">Learn about the individuals who will share their ideas at this <span className="text-red-600">TEDx</span>UofIChicago event.</p>
           </motion.div>
   
           <div className="grid gap-8 mt-16 sm:grid-cols-2 lg:grid-cols-3">
