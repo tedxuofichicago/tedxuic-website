@@ -6,6 +6,7 @@ Task List
 - Work on dark mode
 - Consider using database for pics
 - Look up SEO improvements
+- Remove Upcoming Event or Transfer to Past
 
 <!--This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
