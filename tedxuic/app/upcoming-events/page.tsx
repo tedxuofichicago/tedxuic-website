@@ -20,10 +20,10 @@ const upcomingEvents = [
     description:
       "A journey of relearning, regrowing, and resilience - this year's event will explore the profound transformations that shape individuals, communities, and the world.",
     speakers: [
-      { name: "Will be announced soon!", topic: "Stay tuned!" },
+      { name: "Learn about the", topic: "speakers below!" },
     ],
     registration: {
-      isOpen: true,
+      isOpen: false,
       url: "https://www.eventbrite.com/e/tedxuofichicago-metamorphoxis-tickets-1284814577989?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl",
       deadline: "April 1, 2025",
     },
@@ -162,7 +162,7 @@ export default function UpcomingEventsPage() {
                   <ul className="mt-2 space-y-2">
                     {event.speakers.map((speaker) => (
                       <li key={speaker.name} className="text-gray-600">
-                        <span className="font-medium">{speaker.name}</span> - {speaker.topic}
+                        <span className="font-medium">{speaker.name}</span> {speaker.topic}
                       </li>
                     ))}
                   </ul>
@@ -173,7 +173,7 @@ export default function UpcomingEventsPage() {
                   <p className="mt-2 text-gray-600">
                     {event.registration.isOpen
                       ? `Registration is open until ${event.registration.deadline}.`
-                      : event.registration.deadline}
+                      : `Thank you for attending!`}
                   </p>
                   <div className="mt-4">
                     <Button
@@ -186,7 +186,7 @@ export default function UpcomingEventsPage() {
                       disabled={!event.registration.isOpen}
                     >
                       <Link href={event.registration.url} target="_blank" rel="noopener noreferrer">
-                        {event.registration.isOpen ? "Register Now" : "Registration Coming Soon"}
+                        {event.registration.isOpen ? "Register Now" : "Registration is now closed"}
                       </Link>
                     </Button>
                   </div>

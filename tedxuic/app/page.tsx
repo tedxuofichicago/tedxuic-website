@@ -52,9 +52,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="flex flex-col items-center"
           >
-            <span className="px-3 py-1 text-sm font-medium text-white rounded-full bg-red-600">Coming Soon</span>
+            <span className="px-3 py-1 text-sm font-medium text-white rounded-full bg-red-600">Spring 2025</span>
             <h2 className="mt-6 text-3xl font-bold tracking-tight text-center text-gray-900 sm:text-4xl">
-              Our Next Event
+              Our Most Recent Event
             </h2>
             <p className="max-w-2xl mt-4 text-center text-gray-600">
               Join us for an inspiring evening of ideas, innovation, and conversation.
