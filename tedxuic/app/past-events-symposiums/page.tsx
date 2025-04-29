@@ -10,6 +10,8 @@ import { Calendar, MapPin } from "lucide-react"
 // import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 
+import EventCard from "@/components/ui/event-card"
+
 const pastEvents = [
   {
     id: "comedy-night",
@@ -60,6 +62,158 @@ const symposiums = [
   },
 ]
 
+// export default function SymposiumsPage() {
+//   return (
+//     <div className="pt-16">
+//       {/* Past Events */}
+//       <div className="container px-4 py-16 mx-auto">
+//         <motion.div
+//           initial={{ opacity: 0, y: 20 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.5 }}
+//           className="max-w-3xl mx-auto text-center"
+//         >
+//           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><span className="text-red-600">Past </span>Events</h1>
+//           <p className="mt-4 text-lg text-gray-600">
+//             Explore our previous <span className="text-red-600">TEDx</span>UofIChicago events and the ideas that were shared.
+//           </p>
+//         </motion.div>
+
+//         <div className="mt-16 space-y-16">
+//           {pastEvents.map((event, index) => (
+//             <motion.div
+//               key={event.id}
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.5, delay: index * 0.1 }}
+//               className="overflow-hidden bg-white rounded-lg shadow-lg"
+//             >
+//               <div className="grid md:grid-cols-2">
+//                 <div className="relative h-64 md:h-full">
+//                   <Image
+//                     src={event.image || "/placeholder.svg"}
+//                     alt={event.title}
+//                     fill
+//                     className="object-cover"
+//                   />
+//                 </div>
+//                 <div className="p-6">
+//                   <h2 className="text-2xl font-bold text-gray-900">{event.title}</h2>
+//                   <div className="flex flex-col gap-2 mt-4 sm:flex-row">
+//                     <div className="flex items-center">
+//                       <Calendar className="w-5 h-5 mr-2 text-red-600" />
+//                       <span className="text-gray-700">{event.date}</span>
+//                     </div>
+//                     <div className="flex items-center">
+//                       <MapPin className="w-5 h-5 mr-2 text-red-600" />
+//                       <span className="text-gray-700">{event.location}</span>
+//                     </div>
+//                   </div>
+//                   <p className="mt-4 text-gray-600">{event.description}</p>
+
+//                   <div className="mt-6">
+//                     {/* <h3 className="text-lg font-semibold text-gray-900">Key Topics</h3> */}
+//                     <ul className="mt-2 space-y-1">
+//                       {event.topics.map((topic) => (
+//                         <li key={topic} className="flex items-start">
+//                           <span className="mr-2 text-red-600">•</span>
+//                           <span className="text-gray-600">{topic}</span>
+//                         </li>
+//                       ))}
+//                     </ul>
+//                   </div>
+
+//                   {/* Will decide later if dedicated page for event is needed
+//                   <div className="mt-8">
+//                     <Button asChild className="bg-red-600 hover:bg-red-700">
+//                       <Link href={`/symposiums/${event.id}`}>
+//                         Learn More <ArrowRight className="w-4 h-4 ml-2" />
+//                       </Link>
+//                     </Button>
+//                   </div> */}
+//                 </div>
+//               </div>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </div>
+//       <Separator className="w-full max-w-screen-xl mx-auto my-4 border-t-2"/>
+//       {/* Symposiums */}
+//       <div className="container px-4 py-16 mx-auto">
+//         <motion.div
+//           initial={{ opacity: 0, y: 20 }}
+//           animate={{ opacity: 1, y: 0 }}
+//           transition={{ duration: 0.5 }}
+//           className="max-w-3xl mx-auto text-center"
+//         >
+//           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><span className="text-red-600">Past </span>Symposiums</h1>
+//           <p className="mt-4 text-lg text-gray-600">
+//             Focused events that dive deep into specific topics and foster meaningful discussions.
+//           </p>
+//         </motion.div>
+
+//         <div className="mt-16 space-y-16">
+//           {symposiums.map((symposium, index) => (
+//             <motion.div
+//               key={symposium.id}
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               transition={{ duration: 0.5, delay: index * 0.1 }}
+//               className="overflow-hidden bg-white rounded-lg shadow-lg"
+//             >
+//               <div className="grid md:grid-cols-2">
+//                 <div className="relative h-64 md:h-full">
+//                   <Image
+//                     src={symposium.image || "/placeholder.svg"}
+//                     alt={symposium.title}
+//                     fill
+//                     className="object-cover"
+//                   />
+//                 </div>
+//                 <div className="p-6">
+//                   <h2 className="text-2xl font-bold text-gray-900">{symposium.title}</h2>
+//                   <div className="flex flex-col gap-2 mt-4 sm:flex-row">
+//                     <div className="flex items-center">
+//                       <Calendar className="w-5 h-5 mr-2 text-red-600" />
+//                       <span className="text-gray-700">{symposium.date}</span>
+//                     </div>
+//                     <div className="flex items-center">
+//                       <MapPin className="w-5 h-5 mr-2 text-red-600" />
+//                       <span className="text-gray-700">{symposium.location}</span>
+//                     </div>
+//                   </div>
+//                   <p className="mt-4 text-gray-600">{symposium.description}</p>
+
+//                   <div className="mt-6">
+//                     {/* <h3 className="text-lg font-semibold text-gray-900">Key Topics</h3> */}
+//                     <ul className="mt-2 space-y-1">
+//                       {symposium.topics.map((topic) => (
+//                         <li key={topic} className="flex items-start">
+//                           <span className="mr-2 text-red-600">•</span>
+//                           <span className="text-gray-600">{topic}</span>
+//                         </li>
+//                       ))}
+//                     </ul>
+//                   </div>
+
+//                   {/* Will decide later if dedicated page for event is needed
+//                   <div className="mt-8">
+//                     <Button asChild className="bg-red-600 hover:bg-red-700">
+//                       <Link href={`/symposiums/${symposium.id}`}>
+//                         Learn More <ArrowRight className="w-4 h-4 ml-2" />
+//                       </Link>
+//                     </Button>
+//                   </div> */}
+//                 </div>
+//               </div>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
 export default function SymposiumsPage() {
   return (
     <div className="pt-16">
@@ -71,7 +225,9 @@ export default function SymposiumsPage() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><span className="text-red-600">Past </span>Events</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <span className="text-red-600">Past </span>Events
+          </h1>
           <p className="mt-4 text-lg text-gray-600">
             Explore our previous <span className="text-red-600">TEDx</span>UofIChicago events and the ideas that were shared.
           </p>
@@ -79,63 +235,11 @@ export default function SymposiumsPage() {
 
         <div className="mt-16 space-y-16">
           {pastEvents.map((event, index) => (
-            <motion.div
-              key={event.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="overflow-hidden bg-white rounded-lg shadow-lg"
-            >
-              <div className="grid md:grid-cols-2">
-                <div className="relative h-64 md:h-full">
-                  <Image
-                    src={event.image || "/placeholder.svg"}
-                    alt={event.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h2 className="text-2xl font-bold text-gray-900">{event.title}</h2>
-                  <div className="flex flex-col gap-2 mt-4 sm:flex-row">
-                    <div className="flex items-center">
-                      <Calendar className="w-5 h-5 mr-2 text-red-600" />
-                      <span className="text-gray-700">{event.date}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <MapPin className="w-5 h-5 mr-2 text-red-600" />
-                      <span className="text-gray-700">{event.location}</span>
-                    </div>
-                  </div>
-                  <p className="mt-4 text-gray-600">{event.description}</p>
-
-                  <div className="mt-6">
-                    {/* <h3 className="text-lg font-semibold text-gray-900">Key Topics</h3> */}
-                    <ul className="mt-2 space-y-1">
-                      {event.topics.map((topic) => (
-                        <li key={topic} className="flex items-start">
-                          <span className="mr-2 text-red-600">•</span>
-                          <span className="text-gray-600">{topic}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Will decide later if dedicated page for event is needed
-                  <div className="mt-8">
-                    <Button asChild className="bg-red-600 hover:bg-red-700">
-                      <Link href={`/symposiums/${event.id}`}>
-                        Learn More <ArrowRight className="w-4 h-4 ml-2" />
-                      </Link>
-                    </Button>
-                  </div> */}
-                </div>
-              </div>
-            </motion.div>
+            <EventCard key={event.id} {...event} delay={index * 0.1} />
           ))}
         </div>
       </div>
-      <Separator className="w-full max-w-screen-xl mx-auto my-4 border-t-2"/>
+      <Separator className="w-full max-w-screen-xl mx-auto my-4 border-t-2" />
       {/* Symposiums */}
       <div className="container px-4 py-16 mx-auto">
         <motion.div
@@ -144,7 +248,9 @@ export default function SymposiumsPage() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"><span className="text-red-600">Past </span>Symposiums</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            <span className="text-red-600">Past </span>Symposiums
+          </h1>
           <p className="mt-4 text-lg text-gray-600">
             Focused events that dive deep into specific topics and foster meaningful discussions.
           </p>
@@ -152,63 +258,10 @@ export default function SymposiumsPage() {
 
         <div className="mt-16 space-y-16">
           {symposiums.map((symposium, index) => (
-            <motion.div
-              key={symposium.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="overflow-hidden bg-white rounded-lg shadow-lg"
-            >
-              <div className="grid md:grid-cols-2">
-                <div className="relative h-64 md:h-full">
-                  <Image
-                    src={symposium.image || "/placeholder.svg"}
-                    alt={symposium.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h2 className="text-2xl font-bold text-gray-900">{symposium.title}</h2>
-                  <div className="flex flex-col gap-2 mt-4 sm:flex-row">
-                    <div className="flex items-center">
-                      <Calendar className="w-5 h-5 mr-2 text-red-600" />
-                      <span className="text-gray-700">{symposium.date}</span>
-                    </div>
-                    <div className="flex items-center">
-                      <MapPin className="w-5 h-5 mr-2 text-red-600" />
-                      <span className="text-gray-700">{symposium.location}</span>
-                    </div>
-                  </div>
-                  <p className="mt-4 text-gray-600">{symposium.description}</p>
-
-                  <div className="mt-6">
-                    {/* <h3 className="text-lg font-semibold text-gray-900">Key Topics</h3> */}
-                    <ul className="mt-2 space-y-1">
-                      {symposium.topics.map((topic) => (
-                        <li key={topic} className="flex items-start">
-                          <span className="mr-2 text-red-600">•</span>
-                          <span className="text-gray-600">{topic}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Will decide later if dedicated page for event is needed
-                  <div className="mt-8">
-                    <Button asChild className="bg-red-600 hover:bg-red-700">
-                      <Link href={`/symposiums/${symposium.id}`}>
-                        Learn More <ArrowRight className="w-4 h-4 ml-2" />
-                      </Link>
-                    </Button>
-                  </div> */}
-                </div>
-              </div>
-            </motion.div>
+            <EventCard key={symposium.id} {...symposium} delay={index * 0.1} />
           ))}
         </div>
       </div>
     </div>
   )
 }
-
