@@ -1,5 +1,5 @@
 # TEDxUofIChicago Website
-A new version of the website built from scratch: https://tedxuofichicago.vercel.app/
+A new version of the Wix website built from scratch: https://tedxuofichicago.vercel.app/
 
 Task List
 - Create components for cleaner code
