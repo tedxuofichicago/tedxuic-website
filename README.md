@@ -1,14 +1,14 @@
 # TEDxUofIChicago Website
 A new version of the Wix website built from scratch: https://tedxuofichicago.vercel.app/
 
-Task List
+<!--Task List
 - Create components for cleaner code
 - Work on dark mode
 - Consider using database for pics
 - Look up SEO improvements
 - Remove Upcoming Event or Transfer to Past
-Test New
-<!--This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
