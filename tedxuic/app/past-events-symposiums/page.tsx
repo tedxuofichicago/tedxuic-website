@@ -1,15 +1,6 @@
 "use client"
-
 import { motion } from "framer-motion"
-// import Image from "next/image"
-// import Link from "next/link"
-// ArrowRight
-// import { Calendar, MapPin } from "lucide-react"
-
-// Alternatively, prefix them with _ (e.g., _Button) if you plan to use them later.
-// import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-
 import EventCard from "@/components/ui/event-card"
 
 const pastEvents = [
