@@ -42,7 +42,7 @@ const teamMembers = [
     name: "Bhavya Vegesna",
     role: "Secretary",
     image: "/pictures/our-team/BhavyaVegesnaSecretary.png",
-    bio: "Bhavya is a second-year student majoring in Integrated Health Sciences. She joined TEDxUofIChicago because of her passion for the transformative power of storytelling. She believes that TEDx provides a platform not only for sharing powerful ideas but also for fostering connections that inspire positive change through diverse perspectives. For this year's conference, Bhavya is excited to hear the transformative stories that the speakers will share. A fun fact about her is that she has been dancing for 14 years!",
+    bio: "Bhavya is a third-year student majoring in Integrated Health Sciences. She joined TEDxUofIChicago because of her passion for the transformative power of storytelling. She believes that TEDx provides a platform not only for sharing powerful ideas but also for fostering connections that inspire positive change through diverse perspectives. For this year's conference, Bhavya is excited to hear the transformative stories that the speakers will share. A fun fact about her is that she has been dancing for 14 years!",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
@@ -53,7 +53,7 @@ const teamMembers = [
     name: "Sabrina Arshad",
     role: "Co-Director of Logistics",
     image: "/pictures/our-team/SabrinaArshadLogistics.png",
-    bio: "Sabrina is a second-year student majoring in Computer Engineering. She joined TEDxUofIChicago because of her passion for bringing events to life and sharing ideas with like-minded individuals. For this year’s conference, Sabrina is excited to meet interesting speakers and be a part of the inspiring exchange of ideas. A fun fact about her is that she is also an art teacher at Pinot’s Palette!",
+    bio: "Sabrina is a third-year student majoring in Computer Engineering. She joined TEDxUofIChicago because of her passion for bringing events to life and sharing ideas with like-minded individuals. For this year’s conference, Sabrina is excited to meet interesting speakers and be a part of the inspiring exchange of ideas. A fun fact about her is that she is also an art teacher at Pinot’s Palette!",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
@@ -64,7 +64,7 @@ const teamMembers = [
     name: "Iliya Rivkin",
     role: "Co-Director of Logistics",
     image: "/pictures/our-team/IliyaRivkinLogistics.png",
-    bio: "Iliya is a second-year student studying Biomedical Engineering with aspirations of becoming a physician. He serves as the Co-Director of Logistics alongside Sabrina. For this year’s conference, Iliya hopes to gain insights from the speakers on the experiences that catalyze growth and development. A fun fact about him is that he was the first member of his family to be born in the United States!",
+    bio: "Iliya is a third-year student studying Biomedical Engineering with aspirations of becoming a physician. He serves as the Co-Director of Logistics alongside Sabrina. For this year’s conference, Iliya hopes to gain insights from the speakers on the experiences that catalyze growth and development. A fun fact about him is that he was the first member of his family to be born in the United States!",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
