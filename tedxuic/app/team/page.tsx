@@ -16,28 +16,28 @@ const teamMembers = [
       email: "mailto:jane@example.com",
     },
   },
-  {
-    name: "Cieona Kumpuckal",
-    role: "Vice President",
-    image: "/pictures/our-team/CieonaKumpuckalVP.png",
-    bio: "Cieona is a senior majoring in Integrated Health Sciences. She joined TEDxUofIChicago because she believes in the power of lending a helping hand to make a positive impact on the world. She sees the organization as an opportunity to inspire and motivate UIC students to pursue their dreams and never lose sight of them. In addition to her involvement with TEDxUofIChicago, Cieona serves as the president of Thaakat at UIC and works as a CNA at a nursing home. Her family and friends are her primary support system, and she enjoys spending her free time with them, whether it’s shopping, thrifting, cooking, baking, eating, or exploring. When she has extra time, she enjoys reading a good book. Cieona’s goal for this year’s symposium is to bring a diverse group of speakers who can ensure that every student in the room feels heard and valued. A fun fact about Cieona is her love for a beautiful sunset!",
-    social: {
-      linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
-      email: "mailto:john@example.com",
-    },
-  },
-  {
-    name: "Malyika Hussain",
-    role: "Director of Fundraising/Sponsorships",
-    image: "/pictures/our-team/MalyikaHussainFundraising.png",
-    bio: "Malyika is a senior majoring in Finance and Accounting at UIC. She joined TEDxUofIChicago in 2024 because of her passion for being part of an organization that sparks new ideas and challenges perspectives. Malyika believes in the power of bringing people together to share stories that inspire meaningful change and is excited to contribute to making that happen. As Treasurer, her goal is to help create a well-funded, unforgettable conference where both speakers and attendees leave feeling energized. This year, Malyika is particularly looking forward to seeing fresh, bold ideas take the stage. A fun fact about her is her love for listening to music, and she even writes songs from time to time!",
-    social: {
-      linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
-      email: "mailto:sarah@example.com",
-    },
-  },
+  // {
+  //   name: "Cieona Kumpuckal",
+  //   role: "Vice President",
+  //   image: "/pictures/our-team/CieonaKumpuckalVP.png",
+  //   bio: "Cieona is a senior majoring in Integrated Health Sciences. She joined TEDxUofIChicago because she believes in the power of lending a helping hand to make a positive impact on the world. She sees the organization as an opportunity to inspire and motivate UIC students to pursue their dreams and never lose sight of them. In addition to her involvement with TEDxUofIChicago, Cieona serves as the president of Thaakat at UIC and works as a CNA at a nursing home. Her family and friends are her primary support system, and she enjoys spending her free time with them, whether it’s shopping, thrifting, cooking, baking, eating, or exploring. When she has extra time, she enjoys reading a good book. Cieona’s goal for this year’s symposium is to bring a diverse group of speakers who can ensure that every student in the room feels heard and valued. A fun fact about Cieona is her love for a beautiful sunset!",
+  //   social: {
+  //     linkedin: "https://linkedin.com",
+  //     twitter: "https://twitter.com",
+  //     email: "mailto:john@example.com",
+  //   },
+  // },
+  // {
+  //   name: "Malyika Hussain",
+  //   role: "Director of Fundraising/Sponsorships",
+  //   image: "/pictures/our-team/MalyikaHussainFundraising.png",
+  //   bio: "Malyika is a senior majoring in Finance and Accounting at UIC. She joined TEDxUofIChicago in 2024 because of her passion for being part of an organization that sparks new ideas and challenges perspectives. Malyika believes in the power of bringing people together to share stories that inspire meaningful change and is excited to contribute to making that happen. As Treasurer, her goal is to help create a well-funded, unforgettable conference where both speakers and attendees leave feeling energized. This year, Malyika is particularly looking forward to seeing fresh, bold ideas take the stage. A fun fact about her is her love for listening to music, and she even writes songs from time to time!",
+  //   social: {
+  //     linkedin: "https://linkedin.com",
+  //     twitter: "https://twitter.com",
+  //     email: "mailto:sarah@example.com",
+  //   },
+  // },
   {
     name: "Bhavya Vegesna",
     role: "Secretary",
@@ -73,7 +73,7 @@ const teamMembers = [
   },
   {
     name: "Abia Siddiqui",
-    role: "Co-Director of Marketing",
+    role: "Vice President",
     image: "/pictures/our-team/AbiaSiddiquiMarketing.png",
     bio: "Abia is a junior studying Engineering Management on the pre-law track. She has a deep love for food, music, and spending time with her friends and family. Passionate about travel and exploration, Abia joined TEDxUofIChicago to help others share their stories. She values the inclusivity of TEDx and has enjoyed meeting so many inspiring individuals through the organization. For this year’s conference, Abia hopes to see stories centered around self-growth and applying one’s skills to shape a better future. A fun fact about Abia is her fascination with exotic cars!",
     social: {
@@ -84,7 +84,7 @@ const teamMembers = [
   },
   {
     name: "Eddie Ning",
-    role: "Director of Outreach",
+    role: "Director of Fundraising/Sponsorships",
     image: "/pictures/our-team/EddieNingOutreach.png",
     bio: "Eddie is this year’s Director of Outreach for TEDx. He joined the organization after being inspired by the impact that TED videos have had on students globally. Eddie is currently pursuing a double major in Biology and Sociology, with aspirations of becoming a physician. For this year’s symposium, he is focused on breaking boundaries with the selection of speakers and providing unique stories that spark meaningful conversations about the world we live in. A fun fact about Eddie is that he is skilled at playing badminton!",
     social: {
@@ -97,7 +97,7 @@ const teamMembers = [
     name: "Shashank Chenna",
     role: "Webmaster",
     image: "/pictures/our-team/ShashankChennaWebmaster.png",
-    bio: "Shashank is a second-year Computer Engineering major. He joined TEDxUofIChicago this semester because of his appreciation for the diverse range of topics featured on the TED platform, and his desire to help bring those ideas to the UIC community. At this year’s conference, he is particularly excited to hear from a variety of engaging speakers. A fun fact about Shashank is that he practiced karate for approximately 10 years before starting college!",
+    bio: "Shashank is a third-year Computer Engineering major. He joined TEDxUofIChicago this semester because of his appreciation for the diverse range of topics featured on the TED platform, and his desire to help bring those ideas to the UIC community. At this year’s conference, he is particularly excited to hear from a variety of engaging speakers. A fun fact about Shashank is that he practiced karate for approximately 10 years before starting college!",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
