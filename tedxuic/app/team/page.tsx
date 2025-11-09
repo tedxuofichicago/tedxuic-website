@@ -39,6 +39,17 @@ const teamMembers = [
   //   },
   // },
   {
+    name: "Abia Siddiqui",
+    role: "Vice President",
+    image: "/pictures/our-team/AbiaSiddiquiMarketing.png",
+    bio: "Abia is a junior studying Engineering Management on the pre-law track. She has a deep love for food, music, and spending time with her friends and family. Passionate about travel and exploration, Abia joined TEDxUofIChicago to help others share their stories. She values the inclusivity of TEDx and has enjoyed meeting so many inspiring individuals through the organization. For this year’s conference, Abia hopes to see stories centered around self-growth and applying one’s skills to shape a better future. A fun fact about Abia is her fascination with exotic cars!",
+    social: {
+      linkedin: "https://linkedin.com",
+      twitter: "https://twitter.com",
+      email: "mailto:michael@example.com",
+    },
+  },
+  {
     name: "Bhavya Vegesna",
     role: "Secretary",
     image: "/pictures/our-team/BhavyaVegesnaSecretary.png",
@@ -65,17 +76,6 @@ const teamMembers = [
     role: "Co-Director of Logistics",
     image: "/pictures/our-team/IliyaRivkinLogistics.png",
     bio: "Iliya is a third-year student studying Biomedical Engineering with aspirations of becoming a physician. He serves as the Co-Director of Logistics alongside Sabrina. For this year’s conference, Iliya hopes to gain insights from the speakers on the experiences that catalyze growth and development. A fun fact about him is that he was the first member of his family to be born in the United States!",
-    social: {
-      linkedin: "https://linkedin.com",
-      twitter: "https://twitter.com",
-      email: "mailto:michael@example.com",
-    },
-  },
-  {
-    name: "Abia Siddiqui",
-    role: "Vice President",
-    image: "/pictures/our-team/AbiaSiddiquiMarketing.png",
-    bio: "Abia is a junior studying Engineering Management on the pre-law track. She has a deep love for food, music, and spending time with her friends and family. Passionate about travel and exploration, Abia joined TEDxUofIChicago to help others share their stories. She values the inclusivity of TEDx and has enjoyed meeting so many inspiring individuals through the organization. For this year’s conference, Abia hopes to see stories centered around self-growth and applying one’s skills to shape a better future. A fun fact about Abia is her fascination with exotic cars!",
     social: {
       linkedin: "https://linkedin.com",
       twitter: "https://twitter.com",
