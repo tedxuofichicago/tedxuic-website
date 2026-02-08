@@ -108,7 +108,7 @@ export default function PastEventsPage() {
 
                 <div className="mt-8">
                   <Button asChild variant="outline">
-                    <Link href={`/past-events/${event.id}`}>
+                    <Link href={`/not-in-use-past-events/${event.id}`}>
                       View Event Details <ArrowRight className="w-4 h-4 ml-2" />
                     </Link>
                   </Button>
