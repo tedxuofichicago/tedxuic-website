@@ -17,9 +17,6 @@ export default function EventsPage() {
         .from('events')
         .select('*')
         .order('date', { ascending: false });
-  
-        console.log('Supabase events data:', data);
-        console.log('Supabase events error:', error);
 
       if (error) {
         console.error('Error loading events', error);
