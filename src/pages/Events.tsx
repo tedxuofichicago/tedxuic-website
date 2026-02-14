@@ -1,22 +1,134 @@
+import { useEffect, useState } from 'react';
 import { Layout } from '@/components/layout';
 import { SectionHeader } from '@/components/sections';
 import { EventCard } from '@/components/cards';
-import { events, siteSettings } from '@/data/mockData';
+import { siteSettings } from '@/data/mockData';
 import { Badge } from '@/components/ui/badge';
+import { supabase } from '../lib/supabaseClient';
+import type { Event } from '@/types';
+
+
+// type Event = {
+//   id: string;
+//   slug: string;
+//   name: string;
+//   theme: string | null;
+//   year: number;
+//   date: string;
+//   location_name: string | null;
+//   hero_image_url: string | null;
+//   isFlagship?: boolean; // Check if EventCard uses this
+// };
+
+// type Event = {
+//   id: string;
+//   slug: string;
+//   name: string;
+//   theme: string | null;
+//   year: number;
+//   date: string; // from Supabase
+//   time: string | null; // new
+//   location: string | null; // new
+//   locationAddress: string | null; // new
+//   heroImage: string | null; // new
+//   description: string | null; // new
+//   isFlagship: boolean;
+// };
 
 export default function EventsPage() {
-  const featuredEvent = events.find(e => e.id === siteSettings.featuredEventId) || events[0];
-  const pastEvents = events.filter(e => e.id !== featuredEvent.id);
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // useEffect(() => {
+  //   async function loadEvents() {
+  //     const { data, error } = await supabase
+  //       .from('events')
+  //       .select('*')
+  //       .order('date', { ascending: false });
+
+  //     if (error) {
+  //       console.error('Error loading events', error);
+  //     } else {
+  //       setEvents(data ?? []);
+  //     }
+  //     setLoading(false);
+  //   }
+
+  //   loadEvents();
+  // }, []);
+  useEffect(() => {
+    async function loadEvents() {
+      const { data, error } = await supabase
+        .from('events')
+        .select('*')
+        .order('date', { ascending: false });
   
-  // Group past events by year
+        console.log('Supabase events data:', data);
+        console.log('Supabase events error:', error);
+        
+      if (error) {
+        console.error('Error loading events', error);
+      } else {
+        const mapped = (data ?? []).map((row) => ({
+          id: row.id,
+          slug: row.slug,
+          name: row.name,
+          theme: row.theme,
+          year: row.year,
+          date: row.date,
+          time: row.start_time ?? null,
+          location: row.location_name ?? null,
+          locationAddress: row.location_address ?? null,
+          heroImage: row.hero_image_url ?? null,
+          description: row.description ?? null,
+          isFlagship: row.is_flagship ?? false,
+          albumUrl: row.album_url ?? null,
+        })) as Event[];
+  
+        setEvents(mapped);
+      }
+      setLoading(false);
+    }
+  
+    loadEvents();
+  }, []);
+  
+
+  if (loading) {
+    return (
+      <Layout>
+        <section className="py-20">
+          <div className="container">Loading events…</div>
+        </section>
+      </Layout>
+    );
+  }
+
+  if (!events.length) {
+    return (
+      <Layout>
+        <section className="py-20">
+          <div className="container">No events found.</div>
+        </section>
+      </Layout>
+    );
+  }
+
+  const featuredEvent =
+    events.find((e) => e.id === siteSettings.featuredEventId) || events[0];
+
+  const pastEvents = events.filter((e) => e.id !== featuredEvent.id);
+
   const eventsByYear = pastEvents.reduce((acc, event) => {
     const year = event.year;
     if (!acc[year]) acc[year] = [];
     acc[year].push(event);
     return acc;
-  }, {} as Record<number, typeof events>);
+  }, {} as Record<number, Event[]>);
 
-  const sortedYears = Object.keys(eventsByYear).map(Number).sort((a, b) => b - a);
+  const sortedYears = Object.keys(eventsByYear)
+    .map(Number)
+    .sort((a, b) => b - a);
 
   return (
     <Layout>
