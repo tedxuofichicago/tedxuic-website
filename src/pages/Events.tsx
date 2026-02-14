@@ -7,55 +7,10 @@ import { Badge } from '@/components/ui/badge';
 import { supabase } from '../lib/supabaseClient';
 import type { Event } from '@/types';
 
-
-// type Event = {
-//   id: string;
-//   slug: string;
-//   name: string;
-//   theme: string | null;
-//   year: number;
-//   date: string;
-//   location_name: string | null;
-//   hero_image_url: string | null;
-//   isFlagship?: boolean; // Check if EventCard uses this
-// };
-
-// type Event = {
-//   id: string;
-//   slug: string;
-//   name: string;
-//   theme: string | null;
-//   year: number;
-//   date: string; // from Supabase
-//   time: string | null; // new
-//   location: string | null; // new
-//   locationAddress: string | null; // new
-//   heroImage: string | null; // new
-//   description: string | null; // new
-//   isFlagship: boolean;
-// };
-
 export default function EventsPage() {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   async function loadEvents() {
-  //     const { data, error } = await supabase
-  //       .from('events')
-  //       .select('*')
-  //       .order('date', { ascending: false });
-
-  //     if (error) {
-  //       console.error('Error loading events', error);
-  //     } else {
-  //       setEvents(data ?? []);
-  //     }
-  //     setLoading(false);
-  //   }
-
-  //   loadEvents();
-  // }, []);
+  
   useEffect(() => {
     async function loadEvents() {
       const { data, error } = await supabase
@@ -65,7 +20,7 @@ export default function EventsPage() {
   
         console.log('Supabase events data:', data);
         console.log('Supabase events error:', error);
-        
+
       if (error) {
         console.error('Error loading events', error);
       } else {
