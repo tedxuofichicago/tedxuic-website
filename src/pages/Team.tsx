@@ -1,10 +1,50 @@
 import { Layout } from '@/components/layout';
 import { SectionHeader } from '@/components/sections';
 import { TeamMemberCard } from '@/components/cards';
-import { teamMembers } from '@/data/mockData';
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabaseClient';
+import type { TeamMember } from '@/types';
+
 
 export default function TeamPage() {
-  const currentMembers = teamMembers.filter(m => m.isCurrent);
+  const [members, setMembers] = useState<TeamMember[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadTeam() {
+      const { data, error } = await supabase
+        .from('team_members')
+        .select('*')
+        .order('is_current', { ascending: false })
+        .order('committee', { ascending: true })
+        //.order('display_order', { ascending: true }); Enable this once committees are in the DB
+
+      if (error) {
+        console.error('Error loading team members', error);
+        setLoading(false);
+        return;
+      }
+
+      // Map DB columns -> TeamMember type
+      const mapped =
+        data?.map((m: any) => ({
+          id: m.id,
+          name: m.name,
+          role: m.role,
+          committee: m.committee,
+          isCurrent: m.is_current,
+          headshot: m.headshot_url ?? '',
+          linkedinUrl: m.linkedin_url ?? '',
+        })) ?? [];
+
+      setMembers(mapped);
+      setLoading(false);
+    }
+
+    loadTeam();
+  }, []);
+  
+  const currentMembers = members.filter(m => m.isCurrent);
   
   // Group by committee
   const membersByCommittee = currentMembers.reduce((acc, member) => {
@@ -19,6 +59,16 @@ export default function TeamPage() {
     if (b === 'Executive') return 1;
     return a.localeCompare(b);
   });
+
+  if (loading) {
+    return (
+      <Layout>
+        <section className="py-20">
+          <div className="container text-center">Loading team…</div>
+        </section>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
