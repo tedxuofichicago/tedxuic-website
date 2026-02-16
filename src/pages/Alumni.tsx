@@ -1,25 +1,74 @@
+import { useEffect, useState } from 'react';
 import { Layout } from '@/components/layout';
 import { SectionHeader } from '@/components/sections';
 import { TeamMemberCard } from '@/components/cards';
-import { teamMembers } from '@/data/mockData';
+import { supabase } from '@/lib/supabaseClient';
+import type { TeamMember } from '@/types';
+
 
 export default function AlumniPage() {
-  const alumni = teamMembers.filter(m => !m.isCurrent);
-  
-  // Group by years active
+  const [members, setMembers] = useState<TeamMember[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadAlumni() {
+      const { data, error } = await supabase
+        .from('team_members')
+        .select('*')
+        .eq('is_current', false)            // only alumni
+        .order('years_active', { ascending: false })
+        .order('committee', { ascending: true });
+
+      if (error) {
+        console.error('Error loading alumni', error);
+        setLoading(false);
+        return;
+      }
+
+      const mapped: TeamMember[] =
+        data?.map((m: any) => ({
+          id: m.id,
+          name: m.name,
+          role: m.role,
+          committee: m.committee,
+          isCurrent: m.is_current,
+          headshot: m.headshot_url ?? '',
+          linkedinUrl: m.linkedin_url ?? '',
+          yearsActive: m.years_active ?? '',
+          blurb: m.blurb ?? '',
+        })) ?? [];
+
+      setMembers(mapped);
+      setLoading(false);
+    }
+
+    loadAlumni();
+  }, []);
+
+  const alumni = members.filter((m) => !m.isCurrent);
+
   const alumniByYears = alumni.reduce((acc, member) => {
-    const years = member.yearsActive;
+    const years = member.yearsActive || 'Other';
     if (!acc[years]) acc[years] = [];
     acc[years].push(member);
     return acc;
-  }, {} as Record<string, typeof alumni>);
+  }, {} as Record<string, TeamMember[]>);
 
-  // Sort years descending
   const sortedYears = Object.keys(alumniByYears).sort((a, b) => {
     const endYearA = parseInt(a.split('-')[1] || a);
     const endYearB = parseInt(b.split('-')[1] || b);
     return endYearB - endYearA;
   });
+
+  if (loading) {
+    return (
+      <Layout>
+        <section className="py-20">
+          <div className="container text-center">Loading alumni…</div>
+        </section>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
@@ -70,7 +119,7 @@ export default function AlumniPage() {
               we'd love to stay in touch!
             </p>
             <p className="text-sm text-muted-foreground">
-              Reach out to us at alumni@tedxuoichicago.com
+              Reach out to us at tedxuofichicago@gmail.com
             </p>
           </div>
         </div>
