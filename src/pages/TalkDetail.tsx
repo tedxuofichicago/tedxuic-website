@@ -17,7 +17,7 @@ export default function TalkDetailPage() {
   const [speaker, setSpeaker] = useState<Speaker | null>(null);
   const [eventSpeaker, setEventSpeaker] = useState<EventSpeaker | null>(null);
   const [loading, setLoading] = useState(true);
-  
+
   const location = useLocation() as { state?: { from?: string } };
   const fromSpeakers = location.state?.from === 'speakers';
 
@@ -142,6 +142,7 @@ export default function TalkDetailPage() {
     );
   }
 
+  console.log(location.state);
   const backToHref = fromSpeakers ? '/speakers' : `/events/${event.slug}`;
   const backToLabel = fromSpeakers ? 'Speakers' : event.theme;
 

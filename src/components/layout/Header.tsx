@@ -11,8 +11,8 @@ const navLinks = [
   { href: '/speakers', label: 'Speakers' },
   { href: '/team', label: 'Team' },
   { href: '/alumni', label: 'Alumni' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/news', label: 'News' },
+  // { href: '/gallery', label: 'Gallery' },
+  // { href: '/news', label: 'News' },
 ];
 
 export function Header() {
@@ -41,12 +41,12 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <Link
+          {/* <Link
             to="/admin"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
             Admin
-          </Link>
+          </Link> */}
           <Button
             variant="ghost"
             size="icon"

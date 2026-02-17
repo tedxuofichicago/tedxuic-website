@@ -1,22 +1,184 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar, MapPin } from 'lucide-react';
 import { Layout } from '@/components/layout';
 import { SectionHeader } from '@/components/sections';
 import { EventCard, SpeakerCard, NewsPostCard } from '@/components/cards';
 import { Button } from '@/components/ui/button';
-import { events, speakers, eventSpeakers, newsPosts, siteSettings } from '@/data/mockData';
+import { supabase } from '@/lib/supabaseClient';
+import type {
+  Event,
+  Speaker,
+  EventSpeaker,
+  NewsPost,
+  SiteSettings,
+} from '@/types';
 
 export default function HomePage() {
-  const featuredEvent = events.find(e => e.id === siteSettings.featuredEventId) || events[0];
-  const featuredSpeakers = eventSpeakers
-    .filter(es => es.eventId === featuredEvent.id)
-    .map(es => ({
-      ...es,
-      speaker: speakers.find(s => s.id === es.speakerId)!,
-    }))
-    .slice(0, 4);
-  const recentNews = newsPosts.slice(0, 2);
-  const pastEvents = events.filter(e => e.id !== featuredEvent.id).slice(0, 2);
+  const [featuredEvent, setFeaturedEvent] = useState<Event | null>(null);
+  const [featuredSpeakers, setFeaturedSpeakers] = useState<
+    { speaker: Speaker; eventSpeaker: EventSpeaker }[]
+  >([]);
+  const [recentNews, setRecentNews] = useState<NewsPost[]>([]);
+  const [pastEvents, setPastEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadHome() {
+      // 1) site_settings
+      const { data: settingsData, error: settingsError } = await supabase
+        .from('site_settings')
+        .select('*')
+        .limit(1)
+        .single();
+
+      if (settingsError || !settingsData) {
+        console.error('Error loading site settings', settingsError);
+        setLoading(false);
+        return;
+      }
+
+      const siteSettings: SiteSettings = {
+        featuredEventId: settingsData.featured_event_id,
+        instagramUrl: settingsData.instagram_url,
+        youtubeUrl: settingsData.youtube_url,
+        emailAddress: settingsData.email_address,
+        twitterUrl: settingsData.twitter_url ?? undefined,
+        linkedInUrl: settingsData.linkedin_url ?? undefined,
+      };
+
+      // 2) all events (latest first)
+      const { data: eventsData, error: eventsError } = await supabase
+        .from('events')
+        .select('*')
+        .order('date', { ascending: false });
+
+      if (eventsError || !eventsData) {
+        console.error('Error loading events', eventsError);
+        setLoading(false);
+        return;
+      }
+
+      const mappedEvents: Event[] = eventsData.map((e: any) => ({
+        id: e.id,
+        slug: e.slug,
+        name: e.name,
+        theme: e.theme,
+        year: e.year,
+        date: e.date,
+        time: e.time ?? '',
+        location: e.location_name,
+        locationAddress: e.location_address,
+        heroImage: e.hero_image_url ?? '',
+        description: e.description ?? '',
+        isFlagship: e.is_flagship ?? false,
+        albumUrl: e.album_url ?? undefined,
+      }));
+
+      const featured =
+        mappedEvents.find((e) => e.id === siteSettings.featuredEventId) ??
+        mappedEvents[0];
+
+      if (!featured) {
+        setLoading(false);
+        return;
+      }
+
+      // 3) featured event speakers (join)
+      const { data: esData, error: esError } = await supabase
+        .from('event_speakers')
+        .select(
+          `
+          id,
+          event_id,
+          speaker_id,
+          talk_title,
+          talk_description,
+          youtube_url,
+          order,
+          speakers (*)
+        `
+        )
+        .eq('event_id', featured.id)
+        .order('order', { ascending: true })
+        .limit(4);
+
+      if (esError) {
+        console.error('Error loading featured speakers', esError);
+      }
+
+      const mappedFeaturedSpeakers =
+        esData?.map((row: any) => {
+          const speaker: Speaker = {
+            id: row.speakers.id,
+            slug: row.speakers.slug,
+            name: row.speakers.name,
+            title: row.speakers.title,
+            affiliation: row.speakers.affiliation,
+            tags: row.speakers.tags ?? [],
+            headshot: row.speakers.headshot_url ?? '',
+            shortBio: row.speakers.bio_short ?? '',
+            fullBio: row.speakers.bio_long ?? '',
+          };
+
+          const eventSpeaker: EventSpeaker = {
+            id: row.id,
+            eventId: row.event_id,
+            speakerId: row.speaker_id,
+            talkTitle: row.talk_title,
+            talkDescription: row.talk_description,
+            youtubeUrl: row.youtube_url ?? undefined,
+            order: row.order,
+          };
+
+          return { speaker, eventSpeaker };
+        }) ?? [];
+
+      // 4) recent news
+      const { data: newsData, error: newsError } = await supabase
+        .from('news_posts')
+        .select('*')
+        .order('published_at', { ascending: false })
+        .limit(2);
+
+      if (newsError) {
+        console.error('Error loading news posts', newsError);
+      }
+
+      const mappedNews: NewsPost[] =
+        newsData?.map((n: any) => ({
+          id: n.id,
+          slug: n.slug,
+          title: n.title,
+          excerpt: n.excerpt,
+          content: n.content,
+          coverImage: n.cover_image_url ?? '',
+          publishedAt: n.published_at,
+          author: n.author,
+        })) ?? [];
+
+      // 5) past events (first two not equal to featured)
+      const past = mappedEvents.filter((e) => e.id !== featured.id).slice(0, 2);
+
+      setFeaturedEvent(featured);
+      setFeaturedSpeakers(mappedFeaturedSpeakers);
+      setRecentNews(mappedNews);
+      setPastEvents(past);
+      setLoading(false);
+    }
+
+    loadHome();
+  }, []);
+
+  if (loading || !featuredEvent) {
+    return (
+      <Layout>
+        <section className="py-20">
+          <div className="container text-center">Loading…</div>
+        </section>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
@@ -127,7 +289,7 @@ export default function HomePage() {
               </Button>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredSpeakers.map(({ speaker, ...eventSpeaker }) => (
+              {featuredSpeakers.map(({ speaker, eventSpeaker }) => (
                 <SpeakerCard
                   key={speaker.id}
                   speaker={speaker}

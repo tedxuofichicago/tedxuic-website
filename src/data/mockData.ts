@@ -335,7 +335,7 @@ export const siteSettings: SiteSettings = {
   featuredEventId: '1',
   instagramUrl: 'https://instagram.com/tedxuoichicago',
   youtubeUrl: 'https://youtube.com/@tedxuoichicago',
-  emailAddress: 'hello@tedxuoichicago.com',
+  emailAddress: 'tedxuofichicago@gmail.com',
   twitterUrl: 'https://twitter.com/tedxuoichicago',
   linkedInUrl: 'https://linkedin.com/company/tedxuoichicago',
 };
