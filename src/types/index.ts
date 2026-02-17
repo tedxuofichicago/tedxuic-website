@@ -44,9 +44,9 @@ export interface TeamMember {
   role: string;
   committee: string;
   headshot: string;
-  blurb: string;
+  blurb?: string;
   isCurrent: boolean;
-  yearsActive: string;
+  yearsActive?: string;
   linkedIn?: string;
 }
 

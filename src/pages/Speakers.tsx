@@ -1,34 +1,200 @@
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout';
 import { SectionHeader } from '@/components/sections';
 import { SpeakerCard } from '@/components/cards';
-import { events, speakers, eventSpeakers, siteSettings } from '@/data/mockData';
 import { Badge } from '@/components/ui/badge';
+import { supabase } from '@/lib/supabaseClient';
+import type { Event, Speaker, EventSpeaker, SpeakerWithTalk, EventWithSpeakers, SiteSettings } from '@/types';
 
 export default function SpeakersPage() {
-  const featuredEvent = events.find(e => e.id === siteSettings.featuredEventId) || events[0];
-  
-  // Get speakers for featured event
-  const featuredSpeakers = eventSpeakers
-    .filter(es => es.eventId === featuredEvent.id)
-    .sort((a, b) => a.order - b.order)
-    .map(es => ({
-      eventSpeaker: es,
-      speaker: speakers.find(s => s.id === es.speakerId)!,
-      event: featuredEvent,
-    }));
+  const [featuredEvent, setFeaturedEvent] = useState<Event | null>(null);
+  const [featuredSpeakers, setFeaturedSpeakers] = useState<SpeakerWithTalk[]>([]);
+  const [pastEvents, setPastEvents] = useState<EventWithSpeakers[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Get past event speakers grouped by event
-  const pastEvents = events.filter(e => e.id !== featuredEvent.id);
-  const pastSpeakersByEvent = pastEvents.map(event => ({
-    event,
-    speakers: eventSpeakers
-      .filter(es => es.eventId === event.id)
-      .sort((a, b) => a.order - b.order)
-      .map(es => ({
-        eventSpeaker: es,
-        speaker: speakers.find(s => s.id === es.speakerId)!,
-      })),
-  })).filter(e => e.speakers.length > 0);
+  useEffect(() => {
+    async function loadSpeakersPage() {
+      // 1) load site settings (for featuredEventId)
+      const { data: settingsData, error: settingsError } = await supabase
+        .from('site_settings')
+        .select('*')
+        .limit(1)
+        .single();
+
+      if (settingsError) {
+        console.error('Error loading site settings', settingsError);
+        setLoading(false);
+        return;
+      }
+
+      const siteSettings: SiteSettings = {
+        featuredEventId: settingsData.featured_event_id,
+        instagramUrl: settingsData.instagram_url,
+        youtubeUrl: settingsData.youtube_url,
+        emailAddress: settingsData.email_address,
+        twitterUrl: settingsData.twitter_url ?? undefined,
+        linkedInUrl: settingsData.linkedin_url ?? undefined,
+      };
+
+      // 2) load all events (most recent first)
+      const { data: eventsData, error: eventsError } = await supabase
+        .from('events')
+        .select('*')
+        .order('date', { ascending: false });
+
+      if (eventsError || !eventsData) {
+        console.error('Error loading events', eventsError);
+        setLoading(false);
+        return;
+      }
+
+      const mappedEvents: Event[] = eventsData.map((e: any) => ({
+        id: e.id,
+        slug: e.slug,
+        name: e.name,
+        theme: e.theme,
+        year: e.year,
+        date: e.date,
+        time: e.time ?? '',
+        location: e.location_name,
+        locationAddress: e.location_address,
+        heroImage: e.hero_image_url ?? '',
+        description: e.description ?? '',
+        isFlagship: e.is_flagship ?? false,
+        albumUrl: e.album_url ?? undefined,
+      }));
+
+      const featured =
+        mappedEvents.find((e) => e.id === siteSettings.featuredEventId) ??
+        mappedEvents[0];
+
+      if (!featured) {
+        setLoading(false);
+        return;
+      }
+
+      // 3) load event_speakers + speakers for ALL events in one query
+      const { data: esData, error: esError } = await supabase
+        .from('event_speakers')
+        .select(
+          `
+          id,
+          event_id,
+          speaker_id,
+          talk_title,
+          talk_description,
+          youtube_url,
+          order,
+          speakers (*),
+          events (*)
+        `
+        )
+        .order('order', { ascending: true });
+
+      if (esError || !esData) {
+        console.error('Error loading event speakers', esError);
+        setLoading(false);
+        return;
+      }
+
+      // 4) map rows into SpeakerWithTalk
+      const allSpeakerWithTalk: SpeakerWithTalk[] = esData.map((row: any) => {
+        const speaker: Speaker = {
+          id: row.speakers.id,
+          slug: row.speakers.slug,
+          name: row.speakers.name,
+          title: row.speakers.title,
+          affiliation: row.speakers.affiliation,
+          tags: row.speakers.tags ?? [],
+          headshot: row.speakers.headshot_url ?? '',
+          shortBio: row.speakers.bio_short ?? '',
+          fullBio: row.speakers.bio_long ?? '',
+        };
+
+        const eventSpeaker: EventSpeaker = {
+          id: row.id,
+          eventId: row.event_id,
+          speakerId: row.speaker_id,
+          talkTitle: row.talk_title,
+          talkDescription: row.talk_description,
+          youtubeUrl: row.youtube_url ?? undefined,
+          order: row.order,
+        };
+
+        const eventRow = mappedEvents.find((e) => e.id === row.event_id)!;
+
+        return {
+          ...speaker,
+          eventSpeaker,
+          event: eventRow,
+        };
+      });
+
+      // 5) split into featured vs past
+      const featuredSpeakersList = allSpeakerWithTalk.filter(
+        (s) => s.event.id === featured.id
+      );
+
+      const pastEventsMap = new Map<string, EventWithSpeakers>();
+
+      allSpeakerWithTalk.forEach((s) => {
+        if (s.event.id === featured.id) return; // skip featured here
+
+        if (!pastEventsMap.has(s.event.id)) {
+          pastEventsMap.set(s.event.id, {
+            ...s.event,
+            speakers: [],
+          });
+        }
+
+        const entry = pastEventsMap.get(s.event.id)!;
+        entry.speakers.push({
+          ...s.eventSpeaker,
+          speaker: {
+            id: s.id,
+            slug: s.slug,
+            name: s.name,
+            title: s.title,
+            affiliation: s.affiliation,
+            tags: s.tags,
+            headshot: s.headshot,
+            shortBio: s.shortBio,
+            fullBio: s.fullBio,
+          },
+        });
+      });
+
+      setFeaturedEvent(featured);
+      setFeaturedSpeakers(featuredSpeakersList);
+      setPastEvents(Array.from(pastEventsMap.values()));
+      setLoading(false);
+    }
+
+    loadSpeakersPage();
+  }, []);
+
+  if (loading) {
+    return (
+      <Layout>
+        <section className="py-20">
+          <div className="container text-center">Loading speakers…</div>
+        </section>
+      </Layout>
+    );
+  }
+
+  if (!featuredEvent) {
+    return (
+      <Layout>
+        <section className="py-20">
+          <div className="container text-center">
+            No events with speakers yet.
+          </div>
+        </section>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
@@ -51,40 +217,54 @@ export default function SpeakersPage() {
               <Badge className="bg-primary text-primary-foreground mb-4">
                 {featuredEvent.isFlagship ? 'Upcoming Event' : 'Most Recent'}
               </Badge>
-              <h2 className="text-3xl font-bold">{featuredEvent.theme} — {featuredEvent.year}</h2>
+              <h2 className="text-3xl font-bold">
+                {featuredEvent.theme} — {featuredEvent.year}
+              </h2>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredSpeakers.map(({ speaker, eventSpeaker, event }) => (
+            {featuredSpeakers.map((s) => (
+              <Link
+                key={s.id}
+                to={`/talks/${s.event.slug}/${s.slug}`}
+                state={{ from: 'speakers' }}
+                className="block"
+              >
                 <SpeakerCard
-                  key={speaker.id}
-                  speaker={speaker}
-                  eventSpeaker={eventSpeaker}
-                  event={event}
+                  speaker={s}
+                  eventSpeaker={s.eventSpeaker}
+                  event={s.event}
                 />
-              ))}
+              </Link>
+            ))}
             </div>
           </div>
         </section>
       )}
 
       {/* Past Event Speakers */}
-      {pastSpeakersByEvent.length > 0 && (
+      {pastEvents.length > 0 && (
         <section className="py-20 bg-secondary/30">
           <div className="container">
             <SectionHeader title="Past Speakers" />
-            {pastSpeakersByEvent.map(({ event, speakers: eventSpeakersList }) => (
-              <div key={event.id} className="mb-16 last:mb-0">
-                <h3 className="text-2xl font-bold mb-2">{event.theme}</h3>
-                <p className="text-muted-foreground mb-6">{event.name}</p>
+            {pastEvents.map((evt) => (
+              <div key={evt.id} className="mb-16 last:mb-0">
+                <h3 className="text-2xl font-bold mb-2">{evt.theme}</h3>
+                <p className="text-muted-foreground mb-6">{evt.name}</p>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {eventSpeakersList.map(({ speaker, eventSpeaker }) => (
+                {evt.speakers.map((es) => (
+                  <Link
+                    key={es.speaker.id}
+                    to={`/talks/${evt.slug}/${es.speaker.slug}`}
+                    state={{ from: 'speakers' }}
+                    className="block"
+                  >
                     <SpeakerCard
-                      key={speaker.id}
-                      speaker={speaker}
-                      eventSpeaker={eventSpeaker}
-                      event={event}
+                      speaker={es.speaker}
+                      eventSpeaker={es}
+                      event={evt}
                     />
-                  ))}
+                  </Link>
+                ))}
                 </div>
               </div>
             ))}
