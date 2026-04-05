@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { Plus, Pencil, Trash2 } from 'lucide-react';
-import { useData } from '@/contexts/DataContext';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Badge } from '@/components/ui/badge';
+import { useState } from "react";
+import { Plus, Pencil, Trash2 } from "lucide-react";
+import { useData } from "@/contexts/DataContext";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
+} from "@/components/ui/dialog";
 import {
   Table,
   TableBody,
@@ -21,30 +21,36 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import type { Speaker } from '@/types';
+} from "@/components/ui/table";
+import type { Speaker } from "@/types";
 
-const emptySpeaker: Omit<Speaker, 'id'> = {
-  slug: '',
-  name: '',
-  title: '',
-  affiliation: '',
+const emptySpeaker: Omit<Speaker, "id"> = {
+  slug: "",
+  name: "",
+  title: "",
+  affiliation: "",
   tags: [],
-  headshot: '',
-  shortBio: '',
-  fullBio: '',
+  headshot: "",
+  shortBio: "",
+  fullBio: "",
 };
 
 export default function AdminSpeakersPage() {
   const { speakers, addSpeaker, updateSpeaker, deleteSpeaker } = useData();
   const [isOpen, setIsOpen] = useState(false);
   const [editingSpeaker, setEditingSpeaker] = useState<Speaker | null>(null);
-  const [formData, setFormData] = useState<Omit<Speaker, 'id'>>(emptySpeaker);
-  const [tagsInput, setTagsInput] = useState('');
+  const [formData, setFormData] = useState<Omit<Speaker, "id">>(emptySpeaker);
+  const [tagsInput, setTagsInput] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const data = { ...formData, tags: tagsInput.split(',').map(t => t.trim()).filter(Boolean) };
+    const data = {
+      ...formData,
+      tags: tagsInput
+        .split(",")
+        .map((t) => t.trim())
+        .filter(Boolean),
+    };
     if (editingSpeaker) {
       updateSpeaker(editingSpeaker.id, data);
     } else {
@@ -56,12 +62,12 @@ export default function AdminSpeakersPage() {
   const handleEdit = (speaker: Speaker) => {
     setEditingSpeaker(speaker);
     setFormData(speaker);
-    setTagsInput(speaker.tags.join(', '));
+    setTagsInput(speaker.tags.join(", "));
     setIsOpen(true);
   };
 
   const handleDelete = (id: string) => {
-    if (confirm('Are you sure you want to delete this speaker?')) {
+    if (confirm("Are you sure you want to delete this speaker?")) {
       deleteSpeaker(id);
     }
   };
@@ -70,7 +76,7 @@ export default function AdminSpeakersPage() {
     setIsOpen(false);
     setEditingSpeaker(null);
     setFormData(emptySpeaker);
-    setTagsInput('');
+    setTagsInput("");
   };
 
   return (
@@ -86,7 +92,9 @@ export default function AdminSpeakersPage() {
           </DialogTrigger>
           <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle>{editingSpeaker ? 'Edit Speaker' : 'Add Speaker'}</DialogTitle>
+              <DialogTitle>
+                {editingSpeaker ? "Edit Speaker" : "Add Speaker"}
+              </DialogTitle>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
@@ -95,7 +103,9 @@ export default function AdminSpeakersPage() {
                   <Input
                     id="name"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -104,7 +114,9 @@ export default function AdminSpeakersPage() {
                   <Input
                     id="slug"
                     value={formData.slug}
-                    onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, slug: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -115,7 +127,9 @@ export default function AdminSpeakersPage() {
                   <Input
                     id="title"
                     value={formData.title}
-                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, title: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -124,7 +138,9 @@ export default function AdminSpeakersPage() {
                   <Input
                     id="affiliation"
                     value={formData.affiliation}
-                    onChange={(e) => setFormData({ ...formData, affiliation: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, affiliation: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -143,7 +159,9 @@ export default function AdminSpeakersPage() {
                 <Input
                   id="headshot"
                   value={formData.headshot}
-                  onChange={(e) => setFormData({ ...formData, headshot: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, headshot: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -152,7 +170,9 @@ export default function AdminSpeakersPage() {
                 <Textarea
                   id="shortBio"
                   value={formData.shortBio}
-                  onChange={(e) => setFormData({ ...formData, shortBio: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, shortBio: e.target.value })
+                  }
                   rows={2}
                   required
                 />
@@ -162,7 +182,9 @@ export default function AdminSpeakersPage() {
                 <Textarea
                   id="fullBio"
                   value={formData.fullBio}
-                  onChange={(e) => setFormData({ ...formData, fullBio: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, fullBio: e.target.value })
+                  }
                   rows={4}
                   required
                 />
@@ -172,7 +194,7 @@ export default function AdminSpeakersPage() {
                   Cancel
                 </Button>
                 <Button type="submit">
-                  {editingSpeaker ? 'Update' : 'Create'}
+                  {editingSpeaker ? "Update" : "Create"}
                 </Button>
               </div>
             </form>
@@ -217,10 +239,18 @@ export default function AdminSpeakersPage() {
                     </div>
                   </TableCell>
                   <TableCell className="text-right">
-                    <Button variant="ghost" size="icon" onClick={() => handleEdit(speaker)}>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => handleEdit(speaker)}
+                    >
                       <Pencil className="h-4 w-4" />
                     </Button>
-                    <Button variant="ghost" size="icon" onClick={() => handleDelete(speaker.id)}>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => handleDelete(speaker.id)}
+                    >
                       <Trash2 className="h-4 w-4" />
                     </Button>
                   </TableCell>

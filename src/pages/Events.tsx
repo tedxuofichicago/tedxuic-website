@@ -1,25 +1,25 @@
-import { useEffect, useState } from 'react';
-import { Layout } from '@/components/layout';
-import { SectionHeader } from '@/components/sections';
-import { EventCard } from '@/components/cards';
-import { siteSettings } from '@/data/mockData';
-import { Badge } from '@/components/ui/badge';
-import { supabase } from '../lib/supabaseClient';
-import type { Event } from '@/types';
+import { useEffect, useState } from "react";
+import { Layout } from "@/components/layout";
+import { SectionHeader } from "@/components/sections";
+import { EventCard } from "@/components/cards";
+import { siteSettings } from "@/data/mockData";
+import { Badge } from "@/components/ui/badge";
+import { supabase } from "../lib/supabaseClient";
+import type { Event } from "@/types";
 
 export default function EventsPage() {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     async function loadEvents() {
       const { data, error } = await supabase
-        .from('events')
-        .select('*')
-        .order('date', { ascending: false });
+        .from("events")
+        .select("*")
+        .order("date", { ascending: false });
 
       if (error) {
-        console.error('Error loading events', error);
+        console.error("Error loading events", error);
       } else {
         const mapped = (data ?? []).map((row) => ({
           id: row.id,
@@ -36,15 +36,14 @@ export default function EventsPage() {
           isFlagship: row.is_flagship ?? false,
           albumUrl: row.album_url ?? null,
         })) as Event[];
-  
+
         setEvents(mapped);
       }
       setLoading(false);
     }
-  
+
     loadEvents();
   }, []);
-  
 
   if (loading) {
     return (
@@ -71,12 +70,15 @@ export default function EventsPage() {
 
   const pastEvents = events.filter((e) => e.id !== featuredEvent.id);
 
-  const eventsByYear = pastEvents.reduce((acc, event) => {
-    const year = event.year;
-    if (!acc[year]) acc[year] = [];
-    acc[year].push(event);
-    return acc;
-  }, {} as Record<number, Event[]>);
+  const eventsByYear = pastEvents.reduce(
+    (acc, event) => {
+      const year = event.year;
+      if (!acc[year]) acc[year] = [];
+      acc[year].push(event);
+      return acc;
+    },
+    {} as Record<number, Event[]>,
+  );
 
   const sortedYears = Object.keys(eventsByYear)
     .map(Number)
@@ -100,7 +102,7 @@ export default function EventsPage() {
         <div className="container">
           <div className="mb-6">
             <Badge className="bg-primary text-primary-foreground mb-4">
-              {featuredEvent.isFlagship ? 'Upcoming Event' : 'Most Recent'}
+              {featuredEvent.isFlagship ? "Upcoming Event" : "Most Recent"}
             </Badge>
             <h2 className="text-3xl font-bold">{featuredEvent.theme}</h2>
           </div>

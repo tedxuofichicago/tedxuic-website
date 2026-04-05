@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Layout } from '@/components/layout';
-import { SectionHeader } from '@/components/sections';
-import { TeamMemberCard } from '@/components/cards';
-import { supabase } from '@/lib/supabaseClient';
-import type { TeamMember } from '@/types';
-
+import { useEffect, useState } from "react";
+import { Layout } from "@/components/layout";
+import { SectionHeader } from "@/components/sections";
+import { TeamMemberCard } from "@/components/cards";
+import { supabase } from "@/lib/supabaseClient";
+import type { TeamMember } from "@/types";
 
 export default function AlumniPage() {
   const [members, setMembers] = useState<TeamMember[]>([]);
@@ -13,14 +12,14 @@ export default function AlumniPage() {
   useEffect(() => {
     async function loadAlumni() {
       const { data, error } = await supabase
-        .from('team_members')
-        .select('*')
-        .eq('is_current', false)            // only alumni
-        .order('years_active', { ascending: false })
-        .order('committee', { ascending: true });
+        .from("team_members")
+        .select("*")
+        .eq("is_current", false) // only alumni
+        .order("years_active", { ascending: false })
+        .order("committee", { ascending: true });
 
       if (error) {
-        console.error('Error loading alumni', error);
+        console.error("Error loading alumni", error);
         setLoading(false);
         return;
       }
@@ -32,10 +31,10 @@ export default function AlumniPage() {
           role: m.role,
           committee: m.committee,
           isCurrent: m.is_current,
-          headshot: m.headshot_url ?? '',
-          linkedinUrl: m.linkedin_url ?? '',
-          yearsActive: m.years_active ?? '',
-          blurb: m.blurb ?? '',
+          headshot: m.headshot_url ?? "",
+          linkedinUrl: m.linkedin_url ?? "",
+          yearsActive: m.years_active ?? "",
+          blurb: m.blurb ?? "",
         })) ?? [];
 
       setMembers(mapped);
@@ -47,16 +46,19 @@ export default function AlumniPage() {
 
   const alumni = members.filter((m) => !m.isCurrent);
 
-  const alumniByYears = alumni.reduce((acc, member) => {
-    const years = member.yearsActive || 'Other';
-    if (!acc[years]) acc[years] = [];
-    acc[years].push(member);
-    return acc;
-  }, {} as Record<string, TeamMember[]>);
+  const alumniByYears = alumni.reduce(
+    (acc, member) => {
+      const years = member.yearsActive || "Other";
+      if (!acc[years]) acc[years] = [];
+      acc[years].push(member);
+      return acc;
+    },
+    {} as Record<string, TeamMember[]>,
+  );
 
   const sortedYears = Object.keys(alumniByYears).sort((a, b) => {
-    const endYearA = parseInt(a.split('-')[1] || a);
-    const endYearB = parseInt(b.split('-')[1] || b);
+    const endYearA = parseInt(a.split("-")[1] || a);
+    const endYearB = parseInt(b.split("-")[1] || b);
     return endYearB - endYearA;
   });
 
@@ -114,9 +116,9 @@ export default function AlumniPage() {
           <div className="max-w-3xl mx-auto text-center">
             <SectionHeader title="Stay Connected" centered />
             <p className="text-muted-foreground mb-6">
-              Our alumni have gone on to do amazing things in fields ranging from technology 
-              and healthcare to arts and public service. If you're a TEDxUofIChicago alum, 
-              we'd love to stay in touch!
+              Our alumni have gone on to do amazing things in fields ranging
+              from technology and healthcare to arts and public service. If
+              you're a TEDxUofIChicago alum, we'd love to stay in touch!
             </p>
             <p className="text-sm text-muted-foreground">
               Reach out to us at tedxuofichicago@gmail.com

@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import { Plus, Pencil, Trash2 } from 'lucide-react';
-import { useData } from '@/contexts/DataContext';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
+import { useState } from "react";
+import { Plus, Pencil, Trash2 } from "lucide-react";
+import { useData } from "@/contexts/DataContext";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
+} from "@/components/ui/dialog";
 import {
   Table,
   TableBody,
@@ -20,24 +20,24 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import type { NewsPost } from '@/types';
+} from "@/components/ui/table";
+import type { NewsPost } from "@/types";
 
-const emptyPost: Omit<NewsPost, 'id'> = {
-  slug: '',
-  title: '',
-  excerpt: '',
-  content: '',
-  coverImage: '',
-  publishedAt: new Date().toISOString().split('T')[0],
-  author: 'TEDxUofIChicago Team',
+const emptyPost: Omit<NewsPost, "id"> = {
+  slug: "",
+  title: "",
+  excerpt: "",
+  content: "",
+  coverImage: "",
+  publishedAt: new Date().toISOString().split("T")[0],
+  author: "TEDxUofIChicago Team",
 };
 
 export default function AdminNewsPage() {
   const { newsPosts, addNewsPost, updateNewsPost, deleteNewsPost } = useData();
   const [isOpen, setIsOpen] = useState(false);
   const [editingPost, setEditingPost] = useState<NewsPost | null>(null);
-  const [formData, setFormData] = useState<Omit<NewsPost, 'id'>>(emptyPost);
+  const [formData, setFormData] = useState<Omit<NewsPost, "id">>(emptyPost);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,7 +56,7 @@ export default function AdminNewsPage() {
   };
 
   const handleDelete = (id: string) => {
-    if (confirm('Are you sure you want to delete this post?')) {
+    if (confirm("Are you sure you want to delete this post?")) {
       deleteNewsPost(id);
     }
   };
@@ -68,7 +68,8 @@ export default function AdminNewsPage() {
   };
 
   const sortedPosts = [...newsPosts].sort(
-    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    (a, b) =>
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );
 
   return (
@@ -84,7 +85,9 @@ export default function AdminNewsPage() {
           </DialogTrigger>
           <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle>{editingPost ? 'Edit Post' : 'Add Post'}</DialogTitle>
+              <DialogTitle>
+                {editingPost ? "Edit Post" : "Add Post"}
+              </DialogTitle>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
@@ -93,7 +96,9 @@ export default function AdminNewsPage() {
                   <Input
                     id="title"
                     value={formData.title}
-                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, title: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -102,7 +107,9 @@ export default function AdminNewsPage() {
                   <Input
                     id="slug"
                     value={formData.slug}
-                    onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, slug: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -114,7 +121,9 @@ export default function AdminNewsPage() {
                     id="publishedAt"
                     type="date"
                     value={formData.publishedAt}
-                    onChange={(e) => setFormData({ ...formData, publishedAt: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, publishedAt: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -123,7 +132,9 @@ export default function AdminNewsPage() {
                   <Input
                     id="author"
                     value={formData.author}
-                    onChange={(e) => setFormData({ ...formData, author: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, author: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -133,7 +144,9 @@ export default function AdminNewsPage() {
                 <Input
                   id="coverImage"
                   value={formData.coverImage}
-                  onChange={(e) => setFormData({ ...formData, coverImage: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, coverImage: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -142,7 +155,9 @@ export default function AdminNewsPage() {
                 <Textarea
                   id="excerpt"
                   value={formData.excerpt}
-                  onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, excerpt: e.target.value })
+                  }
                   rows={2}
                   required
                 />
@@ -152,7 +167,9 @@ export default function AdminNewsPage() {
                 <Textarea
                   id="content"
                   value={formData.content}
-                  onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, content: e.target.value })
+                  }
                   rows={10}
                   placeholder="# Heading&#10;&#10;Paragraph text here...&#10;&#10;- List item&#10;- Another item"
                   required
@@ -163,7 +180,7 @@ export default function AdminNewsPage() {
                   Cancel
                 </Button>
                 <Button type="submit">
-                  {editingPost ? 'Update' : 'Create'}
+                  {editingPost ? "Update" : "Create"}
                 </Button>
               </div>
             </form>
@@ -201,12 +218,22 @@ export default function AdminNewsPage() {
                     </div>
                   </TableCell>
                   <TableCell>{post.author}</TableCell>
-                  <TableCell>{new Date(post.publishedAt).toLocaleDateString()}</TableCell>
+                  <TableCell>
+                    {new Date(post.publishedAt).toLocaleDateString()}
+                  </TableCell>
                   <TableCell className="text-right">
-                    <Button variant="ghost" size="icon" onClick={() => handleEdit(post)}>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => handleEdit(post)}
+                    >
                       <Pencil className="h-4 w-4" />
                     </Button>
-                    <Button variant="ghost" size="icon" onClick={() => handleDelete(post.id)}>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => handleDelete(post.id)}
+                    >
                       <Trash2 className="h-4 w-4" />
                     </Button>
                   </TableCell>

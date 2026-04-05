@@ -43,14 +43,17 @@ const App = () => (
             <Route path="/about" element={<AboutPage />} />
             <Route path="/events" element={<EventsPage />} />
             <Route path="/events/:slug" element={<EventDetailPage />} />
-            <Route path="/events/:eventSlug/speakers/:speakerSlug" element={<TalkDetailPage />} />
+            <Route
+              path="/events/:eventSlug/speakers/:speakerSlug"
+              element={<TalkDetailPage />}
+            />
             <Route path="/speakers" element={<SpeakersPage />} />
             <Route path="/team" element={<TeamPage />} />
             <Route path="/alumni" element={<AlumniPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/news/:slug" element={<NewsDetailPage />} />
-            
+
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminDashboard />} />
@@ -60,7 +63,7 @@ const App = () => (
               <Route path="news" element={<AdminNewsPage />} />
               <Route path="settings" element={<AdminSettingsPage />} />
             </Route>
-            
+
             {/* Catch-all */}
             <Route path="*" element={<NotFound />} />
           </Routes>

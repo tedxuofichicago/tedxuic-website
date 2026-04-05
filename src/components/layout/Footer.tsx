@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import { Instagram, Youtube, Mail, Twitter, Linkedin } from 'lucide-react';
-import { siteSettings } from '@/data/mockData';
+import { Link } from "react-router-dom";
+import { Instagram, Youtube, Mail, Twitter, Linkedin } from "lucide-react";
+import { siteSettings } from "@/data/mockData";
 
 export function Footer() {
   return (
@@ -22,25 +22,39 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">Quick Links</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider">
+              Quick Links
+            </h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link to="/about" className="text-sm text-muted-foreground hover:text-primary">
+                <Link
+                  to="/about"
+                  className="text-sm text-muted-foreground hover:text-primary"
+                >
                   About TEDx
                 </Link>
               </li>
               <li>
-                <Link to="/events" className="text-sm text-muted-foreground hover:text-primary">
+                <Link
+                  to="/events"
+                  className="text-sm text-muted-foreground hover:text-primary"
+                >
                   Events
                 </Link>
               </li>
               <li>
-                <Link to="/speakers" className="text-sm text-muted-foreground hover:text-primary">
+                <Link
+                  to="/speakers"
+                  className="text-sm text-muted-foreground hover:text-primary"
+                >
                   Speakers
                 </Link>
               </li>
               <li>
-                <Link to="/team" className="text-sm text-muted-foreground hover:text-primary">
+                <Link
+                  to="/team"
+                  className="text-sm text-muted-foreground hover:text-primary"
+                >
                   Our Team
                 </Link>
               </li>
@@ -49,7 +63,9 @@ export function Footer() {
 
           {/* Social Links */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">Connect With Us</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider">
+              Connect With Us
+            </h3>
             <div className="mt-4 flex gap-4">
               <a
                 href={siteSettings.instagramUrl}
@@ -106,9 +122,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>
-            This independent TEDx event is operated under license from TED.
-          </p>
+          <p>This independent TEDx event is operated under license from TED.</p>
           <p className="mt-2">
             © {new Date().getFullYear()} TEDxUofIChicago. All rights reserved.
           </p>

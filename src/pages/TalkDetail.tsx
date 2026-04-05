@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
-import { Layout } from '@/components/layout';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { supabase } from '@/lib/supabaseClient';
-import type { Event, Speaker, EventSpeaker } from '@/types';
+import { useEffect, useState } from "react";
+import { useParams, Link, useLocation } from "react-router-dom";
+import { ArrowLeft, ExternalLink } from "lucide-react";
+import { Layout } from "@/components/layout";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { supabase } from "@/lib/supabaseClient";
+import type { Event, Speaker, EventSpeaker } from "@/types";
 
 export default function TalkDetailPage() {
   const { eventSlug, speakerSlug } = useParams<{
@@ -19,7 +19,7 @@ export default function TalkDetailPage() {
   const [loading, setLoading] = useState(true);
 
   const location = useLocation() as { state?: { from?: string } };
-  const fromSpeakers = location.state?.from === 'speakers';
+  const fromSpeakers = location.state?.from === "speakers";
 
   useEffect(() => {
     if (!eventSlug || !speakerSlug) return;
@@ -27,13 +27,13 @@ export default function TalkDetailPage() {
     async function loadTalk() {
       // 1) event by slug
       const { data: eventData, error: eventError } = await supabase
-        .from('events')
-        .select('*')
-        .eq('slug', eventSlug)
+        .from("events")
+        .select("*")
+        .eq("slug", eventSlug)
         .single();
 
       if (eventError || !eventData) {
-        console.error('Error loading event', eventError);
+        console.error("Error loading event", eventError);
         setLoading(false);
         return;
       }
@@ -45,24 +45,24 @@ export default function TalkDetailPage() {
         theme: eventData.theme,
         year: eventData.year,
         date: eventData.date,
-        time: eventData.time ?? '',
+        time: eventData.time ?? "",
         location: eventData.location_name,
         locationAddress: eventData.location_address,
-        heroImage: eventData.hero_image_url ?? '',
-        description: eventData.description ?? '',
+        heroImage: eventData.hero_image_url ?? "",
+        description: eventData.description ?? "",
         isFlagship: eventData.is_flagship ?? false,
         albumUrl: eventData.album_url ?? undefined,
       };
 
       // 2) speaker by slug
       const { data: speakerData, error: speakerError } = await supabase
-        .from('speakers')
-        .select('*')
-        .eq('slug', speakerSlug)
+        .from("speakers")
+        .select("*")
+        .eq("slug", speakerSlug)
         .single();
 
       if (speakerError || !speakerData) {
-        console.error('Error loading speaker', speakerError);
+        console.error("Error loading speaker", speakerError);
         setLoading(false);
         return;
       }
@@ -74,21 +74,21 @@ export default function TalkDetailPage() {
         title: speakerData.title,
         affiliation: speakerData.affiliation,
         tags: speakerData.tags ?? [],
-        headshot: speakerData.headshot_url ?? '',
-        shortBio: speakerData.bio_short ?? '',
-        fullBio: speakerData.bio_long ?? '',
+        headshot: speakerData.headshot_url ?? "",
+        shortBio: speakerData.bio_short ?? "",
+        fullBio: speakerData.bio_long ?? "",
       };
 
       // 3) event_speakers join row for this event + speaker
       const { data: esData, error: esError } = await supabase
-        .from('event_speakers')
-        .select('*')
-        .eq('event_id', eventData.id)
-        .eq('speaker_id', speakerData.id)
+        .from("event_speakers")
+        .select("*")
+        .eq("event_id", eventData.id)
+        .eq("speaker_id", speakerData.id)
         .single();
 
       if (esError || !esData) {
-        console.error('Error loading event_speaker', esError);
+        console.error("Error loading event_speaker", esError);
         setLoading(false);
         return;
       }
@@ -133,8 +133,8 @@ export default function TalkDetailPage() {
         <div className="container py-20 text-center">
           <h1 className="text-4xl font-bold mb-4">Talk Not Found</h1>
           <Button asChild>
-            <Link to={fromSpeakers ? '/speakers' : '/events'}>
-              Back to {fromSpeakers ? 'Speakers' : 'Events'}
+            <Link to={fromSpeakers ? "/speakers" : "/events"}>
+              Back to {fromSpeakers ? "Speakers" : "Events"}
             </Link>
           </Button>
         </div>
@@ -143,8 +143,8 @@ export default function TalkDetailPage() {
   }
 
   console.log(location.state);
-  const backToHref = fromSpeakers ? '/speakers' : `/events/${event.slug}`;
-  const backToLabel = fromSpeakers ? 'Speakers' : event.theme;
+  const backToHref = fromSpeakers ? "/speakers" : `/events/${event.slug}`;
+  const backToLabel = fromSpeakers ? "Speakers" : event.theme;
 
   const embedUrl = eventSpeaker.youtubeUrl
     ? getYouTubeEmbedUrl(eventSpeaker.youtubeUrl)
@@ -271,10 +271,10 @@ export default function TalkDetailPage() {
 
 // export default function TalkDetailPage() {
 //   const { eventSlug, speakerSlug } = useParams<{ eventSlug: string; speakerSlug: string }>();
-  
+
 //   const event = events.find(e => e.slug === eventSlug);
 //   const speaker = speakers.find(s => s.slug === speakerSlug);
-//   const eventSpeaker = event && speaker 
+//   const eventSpeaker = event && speaker
 //     ? eventSpeakers.find(es => es.eventId === event.id && es.speakerId === speaker.id)
 //     : null;
 
@@ -303,8 +303,8 @@ export default function TalkDetailPage() {
 //       {/* Navigation */}
 //       <section className="py-8 border-b">
 //         <div className="container">
-//           <Link 
-//             to={`/events/${event.slug}`} 
+//           <Link
+//             to={`/events/${event.slug}`}
 //             className="inline-flex items-center text-muted-foreground hover:text-primary"
 //           >
 //             <ArrowLeft className="h-4 w-4 mr-2" />
@@ -340,7 +340,7 @@ export default function TalkDetailPage() {
 //                   </div>
 //                 </div>
 //               )}
-              
+
 //               <div className="mt-6">
 //                 <div className="flex items-center gap-2 mb-3">
 //                   <Badge variant="secondary">{event.year}</Badge>
@@ -348,7 +348,7 @@ export default function TalkDetailPage() {
 //                 </div>
 //                 <h1 className="text-3xl md:text-4xl font-bold mb-4">{eventSpeaker.talkTitle}</h1>
 //                 <p className="text-lg text-muted-foreground">{eventSpeaker.talkDescription}</p>
-                
+
 //                 {eventSpeaker.youtubeUrl && (
 //                   <Button variant="outline" className="mt-6" asChild>
 //                     <a href={eventSpeaker.youtubeUrl} target="_blank" rel="noopener noreferrer">

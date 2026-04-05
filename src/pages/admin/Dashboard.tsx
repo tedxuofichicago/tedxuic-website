@@ -1,22 +1,49 @@
-import { Link } from 'react-router-dom';
-import { Calendar, Mic, Users, Newspaper, Settings, ArrowRight } from 'lucide-react';
-import { useData } from '@/contexts/DataContext';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Link } from "react-router-dom";
+import {
+  Calendar,
+  Mic,
+  Users,
+  Newspaper,
+  Settings,
+  ArrowRight,
+} from "lucide-react";
+import { useData } from "@/contexts/DataContext";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function AdminDashboard() {
   const { events, speakers, teamMembers, newsPosts } = useData();
 
   const stats = [
-    { label: 'Events', value: events.length, icon: Calendar, href: '/admin/events' },
-    { label: 'Speakers', value: speakers.length, icon: Mic, href: '/admin/speakers' },
-    { label: 'Team Members', value: teamMembers.length, icon: Users, href: '/admin/team' },
-    { label: 'News Posts', value: newsPosts.length, icon: Newspaper, href: '/admin/news' },
+    {
+      label: "Events",
+      value: events.length,
+      icon: Calendar,
+      href: "/admin/events",
+    },
+    {
+      label: "Speakers",
+      value: speakers.length,
+      icon: Mic,
+      href: "/admin/speakers",
+    },
+    {
+      label: "Team Members",
+      value: teamMembers.length,
+      icon: Users,
+      href: "/admin/team",
+    },
+    {
+      label: "News Posts",
+      value: newsPosts.length,
+      icon: Newspaper,
+      href: "/admin/news",
+    },
   ];
 
   return (
     <div>
       <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
-      
+
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat) => (
           <Link key={stat.label} to={stat.href}>
@@ -41,29 +68,29 @@ export default function AdminDashboard() {
             <CardTitle className="text-lg">Quick Actions</CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
-            <Link 
-              to="/admin/events" 
+            <Link
+              to="/admin/events"
               className="flex items-center justify-between p-3 rounded-lg border hover:bg-muted transition-colors"
             >
               <span className="font-medium">Manage Events</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link 
-              to="/admin/speakers" 
+            <Link
+              to="/admin/speakers"
               className="flex items-center justify-between p-3 rounded-lg border hover:bg-muted transition-colors"
             >
               <span className="font-medium">Manage Speakers</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link 
-              to="/admin/team" 
+            <Link
+              to="/admin/team"
               className="flex items-center justify-between p-3 rounded-lg border hover:bg-muted transition-colors"
             >
               <span className="font-medium">Manage Team</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link 
-              to="/admin/settings" 
+            <Link
+              to="/admin/settings"
               className="flex items-center justify-between p-3 rounded-lg border hover:bg-muted transition-colors"
             >
               <span className="font-medium">Site Settings</span>
@@ -78,10 +105,12 @@ export default function AdminDashboard() {
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">
-              This is a mock admin panel. All data is stored in memory and will reset on page refresh.
+              This is a mock admin panel. All data is stored in memory and will
+              reset on page refresh.
             </p>
             <p className="text-sm text-muted-foreground mt-4">
-              In the real implementation, this would show recent edits and activity logs from your database.
+              In the real implementation, this would show recent edits and
+              activity logs from your database.
             </p>
           </CardContent>
         </Card>

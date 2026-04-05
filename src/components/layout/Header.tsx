@@ -1,16 +1,16 @@
-import { Link } from 'react-router-dom';
-import { Menu, X, Sun, Moon } from 'lucide-react';
-import { useState } from 'react';
-import { useTheme } from '@/hooks/useTheme';
-import { Button } from '@/components/ui/button';
+import { Link } from "react-router-dom";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useState } from "react";
+import { useTheme } from "@/hooks/useTheme";
+import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/events', label: 'Events' },
-  { href: '/speakers', label: 'Speakers' },
-  { href: '/team', label: 'Team' },
-  { href: '/alumni', label: 'Alumni' },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/events", label: "Events" },
+  { href: "/speakers", label: "Speakers" },
+  { href: "/team", label: "Team" },
+  { href: "/alumni", label: "Alumni" },
   // { href: '/gallery', label: 'Gallery' },
   // { href: '/news', label: 'News' },
 ];
@@ -53,7 +53,11 @@ export function Header() {
             onClick={toggleTheme}
             aria-label="Toggle theme"
           >
-            {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+            {theme === "light" ? (
+              <Moon className="h-5 w-5" />
+            ) : (
+              <Sun className="h-5 w-5" />
+            )}
           </Button>
         </nav>
 
@@ -65,7 +69,11 @@ export function Header() {
             onClick={toggleTheme}
             aria-label="Toggle theme"
           >
-            {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+            {theme === "light" ? (
+              <Moon className="h-5 w-5" />
+            ) : (
+              <Sun className="h-5 w-5" />
+            )}
           </Button>
           <Button
             variant="ghost"
@@ -73,7 +81,11 @@ export function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </Button>
         </div>
       </div>

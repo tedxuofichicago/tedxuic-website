@@ -1,15 +1,24 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Layout } from '@/components/layout';
-import { SectionHeader } from '@/components/sections';
-import { SpeakerCard } from '@/components/cards';
-import { Badge } from '@/components/ui/badge';
-import { supabase } from '@/lib/supabaseClient';
-import type { Event, Speaker, EventSpeaker, SpeakerWithTalk, EventWithSpeakers, SiteSettings } from '@/types';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Layout } from "@/components/layout";
+import { SectionHeader } from "@/components/sections";
+import { SpeakerCard } from "@/components/cards";
+import { Badge } from "@/components/ui/badge";
+import { supabase } from "@/lib/supabaseClient";
+import type {
+  Event,
+  Speaker,
+  EventSpeaker,
+  SpeakerWithTalk,
+  EventWithSpeakers,
+  SiteSettings,
+} from "@/types";
 
 export default function SpeakersPage() {
   const [featuredEvent, setFeaturedEvent] = useState<Event | null>(null);
-  const [featuredSpeakers, setFeaturedSpeakers] = useState<SpeakerWithTalk[]>([]);
+  const [featuredSpeakers, setFeaturedSpeakers] = useState<SpeakerWithTalk[]>(
+    [],
+  );
   const [pastEvents, setPastEvents] = useState<EventWithSpeakers[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -17,13 +26,13 @@ export default function SpeakersPage() {
     async function loadSpeakersPage() {
       // 1) load site settings (for featuredEventId)
       const { data: settingsData, error: settingsError } = await supabase
-        .from('site_settings')
-        .select('*')
+        .from("site_settings")
+        .select("*")
         .limit(1)
         .single();
 
       if (settingsError) {
-        console.error('Error loading site settings', settingsError);
+        console.error("Error loading site settings", settingsError);
         setLoading(false);
         return;
       }
@@ -39,12 +48,12 @@ export default function SpeakersPage() {
 
       // 2) load all events (most recent first)
       const { data: eventsData, error: eventsError } = await supabase
-        .from('events')
-        .select('*')
-        .order('date', { ascending: false });
+        .from("events")
+        .select("*")
+        .order("date", { ascending: false });
 
       if (eventsError || !eventsData) {
-        console.error('Error loading events', eventsError);
+        console.error("Error loading events", eventsError);
         setLoading(false);
         return;
       }
@@ -56,11 +65,11 @@ export default function SpeakersPage() {
         theme: e.theme,
         year: e.year,
         date: e.date,
-        time: e.time ?? '',
+        time: e.time ?? "",
         location: e.location_name,
         locationAddress: e.location_address,
-        heroImage: e.hero_image_url ?? '',
-        description: e.description ?? '',
+        heroImage: e.hero_image_url ?? "",
+        description: e.description ?? "",
         isFlagship: e.is_flagship ?? false,
         albumUrl: e.album_url ?? undefined,
       }));
@@ -76,7 +85,7 @@ export default function SpeakersPage() {
 
       // 3) load event_speakers + speakers for ALL events in one query
       const { data: esData, error: esError } = await supabase
-        .from('event_speakers')
+        .from("event_speakers")
         .select(
           `
           id,
@@ -88,12 +97,12 @@ export default function SpeakersPage() {
           order,
           speakers (*),
           events (*)
-        `
+        `,
         )
-        .order('order', { ascending: true });
+        .order("order", { ascending: true });
 
       if (esError || !esData) {
-        console.error('Error loading event speakers', esError);
+        console.error("Error loading event speakers", esError);
         setLoading(false);
         return;
       }
@@ -107,9 +116,9 @@ export default function SpeakersPage() {
           title: row.speakers.title,
           affiliation: row.speakers.affiliation,
           tags: row.speakers.tags ?? [],
-          headshot: row.speakers.headshot_url ?? '',
-          shortBio: row.speakers.bio_short ?? '',
-          fullBio: row.speakers.bio_long ?? '',
+          headshot: row.speakers.headshot_url ?? "",
+          shortBio: row.speakers.bio_short ?? "",
+          fullBio: row.speakers.bio_long ?? "",
         };
 
         const eventSpeaker: EventSpeaker = {
@@ -133,7 +142,7 @@ export default function SpeakersPage() {
 
       // 5) split into featured vs past
       const featuredSpeakersList = allSpeakerWithTalk.filter(
-        (s) => s.event.id === featured.id
+        (s) => s.event.id === featured.id,
       );
 
       const pastEventsMap = new Map<string, EventWithSpeakers>();
@@ -215,27 +224,27 @@ export default function SpeakersPage() {
           <div className="container">
             <div className="mb-8">
               <Badge className="bg-primary text-primary-foreground mb-4">
-                {featuredEvent.isFlagship ? 'Upcoming Event' : 'Most Recent'}
+                {featuredEvent.isFlagship ? "Upcoming Event" : "Most Recent"}
               </Badge>
               <h2 className="text-3xl font-bold">
                 {featuredEvent.theme} — {featuredEvent.year}
               </h2>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredSpeakers.map((s) => (
-              <Link
-                key={s.id}
-                to={`/talks/${s.event.slug}/${s.slug}`}
-                state={{ from: 'speakers' }}
-                className="block"
-              >
-                <SpeakerCard
-                  speaker={s}
-                  eventSpeaker={s.eventSpeaker}
-                  event={s.event}
-                />
-              </Link>
-            ))}
+              {featuredSpeakers.map((s) => (
+                <Link
+                  key={s.id}
+                  to={`/talks/${s.event.slug}/${s.slug}`}
+                  state={{ from: "speakers" }}
+                  className="block"
+                >
+                  <SpeakerCard
+                    speaker={s}
+                    eventSpeaker={s.eventSpeaker}
+                    event={s.event}
+                  />
+                </Link>
+              ))}
             </div>
           </div>
         </section>
@@ -251,20 +260,20 @@ export default function SpeakersPage() {
                 <h3 className="text-2xl font-bold mb-2">{evt.theme}</h3>
                 <p className="text-muted-foreground mb-6">{evt.name}</p>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {evt.speakers.map((es) => (
-                  <Link
-                    key={es.speaker.id}
-                    to={`/talks/${evt.slug}/${es.speaker.slug}`}
-                    state={{ from: 'speakers' }}
-                    className="block"
-                  >
-                    <SpeakerCard
-                      speaker={es.speaker}
-                      eventSpeaker={es}
-                      event={evt}
-                    />
-                  </Link>
-                ))}
+                  {evt.speakers.map((es) => (
+                    <Link
+                      key={es.speaker.id}
+                      to={`/talks/${evt.slug}/${es.speaker.slug}`}
+                      state={{ from: "speakers" }}
+                      className="block"
+                    >
+                      <SpeakerCard
+                        speaker={es.speaker}
+                        eventSpeaker={es}
+                        event={evt}
+                      />
+                    </Link>
+                  ))}
                 </div>
               </div>
             ))}

@@ -1,11 +1,12 @@
-import { Layout } from '@/components/layout';
-import { SectionHeader } from '@/components/sections';
-import { NewsPostCard } from '@/components/cards';
-import { newsPosts } from '@/data/mockData';
+import { Layout } from "@/components/layout";
+import { SectionHeader } from "@/components/sections";
+import { NewsPostCard } from "@/components/cards";
+import { newsPosts } from "@/data/mockData";
 
 export default function NewsPage() {
   const sortedPosts = [...newsPosts].sort(
-    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    (a, b) =>
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );
 
   return (

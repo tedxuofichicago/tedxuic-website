@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import { Plus, Pencil, Trash2 } from 'lucide-react';
-import { useData } from '@/contexts/DataContext';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Switch } from '@/components/ui/switch';
-import { Badge } from '@/components/ui/badge';
+import { useState } from "react";
+import { Plus, Pencil, Trash2 } from "lucide-react";
+import { useData } from "@/contexts/DataContext";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Switch } from "@/components/ui/switch";
+import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
+} from "@/components/ui/dialog";
 import {
   Table,
   TableBody,
@@ -22,20 +22,20 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import type { Event } from '@/types';
+} from "@/components/ui/table";
+import type { Event } from "@/types";
 
-const emptyEvent: Omit<Event, 'id'> = {
-  slug: '',
-  name: '',
-  theme: '',
+const emptyEvent: Omit<Event, "id"> = {
+  slug: "",
+  name: "",
+  theme: "",
   year: new Date().getFullYear(),
-  date: '',
-  time: '',
-  location: '',
-  locationAddress: '',
-  heroImage: '',
-  description: '',
+  date: "",
+  time: "",
+  location: "",
+  locationAddress: "",
+  heroImage: "",
+  description: "",
   isFlagship: false,
 };
 
@@ -43,7 +43,7 @@ export default function AdminEventsPage() {
   const { events, addEvent, updateEvent, deleteEvent } = useData();
   const [isOpen, setIsOpen] = useState(false);
   const [editingEvent, setEditingEvent] = useState<Event | null>(null);
-  const [formData, setFormData] = useState<Omit<Event, 'id'>>(emptyEvent);
+  const [formData, setFormData] = useState<Omit<Event, "id">>(emptyEvent);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,7 +64,7 @@ export default function AdminEventsPage() {
   };
 
   const handleDelete = (id: string) => {
-    if (confirm('Are you sure you want to delete this event?')) {
+    if (confirm("Are you sure you want to delete this event?")) {
       deleteEvent(id);
     }
   };
@@ -88,7 +88,9 @@ export default function AdminEventsPage() {
           </DialogTrigger>
           <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle>{editingEvent ? 'Edit Event' : 'Add Event'}</DialogTitle>
+              <DialogTitle>
+                {editingEvent ? "Edit Event" : "Add Event"}
+              </DialogTitle>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
@@ -97,7 +99,9 @@ export default function AdminEventsPage() {
                   <Input
                     id="name"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -106,7 +110,9 @@ export default function AdminEventsPage() {
                   <Input
                     id="slug"
                     value={formData.slug}
-                    onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, slug: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -117,7 +123,9 @@ export default function AdminEventsPage() {
                   <Input
                     id="theme"
                     value={formData.theme}
-                    onChange={(e) => setFormData({ ...formData, theme: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, theme: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -127,7 +135,12 @@ export default function AdminEventsPage() {
                     id="year"
                     type="number"
                     value={formData.year}
-                    onChange={(e) => setFormData({ ...formData, year: parseInt(e.target.value) })}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        year: parseInt(e.target.value),
+                      })
+                    }
                     required
                   />
                 </div>
@@ -139,7 +152,9 @@ export default function AdminEventsPage() {
                     id="date"
                     type="date"
                     value={formData.date}
-                    onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, date: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -148,7 +163,9 @@ export default function AdminEventsPage() {
                   <Input
                     id="time"
                     value={formData.time}
-                    onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, time: e.target.value })
+                    }
                     placeholder="10:00 AM - 5:00 PM"
                     required
                   />
@@ -160,7 +177,9 @@ export default function AdminEventsPage() {
                   <Input
                     id="location"
                     value={formData.location}
-                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, location: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -169,7 +188,12 @@ export default function AdminEventsPage() {
                   <Input
                     id="locationAddress"
                     value={formData.locationAddress}
-                    onChange={(e) => setFormData({ ...formData, locationAddress: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        locationAddress: e.target.value,
+                      })
+                    }
                     required
                   />
                 </div>
@@ -179,7 +203,9 @@ export default function AdminEventsPage() {
                 <Input
                   id="heroImage"
                   value={formData.heroImage}
-                  onChange={(e) => setFormData({ ...formData, heroImage: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, heroImage: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -188,7 +214,9 @@ export default function AdminEventsPage() {
                 <Textarea
                   id="description"
                   value={formData.description}
-                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, description: e.target.value })
+                  }
                   rows={4}
                   required
                 />
@@ -197,7 +225,9 @@ export default function AdminEventsPage() {
                 <Switch
                   id="isFlagship"
                   checked={formData.isFlagship}
-                  onCheckedChange={(checked) => setFormData({ ...formData, isFlagship: checked })}
+                  onCheckedChange={(checked) =>
+                    setFormData({ ...formData, isFlagship: checked })
+                  }
                 />
                 <Label htmlFor="isFlagship">Flagship Event</Label>
               </div>
@@ -206,7 +236,7 @@ export default function AdminEventsPage() {
                   Cancel
                 </Button>
                 <Button type="submit">
-                  {editingEvent ? 'Update' : 'Create'}
+                  {editingEvent ? "Update" : "Create"}
                 </Button>
               </div>
             </form>
@@ -233,22 +263,36 @@ export default function AdminEventsPage() {
                   <TableCell>
                     <div>
                       <div className="font-medium">{event.theme}</div>
-                      <div className="text-sm text-muted-foreground">{event.name}</div>
+                      <div className="text-sm text-muted-foreground">
+                        {event.name}
+                      </div>
                     </div>
                   </TableCell>
                   <TableCell>{event.year}</TableCell>
-                  <TableCell>{new Date(event.date).toLocaleDateString()}</TableCell>
+                  <TableCell>
+                    {new Date(event.date).toLocaleDateString()}
+                  </TableCell>
                   <TableCell>{event.location}</TableCell>
                   <TableCell>
                     {event.isFlagship && (
-                      <Badge className="bg-primary text-primary-foreground">Flagship</Badge>
+                      <Badge className="bg-primary text-primary-foreground">
+                        Flagship
+                      </Badge>
                     )}
                   </TableCell>
                   <TableCell className="text-right">
-                    <Button variant="ghost" size="icon" onClick={() => handleEdit(event)}>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => handleEdit(event)}
+                    >
                       <Pencil className="h-4 w-4" />
                     </Button>
-                    <Button variant="ghost" size="icon" onClick={() => handleDelete(event.id)}>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => handleDelete(event.id)}
+                    >
                       <Trash2 className="h-4 w-4" />
                     </Button>
                   </TableCell>

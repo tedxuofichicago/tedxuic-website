@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import { Plus, Pencil, Trash2 } from 'lucide-react';
-import { useData } from '@/contexts/DataContext';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Switch } from '@/components/ui/switch';
-import { Badge } from '@/components/ui/badge';
+import { useState } from "react";
+import { Plus, Pencil, Trash2 } from "lucide-react";
+import { useData } from "@/contexts/DataContext";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Switch } from "@/components/ui/switch";
+import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
+} from "@/components/ui/dialog";
 import {
   Table,
   TableBody,
@@ -22,25 +22,26 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
-import type { TeamMember } from '@/types';
+} from "@/components/ui/table";
+import type { TeamMember } from "@/types";
 
-const emptyMember: Omit<TeamMember, 'id'> = {
-  name: '',
-  role: '',
-  committee: '',
-  headshot: '',
-  blurb: '',
+const emptyMember: Omit<TeamMember, "id"> = {
+  name: "",
+  role: "",
+  committee: "",
+  headshot: "",
+  blurb: "",
   isCurrent: true,
-  yearsActive: '',
-  linkedIn: '',
+  yearsActive: "",
+  linkedIn: "",
 };
 
 export default function AdminTeamPage() {
-  const { teamMembers, addTeamMember, updateTeamMember, deleteTeamMember } = useData();
+  const { teamMembers, addTeamMember, updateTeamMember, deleteTeamMember } =
+    useData();
   const [isOpen, setIsOpen] = useState(false);
   const [editingMember, setEditingMember] = useState<TeamMember | null>(null);
-  const [formData, setFormData] = useState<Omit<TeamMember, 'id'>>(emptyMember);
+  const [formData, setFormData] = useState<Omit<TeamMember, "id">>(emptyMember);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,7 +60,7 @@ export default function AdminTeamPage() {
   };
 
   const handleDelete = (id: string) => {
-    if (confirm('Are you sure you want to delete this team member?')) {
+    if (confirm("Are you sure you want to delete this team member?")) {
       deleteTeamMember(id);
     }
   };
@@ -70,8 +71,8 @@ export default function AdminTeamPage() {
     setFormData(emptyMember);
   };
 
-  const currentMembers = teamMembers.filter(m => m.isCurrent);
-  const alumni = teamMembers.filter(m => !m.isCurrent);
+  const currentMembers = teamMembers.filter((m) => m.isCurrent);
+  const alumni = teamMembers.filter((m) => !m.isCurrent);
 
   return (
     <div>
@@ -86,7 +87,9 @@ export default function AdminTeamPage() {
           </DialogTrigger>
           <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle>{editingMember ? 'Edit Member' : 'Add Member'}</DialogTitle>
+              <DialogTitle>
+                {editingMember ? "Edit Member" : "Add Member"}
+              </DialogTitle>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
@@ -95,7 +98,9 @@ export default function AdminTeamPage() {
                   <Input
                     id="name"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -104,7 +109,9 @@ export default function AdminTeamPage() {
                   <Input
                     id="role"
                     value={formData.role}
-                    onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, role: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -115,7 +122,9 @@ export default function AdminTeamPage() {
                   <Input
                     id="committee"
                     value={formData.committee}
-                    onChange={(e) => setFormData({ ...formData, committee: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, committee: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -124,7 +133,9 @@ export default function AdminTeamPage() {
                   <Input
                     id="yearsActive"
                     value={formData.yearsActive}
-                    onChange={(e) => setFormData({ ...formData, yearsActive: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, yearsActive: e.target.value })
+                    }
                     placeholder="2023-2025"
                     required
                   />
@@ -135,7 +146,9 @@ export default function AdminTeamPage() {
                 <Input
                   id="headshot"
                   value={formData.headshot}
-                  onChange={(e) => setFormData({ ...formData, headshot: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, headshot: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -144,7 +157,9 @@ export default function AdminTeamPage() {
                 <Textarea
                   id="blurb"
                   value={formData.blurb}
-                  onChange={(e) => setFormData({ ...formData, blurb: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, blurb: e.target.value })
+                  }
                   rows={3}
                   required
                 />
@@ -153,15 +168,19 @@ export default function AdminTeamPage() {
                 <Label htmlFor="linkedIn">LinkedIn URL (optional)</Label>
                 <Input
                   id="linkedIn"
-                  value={formData.linkedIn || ''}
-                  onChange={(e) => setFormData({ ...formData, linkedIn: e.target.value })}
+                  value={formData.linkedIn || ""}
+                  onChange={(e) =>
+                    setFormData({ ...formData, linkedIn: e.target.value })
+                  }
                 />
               </div>
               <div className="flex items-center space-x-2">
                 <Switch
                   id="isCurrent"
                   checked={formData.isCurrent}
-                  onCheckedChange={(checked) => setFormData({ ...formData, isCurrent: checked })}
+                  onCheckedChange={(checked) =>
+                    setFormData({ ...formData, isCurrent: checked })
+                  }
                 />
                 <Label htmlFor="isCurrent">Current Team Member</Label>
               </div>
@@ -170,7 +189,7 @@ export default function AdminTeamPage() {
                   Cancel
                 </Button>
                 <Button type="submit">
-                  {editingMember ? 'Update' : 'Create'}
+                  {editingMember ? "Update" : "Create"}
                 </Button>
               </div>
             </form>
@@ -180,7 +199,9 @@ export default function AdminTeamPage() {
 
       {/* Current Team */}
       <div className="mb-8">
-        <h2 className="text-xl font-bold mb-4">Current Team ({currentMembers.length})</h2>
+        <h2 className="text-xl font-bold mb-4">
+          Current Team ({currentMembers.length})
+        </h2>
         <Card>
           <CardContent className="p-0">
             <Table>
@@ -212,10 +233,18 @@ export default function AdminTeamPage() {
                     </TableCell>
                     <TableCell>{member.yearsActive}</TableCell>
                     <TableCell className="text-right">
-                      <Button variant="ghost" size="icon" onClick={() => handleEdit(member)}>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => handleEdit(member)}
+                      >
                         <Pencil className="h-4 w-4" />
                       </Button>
-                      <Button variant="ghost" size="icon" onClick={() => handleDelete(member.id)}>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => handleDelete(member.id)}
+                      >
                         <Trash2 className="h-4 w-4" />
                       </Button>
                     </TableCell>
@@ -261,10 +290,18 @@ export default function AdminTeamPage() {
                     </TableCell>
                     <TableCell>{member.yearsActive}</TableCell>
                     <TableCell className="text-right">
-                      <Button variant="ghost" size="icon" onClick={() => handleEdit(member)}>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => handleEdit(member)}
+                      >
                         <Pencil className="h-4 w-4" />
                       </Button>
-                      <Button variant="ghost" size="icon" onClick={() => handleDelete(member.id)}>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => handleDelete(member.id)}
+                      >
                         <Trash2 className="h-4 w-4" />
                       </Button>
                     </TableCell>

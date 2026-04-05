@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
-import { Calendar, MapPin } from 'lucide-react';
-import type { Event } from '@/types';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Link } from "react-router-dom";
+import { Calendar, MapPin } from "lucide-react";
+import type { Event } from "@/types";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 interface EventCardProps {
   event: Event;
@@ -23,20 +23,26 @@ export function EventCard({ event }: EventCardProps) {
           <div className="flex items-center gap-2 mb-3">
             <Badge variant="secondary">{event.year}</Badge>
             {event.isFlagship && (
-              <Badge className="bg-primary text-primary-foreground">Flagship</Badge>
+              <Badge className="bg-primary text-primary-foreground">
+                Flagship
+              </Badge>
             )}
           </div>
-          <h3 className="text-xl font-bold text-foreground mb-1">{event.theme}</h3>
+          <h3 className="text-xl font-bold text-foreground mb-1">
+            {event.theme}
+          </h3>
           <p className="text-sm text-muted-foreground mb-3">{event.name}</p>
           <div className="flex flex-col gap-1 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
-              <span>{new Date(event.date).toLocaleDateString('en-US', { 
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}</span>
+              <span>
+                {new Date(event.date).toLocaleDateString("en-US", {
+                  weekday: "long",
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="h-4 w-4" />

@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Calendar, MapPin } from 'lucide-react';
-import { Layout } from '@/components/layout';
-import { SectionHeader } from '@/components/sections';
-import { EventCard, SpeakerCard, NewsPostCard } from '@/components/cards';
-import { Button } from '@/components/ui/button';
-import { supabase } from '@/lib/supabaseClient';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Calendar, MapPin } from "lucide-react";
+import { Layout } from "@/components/layout";
+import { SectionHeader } from "@/components/sections";
+import { EventCard, SpeakerCard, NewsPostCard } from "@/components/cards";
+import { Button } from "@/components/ui/button";
+import { supabase } from "@/lib/supabaseClient";
 import type {
   Event,
   Speaker,
   EventSpeaker,
   NewsPost,
   SiteSettings,
-} from '@/types';
+} from "@/types";
 
 export default function HomePage() {
   const [featuredEvent, setFeaturedEvent] = useState<Event | null>(null);
@@ -27,13 +27,13 @@ export default function HomePage() {
     async function loadHome() {
       // 1) site_settings
       const { data: settingsData, error: settingsError } = await supabase
-        .from('site_settings')
-        .select('*')
+        .from("site_settings")
+        .select("*")
         .limit(1)
         .single();
 
       if (settingsError || !settingsData) {
-        console.error('Error loading site settings', settingsError);
+        console.error("Error loading site settings", settingsError);
         setLoading(false);
         return;
       }
@@ -49,12 +49,12 @@ export default function HomePage() {
 
       // 2) all events (latest first)
       const { data: eventsData, error: eventsError } = await supabase
-        .from('events')
-        .select('*')
-        .order('date', { ascending: false });
+        .from("events")
+        .select("*")
+        .order("date", { ascending: false });
 
       if (eventsError || !eventsData) {
-        console.error('Error loading events', eventsError);
+        console.error("Error loading events", eventsError);
         setLoading(false);
         return;
       }
@@ -66,11 +66,11 @@ export default function HomePage() {
         theme: e.theme,
         year: e.year,
         date: e.date,
-        time: e.time ?? '',
+        time: e.time ?? "",
         location: e.location_name,
         locationAddress: e.location_address,
-        heroImage: e.hero_image_url ?? '',
-        description: e.description ?? '',
+        heroImage: e.hero_image_url ?? "",
+        description: e.description ?? "",
         isFlagship: e.is_flagship ?? false,
         albumUrl: e.album_url ?? undefined,
       }));
@@ -86,7 +86,7 @@ export default function HomePage() {
 
       // 3) featured event speakers (join)
       const { data: esData, error: esError } = await supabase
-        .from('event_speakers')
+        .from("event_speakers")
         .select(
           `
           id,
@@ -97,14 +97,14 @@ export default function HomePage() {
           youtube_url,
           order,
           speakers (*)
-        `
+        `,
         )
-        .eq('event_id', featured.id)
-        .order('order', { ascending: true })
+        .eq("event_id", featured.id)
+        .order("order", { ascending: true })
         .limit(4);
 
       if (esError) {
-        console.error('Error loading featured speakers', esError);
+        console.error("Error loading featured speakers", esError);
       }
 
       const mappedFeaturedSpeakers =
@@ -116,9 +116,9 @@ export default function HomePage() {
             title: row.speakers.title,
             affiliation: row.speakers.affiliation,
             tags: row.speakers.tags ?? [],
-            headshot: row.speakers.headshot_url ?? '',
-            shortBio: row.speakers.bio_short ?? '',
-            fullBio: row.speakers.bio_long ?? '',
+            headshot: row.speakers.headshot_url ?? "",
+            shortBio: row.speakers.bio_short ?? "",
+            fullBio: row.speakers.bio_long ?? "",
           };
 
           const eventSpeaker: EventSpeaker = {
@@ -136,13 +136,13 @@ export default function HomePage() {
 
       // 4) recent news
       const { data: newsData, error: newsError } = await supabase
-        .from('news_posts')
-        .select('*')
-        .order('published_at', { ascending: false })
+        .from("news_posts")
+        .select("*")
+        .order("published_at", { ascending: false })
         .limit(2);
 
       if (newsError) {
-        console.error('Error loading news posts', newsError);
+        console.error("Error loading news posts", newsError);
       }
 
       const mappedNews: NewsPost[] =
@@ -152,7 +152,7 @@ export default function HomePage() {
           title: n.title,
           excerpt: n.excerpt,
           content: n.content,
-          coverImage: n.cover_image_url ?? '',
+          coverImage: n.cover_image_url ?? "",
           publishedAt: n.published_at,
           author: n.author,
         })) ?? [];
@@ -193,10 +193,10 @@ export default function HomePage() {
         <div className="container relative z-10 py-20">
           <div className="max-w-2xl">
             <p className="text-primary font-semibold uppercase tracking-wider mb-4">
-              {featuredEvent.isFlagship ? 'Upcoming Event' : 'Latest Event'}
+              {featuredEvent.isFlagship ? "Upcoming Event" : "Latest Event"}
             </p>
             <h1 className="text-5xl md:text-7xl font-bold mb-4">
-              <span className="text-primary">Ideas</span>{' '}
+              <span className="text-primary">Ideas</span>{" "}
               <span className="text-foreground">Worth Spreading</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-6">
@@ -205,12 +205,14 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-3 text-muted-foreground mb-8">
               <div className="flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-primary" />
-                <span>{new Date(featuredEvent.date).toLocaleDateString('en-US', {
-                  weekday: 'long',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}</span>
+                <span>
+                  {new Date(featuredEvent.date).toLocaleDateString("en-US", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-5 w-5 text-primary" />
@@ -241,12 +243,13 @@ export default function HomePage() {
                 subtitle="Independently organized TED events"
               />
               <p className="text-muted-foreground mb-6">
-                In the spirit of ideas worth spreading, TED has created TEDx, a program of local, 
-                self-organized events that bring people together to share a TED-like experience.
+                In the spirit of ideas worth spreading, TED has created TEDx, a
+                program of local, self-organized events that bring people
+                together to share a TED-like experience.
               </p>
               <p className="text-muted-foreground mb-6">
-                At TEDxUofIChicago, we bring together the brightest minds from our university 
-                and community to share ideas that matter.
+                At TEDxUofIChicago, we bring together the brightest minds from
+                our university and community to share ideas that matter.
               </p>
               <Button variant="outline" asChild>
                 <Link to="/about">
@@ -265,7 +268,9 @@ export default function HomePage() {
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary rounded-lg flex items-center justify-center text-primary-foreground">
                 <div className="text-center">
                   <div className="text-3xl font-bold">x</div>
-                  <div className="text-xs uppercase tracking-wider">Independently organized</div>
+                  <div className="text-xs uppercase tracking-wider">
+                    Independently organized
+                  </div>
                 </div>
               </div>
             </div>
@@ -358,15 +363,23 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Ready to be Inspired?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Ready to be Inspired?
+          </h2>
           <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-            Join us at our next event and experience the power of ideas worth spreading.
+            Join us at our next event and experience the power of ideas worth
+            spreading.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" asChild>
               <Link to={`/events/${featuredEvent.slug}`}>Get Tickets</Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+              asChild
+            >
               <Link to="/team">Join Our Team</Link>
             </Button>
           </div>

@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { Calendar, MapPin, ExternalLink, ArrowLeft } from 'lucide-react';
-import { Layout } from '@/components/layout';
-import { SectionHeader } from '@/components/sections';
-import { SpeakerCard } from '@/components/cards';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { supabase } from '../lib/supabaseClient';
-import type { Event, Speaker, EventSpeaker, Photo } from '@/types';
+import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { Calendar, MapPin, ExternalLink, ArrowLeft } from "lucide-react";
+import { Layout } from "@/components/layout";
+import { SectionHeader } from "@/components/sections";
+import { SpeakerCard } from "@/components/cards";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { supabase } from "../lib/supabaseClient";
+import type { Event, Speaker, EventSpeaker, Photo } from "@/types";
 
 export default function EventDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -25,13 +25,13 @@ export default function EventDetailPage() {
     async function loadEventData() {
       // 1. Load the event by slug
       const { data: eventsData, error: eventError } = await supabase
-        .from('events')
-        .select('*')
-        .eq('slug', slug)
+        .from("events")
+        .select("*")
+        .eq("slug", slug)
         .limit(1);
 
       if (eventError || !eventsData || eventsData.length === 0) {
-        console.error('Error loading event', eventError);
+        console.error("Error loading event", eventError);
         setLoading(false);
         return;
       }
@@ -45,20 +45,20 @@ export default function EventDetailPage() {
         theme: row.theme,
         year: row.year,
         date: row.date,
-        time: row.start_time ?? '',
-        location: row.location_name ?? '',
-        locationAddress: row.location_address ?? '',
-        heroImage: row.hero_image_url ?? '',
-        description: row.description ?? '',
+        time: row.start_time ?? "",
+        location: row.location_name ?? "",
+        locationAddress: row.location_address ?? "",
+        heroImage: row.hero_image_url ?? "",
+        description: row.description ?? "",
         isFlagship: row.is_flagship ?? false,
-        albumUrl: row.album_url ?? '',
+        albumUrl: row.album_url ?? "",
       };
 
       setEvent(mappedEvent);
 
       // 2. Load speakers for this event using event_speakers + speakers
       const { data: eventSpeakersData, error: esError } = await supabase
-        .from('event_speakers')
+        .from("event_speakers")
         .select(
           `
           id,
@@ -68,13 +68,13 @@ export default function EventDetailPage() {
           youtube_thumbnail_url,
           order,
           speaker: speakers (*)
-        `
+        `,
         )
-        .eq('event_id', row.id)
-        .order('order', { ascending: true });
+        .eq("event_id", row.id)
+        .order("order", { ascending: true });
 
       if (esError) {
-        console.error('Error loading event speakers', esError);
+        console.error("Error loading event speakers", esError);
       } else {
         const mappedES =
           eventSpeakersData?.map((es: any) => ({
@@ -85,9 +85,9 @@ export default function EventDetailPage() {
               title: es.speaker.title,
               affiliation: es.speaker.affiliation,
               tags: es.speaker.tags ?? [],
-              headshot: es.speaker.headshot_url ?? '',
-              shortBio: es.speaker.bio_short ?? '',
-              fullBio: es.speaker.bio_long ?? '',
+              headshot: es.speaker.headshot_url ?? "",
+              shortBio: es.speaker.bio_short ?? "",
+              fullBio: es.speaker.bio_long ?? "",
             } as Speaker,
             eventSpeaker: {
               id: es.id,
@@ -106,20 +106,20 @@ export default function EventDetailPage() {
 
       // 3. Load photos for this event
       const { data: photosData, error: photosError } = await supabase
-        .from('photos')
-        .select('*')
-        .eq('event_id', row.id)
-        .order('order', { ascending: true });
+        .from("photos")
+        .select("*")
+        .eq("event_id", row.id)
+        .order("order", { ascending: true });
 
       if (photosError) {
-        console.error('Error loading photos', photosError);
+        console.error("Error loading photos", photosError);
       } else {
         const mappedPhotos: Photo[] =
           photosData?.map((p: any) => ({
             id: p.id,
             eventId: p.event_id,
             url: p.image_url,
-            caption: p.caption ?? '',
+            caption: p.caption ?? "",
             category: p.category,
             order: p.order,
           })) ?? [];
@@ -180,19 +180,17 @@ export default function EventDetailPage() {
               </Badge>
             )}
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-2">
-            {event.theme}
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-2">{event.theme}</h1>
           <p className="text-xl text-muted-foreground mb-6">{event.name}</p>
           <div className="flex flex-col sm:flex-row gap-4 text-muted-foreground">
             <div className="flex items-center gap-2">
               <Calendar className="h-5 w-5 text-primary" />
               <span>
-                {new Date(event.date).toLocaleDateString('en-US', {
-                  weekday: 'long',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
+                {new Date(event.date).toLocaleDateString("en-US", {
+                  weekday: "long",
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
                 })}
               </span>
             </div>
@@ -209,9 +207,7 @@ export default function EventDetailPage() {
         <div className="container">
           <div className="max-w-3xl">
             <SectionHeader title="About This Event" />
-            <p className="text-lg text-muted-foreground">
-              {event.description}
-            </p>
+            <p className="text-lg text-muted-foreground">{event.description}</p>
           </div>
         </div>
       </section>
@@ -229,7 +225,7 @@ export default function EventDetailPage() {
               <Button variant="outline" asChild>
                 <a
                   href={`https://maps.google.com/?q=${encodeURIComponent(
-                    event.locationAddress
+                    event.locationAddress,
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -247,7 +243,7 @@ export default function EventDetailPage() {
                 style={{ border: 0 }}
                 loading="lazy"
                 src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(
-                  event.locationAddress
+                  event.locationAddress,
                 )}`}
               />
             </div>

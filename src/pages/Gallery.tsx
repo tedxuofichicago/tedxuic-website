@@ -1,16 +1,18 @@
-import { ExternalLink } from 'lucide-react';
-import { Layout } from '@/components/layout';
-import { SectionHeader } from '@/components/sections';
-import { Button } from '@/components/ui/button';
-import { events, photos } from '@/data/mockData';
+import { ExternalLink } from "lucide-react";
+import { Layout } from "@/components/layout";
+import { SectionHeader } from "@/components/sections";
+import { Button } from "@/components/ui/button";
+import { events, photos } from "@/data/mockData";
 
 export default function GalleryPage() {
   // Group photos by event
   const photosByEvent = events
-    .filter(event => photos.some(p => p.eventId === event.id))
-    .map(event => ({
+    .filter((event) => photos.some((p) => p.eventId === event.id))
+    .map((event) => ({
       event,
-      photos: photos.filter(p => p.eventId === event.id).sort((a, b) => a.order - b.order),
+      photos: photos
+        .filter((p) => p.eventId === event.id)
+        .sort((a, b) => a.order - b.order),
     }));
 
   return (
@@ -39,7 +41,11 @@ export default function GalleryPage() {
                   </div>
                   {event.albumUrl && (
                     <Button variant="outline" size="sm" asChild>
-                      <a href={event.albumUrl} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={event.albumUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         Full Album <ExternalLink className="ml-2 h-4 w-4" />
                       </a>
                     </Button>
@@ -47,8 +53,8 @@ export default function GalleryPage() {
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {eventPhotos.slice(0, 6).map((photo) => (
-                    <div 
-                      key={photo.id} 
+                    <div
+                      key={photo.id}
                       className="aspect-video rounded-lg overflow-hidden border group cursor-pointer"
                     >
                       <img

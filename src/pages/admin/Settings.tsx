@@ -1,18 +1,24 @@
-import { useState, useEffect } from 'react';
-import { Save } from 'lucide-react';
-import { useData } from '@/contexts/DataContext';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { useState, useEffect } from "react";
+import { Save } from "lucide-react";
+import { useData } from "@/contexts/DataContext";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { useToast } from '@/hooks/use-toast';
+} from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
 
 export default function AdminSettingsPage() {
   const { events, siteSettings, updateSiteSettings } = useData();
@@ -27,8 +33,8 @@ export default function AdminSettingsPage() {
     e.preventDefault();
     updateSiteSettings(formData);
     toast({
-      title: 'Settings saved',
-      description: 'Your site settings have been updated.',
+      title: "Settings saved",
+      description: "Your site settings have been updated.",
     });
   };
 
@@ -50,7 +56,9 @@ export default function AdminSettingsPage() {
                 <Label htmlFor="featuredEvent">Featured Event</Label>
                 <Select
                   value={formData.featuredEventId}
-                  onValueChange={(value) => setFormData({ ...formData, featuredEventId: value })}
+                  onValueChange={(value) =>
+                    setFormData({ ...formData, featuredEventId: value })
+                  }
                 >
                   <SelectTrigger>
                     <SelectValue placeholder="Select an event" />
@@ -80,7 +88,9 @@ export default function AdminSettingsPage() {
                 <Input
                   id="instagram"
                   value={formData.instagramUrl}
-                  onChange={(e) => setFormData({ ...formData, instagramUrl: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, instagramUrl: e.target.value })
+                  }
                   placeholder="https://instagram.com/yourusername"
                 />
               </div>
@@ -89,7 +99,9 @@ export default function AdminSettingsPage() {
                 <Input
                   id="youtube"
                   value={formData.youtubeUrl}
-                  onChange={(e) => setFormData({ ...formData, youtubeUrl: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, youtubeUrl: e.target.value })
+                  }
                   placeholder="https://youtube.com/@yourchannel"
                 />
               </div>
@@ -97,8 +109,10 @@ export default function AdminSettingsPage() {
                 <Label htmlFor="twitter">Twitter URL (optional)</Label>
                 <Input
                   id="twitter"
-                  value={formData.twitterUrl || ''}
-                  onChange={(e) => setFormData({ ...formData, twitterUrl: e.target.value })}
+                  value={formData.twitterUrl || ""}
+                  onChange={(e) =>
+                    setFormData({ ...formData, twitterUrl: e.target.value })
+                  }
                   placeholder="https://twitter.com/yourusername"
                 />
               </div>
@@ -106,8 +120,10 @@ export default function AdminSettingsPage() {
                 <Label htmlFor="linkedin">LinkedIn URL (optional)</Label>
                 <Input
                   id="linkedin"
-                  value={formData.linkedInUrl || ''}
-                  onChange={(e) => setFormData({ ...formData, linkedInUrl: e.target.value })}
+                  value={formData.linkedInUrl || ""}
+                  onChange={(e) =>
+                    setFormData({ ...formData, linkedInUrl: e.target.value })
+                  }
                   placeholder="https://linkedin.com/company/yourorg"
                 />
               </div>
@@ -128,7 +144,9 @@ export default function AdminSettingsPage() {
                   id="email"
                   type="email"
                   value={formData.emailAddress}
-                  onChange={(e) => setFormData({ ...formData, emailAddress: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, emailAddress: e.target.value })
+                  }
                   placeholder="hello@example.com"
                 />
               </div>
