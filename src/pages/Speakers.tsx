@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout";
 import { SectionHeader } from "@/components/sections";
 import { SpeakerCard } from "@/components/cards";
@@ -232,18 +231,13 @@ export default function SpeakersPage() {
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {featuredSpeakers.map((s) => (
-                <Link
+                <SpeakerCard
                   key={s.id}
-                  to={`/talks/${s.event.slug}/${s.slug}`}
-                  state={{ from: "speakers" }}
-                  className="block"
-                >
-                  <SpeakerCard
-                    speaker={s}
-                    eventSpeaker={s.eventSpeaker}
-                    event={s.event}
-                  />
-                </Link>
+                  speaker={s}
+                  eventSpeaker={s.eventSpeaker}
+                  event={s.event}
+                  linkState={{ from: "speakers" }}
+                />
               ))}
             </div>
           </div>
@@ -261,18 +255,13 @@ export default function SpeakersPage() {
                 <p className="text-muted-foreground mb-6">{evt.name}</p>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   {evt.speakers.map((es) => (
-                    <Link
+                    <SpeakerCard
                       key={es.speaker.id}
-                      to={`/talks/${evt.slug}/${es.speaker.slug}`}
-                      state={{ from: "speakers" }}
-                      className="block"
-                    >
-                      <SpeakerCard
-                        speaker={es.speaker}
-                        eventSpeaker={es}
-                        event={evt}
-                      />
-                    </Link>
+                      speaker={es.speaker}
+                      eventSpeaker={es}
+                      event={evt}
+                      linkState={{ from: "speakers" }}
+                    />
                   ))}
                 </div>
               </div>

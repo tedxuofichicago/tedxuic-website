@@ -8,6 +8,7 @@ interface SpeakerCardProps {
   eventSpeaker?: EventSpeaker;
   event?: Event;
   showTalk?: boolean;
+  linkState?: Record<string, unknown>;
 }
 
 export function SpeakerCard({
@@ -15,6 +16,7 @@ export function SpeakerCard({
   eventSpeaker,
   event,
   showTalk = true,
+  linkState,
 }: SpeakerCardProps) {
   const linkTo =
     event && eventSpeaker
@@ -22,7 +24,7 @@ export function SpeakerCard({
       : `/speakers/${speaker.slug}`;
 
   return (
-    <Link to={linkTo}>
+    <Link to={linkTo} state={linkState}>
       <Card className="group overflow-hidden transition-all hover:shadow-lg hover:border-primary/50 h-full">
         <div className="aspect-square overflow-hidden">
           <img

@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowLeft, Calendar, MapPin, Users } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, Calendar, MapPin, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 // This would typically come from a database or CMS
 const eventData: Record<string, any> = {
@@ -16,13 +16,15 @@ const eventData: Record<string, any> = {
     heroImage: "/pictures/past-events/VoiceYourPeaceFeature.png",
     description:
       "Our 2023 event brought together thought leaders, innovators, and changemakers to explore ideas that will shape our future. The event featured inspiring talks on artificial intelligence, sustainable development, education innovation, and community activism. Over 500 attendees gathered to experience ideas worth spreading and connect with like-minded individuals passionate about creating positive change in our world.",
-    fullDescription:
-      "Include full description here as a paragraph..",
+    fullDescription: "Include full description here as a paragraph..",
     attendees: "500+",
     speakers: [
       { name: "Dr. Jane Smith", topic: "The Future of AI in Healthcare" },
       { name: "Prof. John Doe", topic: "Sustainable Urban Development" },
-      { name: "Sarah Johnson", topic: "Reimagining Education in the Digital Age" },
+      {
+        name: "Sarah Johnson",
+        topic: "Reimagining Education in the Digital Age",
+      },
       { name: "Michael Brown", topic: "The Power of Community Activism" },
     ],
     gallery: [
@@ -72,7 +74,10 @@ const eventData: Record<string, any> = {
     speakers: [
       { name: "Dr. Robert Chen", topic: "Breaking Boundaries in Neuroscience" },
       { name: "Lisa Wong", topic: "Art as a Tool for Social Change" },
-      { name: "David Martinez", topic: "Technological Innovation in Developing Countries" },
+      {
+        name: "David Martinez",
+        topic: "Technological Innovation in Developing Countries",
+      },
       { name: "Emily Taylor", topic: "Redefining Success in the Modern World" },
     ],
     gallery: [
@@ -115,10 +120,19 @@ const eventData: Record<string, any> = {
       "TEDxUIC 2021 was our first fully virtual event, bringing together speakers and attendees from around the world. Despite the physical distance, we created meaningful connections and shared ideas about building resilience in healthcare, mental health, communities, and business. The event proved that even in challenging times, ideas worth spreading can unite and inspire us.",
     attendees: "600+",
     speakers: [
-      { name: "Dr. Amanda Lee", topic: "Building Resilient Healthcare Systems" },
+      {
+        name: "Dr. Amanda Lee",
+        topic: "Building Resilient Healthcare Systems",
+      },
       { name: "James Wilson", topic: "Mental Health and Resilience" },
-      { name: "Sophia Garcia", topic: "Community Resilience in Times of Crisis" },
-      { name: "Thomas Wright", topic: "Resilient Business Models for the Future" },
+      {
+        name: "Sophia Garcia",
+        topic: "Community Resilience in Times of Crisis",
+      },
+      {
+        name: "Thomas Wright",
+        topic: "Resilient Business Models for the Future",
+      },
     ],
     gallery: [
       {
@@ -148,10 +162,14 @@ const eventData: Record<string, any> = {
       },
     ],
   },
-}
+};
 
-export default function EventDetailPage({ params }: { params: { id: string } }) {
-  const event = eventData[params.id]
+export default function EventDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const event = eventData[params.id];
 
   if (!event) {
     return (
@@ -166,7 +184,7 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
           </Button>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -189,7 +207,9 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">{event.title}</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            {event.title}
+          </h1>
 
           {/* Event metadata */}
           <div className="flex flex-wrap items-center justify-center gap-6 mt-6">
@@ -217,7 +237,13 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
         className="container px-4 mx-auto mt-12"
       >
         <div className="relative w-full overflow-hidden rounded-lg max-w-5xl mx-auto aspect-video">
-          <Image src={event.heroImage || "/placeholder.svg"} alt={event.title} fill className="object-cover" priority />
+          <Image
+            src={event.heroImage || "/placeholder.svg"}
+            alt={event.title}
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
       </motion.div>
 
@@ -230,12 +256,18 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
       >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900">About This Event</h2>
-          <p className="mt-4 text-lg leading-relaxed text-gray-600">{event.description}</p>
-          <p className="mt-4 text-lg leading-relaxed text-gray-600">{event.fullDescription}</p>
+          <p className="mt-4 text-lg leading-relaxed text-gray-600">
+            {event.description}
+          </p>
+          <p className="mt-4 text-lg leading-relaxed text-gray-600">
+            {event.fullDescription}
+          </p>
 
           {/* Speakers section */}
           <div className="mt-12">
-            <h3 className="text-2xl font-bold text-gray-900">Featured Speakers</h3>
+            <h3 className="text-2xl font-bold text-gray-900">
+              Featured Speakers
+            </h3>
             <div className="grid gap-6 mt-6 sm:grid-cols-2">
               {event.speakers.map((speaker: any, index: number) => (
                 <motion.div
@@ -245,7 +277,9 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   className="p-6 bg-gray-50 rounded-lg"
                 >
-                  <h4 className="text-lg font-semibold text-gray-900">{speaker.name}</h4>
+                  <h4 className="text-lg font-semibold text-gray-900">
+                    {speaker.name}
+                  </h4>
                   <p className="mt-2 text-gray-600">{speaker.topic}</p>
                 </motion.div>
               ))}
@@ -262,8 +296,12 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
         className="container px-4 mx-auto mt-16 mb-16"
       >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900">Event Photos</h2>
-          <p className="mt-2 text-center text-gray-600">Highlights and moments from the event</p>
+          <h2 className="text-3xl font-bold text-center text-gray-900">
+            Event Photos
+          </h2>
+          <p className="mt-2 text-center text-gray-600">
+            Highlights and moments from the event
+          </p>
 
           {/* Bento grid layout */}
           <div className="grid grid-cols-3 gap-4 mt-8 auto-rows-[200px]">
@@ -283,7 +321,9 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
                 />
                 <div className="absolute inset-0 transition-opacity duration-300 opacity-0 bg-black/50 group-hover:opacity-100">
                   <div className="flex items-center justify-center h-full">
-                    <p className="px-4 text-sm font-medium text-center text-white">{photo.alt}</p>
+                    <p className="px-4 text-sm font-medium text-center text-white">
+                      {photo.alt}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -292,5 +332,5 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
         </div>
       </motion.div>
     </div>
-  )
+  );
 }
