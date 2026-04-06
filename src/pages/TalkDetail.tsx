@@ -144,7 +144,7 @@ export default function TalkDetailPage() {
 
   console.log(location.state);
   const backToHref = fromSpeakers ? "/speakers" : `/events/${event.slug}`;
-  const backToLabel = fromSpeakers ? "Speakers" : event.theme;
+  const backToLabel = fromSpeakers ? "Speakers" : event.theme || "Event";
 
   const embedUrl = eventSpeaker.youtubeUrl
     ? getYouTubeEmbedUrl(eventSpeaker.youtubeUrl)
